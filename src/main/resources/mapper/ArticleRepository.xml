@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.ArticleRepository">
+
+	<insert id="writeArticle" parameterType="map">
+		INSERT INTO article
+		SET
+		regDate = NOW(),
+		updateDate = NOW(),
+		usrId = #{memberId},
+		boardId =
+		#{boardId},
+		title =
+		#{title},
+		`body` = #{body}
+	</insert>
+
+	<!-->id 기준으로 삭제</! -->
+	<delete id="delArticle" parameterType="int">
+		DELETE FROM article
+		WHERE id = #{articleId}
+	</delete>
+
+	<!-->===============select</! -->
+
+	<!-->id 기준으로 한줄가져오기</! -->
+	<select id="articleRow">
+		SELECT *
+		FROM article
+		WHERE id = #{articleId}
+	</select>
+
+	<!-->인설트 순서 값</! -->
+	<select id="lastInsertId" parameterType="int">
+		SELECT
+		LAST_INSERT_ID()
+	</select>
+
+
+
+
+</mapper>
