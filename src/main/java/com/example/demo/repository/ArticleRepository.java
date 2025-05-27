@@ -14,4 +14,6 @@ public interface ArticleRepository {
 	public void delArticle(int articleId);
 
 	public Article articleRow(int articleId);
+
+	public void modifyArticle(int articleId, String title, String body);
 }

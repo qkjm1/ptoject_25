@@ -43,4 +43,8 @@ public class ArticleService {
 
 		return ResultData.from("S-1", Ut.f("%d번 게시글 수정/삭제 가능", article.getId()));
 	}
+
+	public void modifyArticle(int articleId, String title, String body) {
+		articleRepository.modifyArticle(articleId, title, body);		
+	}
 }

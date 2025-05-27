@@ -33,6 +33,33 @@ public class usrArticleController {
 
 		return ResultData.from(doWriteRd.getResultCode(), doWriteRd.getMsg());
 	}
+	
+	
+	@RequestMapping("/usr/article/doModify")
+	@ResponseBody
+	public ResultData doModify(int usrId, String title, String body, int articleId) {
+		
+		Article article = articleService.articleRowById(articleId);
+
+		if (article == null) {
+			return ResultData.from("F-1", "없는 게시글");
+		}
+
+		ResultData usrAuthor = articleService.usrAuthor(usrId, article);
+
+		if (usrAuthor.isFail()) {
+			return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
+		}
+
+		if (usrAuthor.isSuccess()) {
+			articleService.modifyArticle(articleId, title, body);
+		}
+
+
+		return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
+	}
+	
+	
 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
@@ -57,15 +84,5 @@ public class usrArticleController {
 		return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
 	}
 
-	@RequestMapping("/usr/article/list")
-	@ResponseBody
-	public String showList(HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
-			@RequestParam(defaultValue = "1") int page,
-			@RequestParam(defaultValue = "title") String searchKeywordTypeCode,
-			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
 
-		ResultData rd = articleService.printArticles();
-
-		return "";
-	}
 }
