@@ -34,8 +34,9 @@ CREATE TABLE article (
    title CHAR(100) NOT NULL,
    `body` TEXT NOT NULL,
    usrId INT(10) UNSIGNED NOT NULL,
-   hitCount INT(10) UNSIGNED NOT NULL,
-   goodRp INT(10) UNSIGNED NOT NULL DEFAULT 0
+   hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0,
+   goodRp INT(10) UNSIGNED NOT NULL DEFAULT 0,
+   boardId INT(10) UNSIGNED NOT NULL
 );
 
 CREATE TABLE cartoon (
@@ -59,7 +60,12 @@ part CHAR(50) NOT NULL UNIQUE COMMENT '상하체의 하위분류',
 ovrall CHAR(50) NOT NULL UNIQUE COMMENT '상체인지 하체인지 구분'
 );
 
-
+CREATE TABLE `like` (
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    usrId CHAR(3) NOT NULL,
+    articleId INT(10) UNSIGNED NOT NULL,
+    regDate DATETIME NOT NULL
+);
 ###########
 
 INSERT INTO board
@@ -77,9 +83,42 @@ SET
 `code` = 'QnA',
 `name` = '질의응답';
 
-
+		INSERT INTO article
+		SET
+		regDate = NOW(),
+		updateDate = NOW(),
+		usrId = 1,
+		boardId =
+		1,
+		title =
+		'123',
+		`body` = '123';
+		
+		
+		INSERT INTO article
+		SET
+		regDate = NOW(),
+		updateDate = NOW(),
+		usrId = 2,
+		boardId =
+		1,
+		title =
+		'123',
+		`body` = '123';
+		
+		
+		INSERT INTO `like`
+		SET
+		regDate = NOW(),
+		usrId = 1,
+		articleId = 1;
+		
+		INSERT INTO `like`
+		SET
+		regDate = NOW(),
+		usrId = 2,
+		articleId = 1;
 ################
-
 
 SELECT *
 FROM `user`;
@@ -96,5 +135,24 @@ FROM cartoon;
 SELECT *
 FROM anatomy;
 
+
+SELECT *
+FROM `like`;
+
 #############
 
+DELETE FROM `like` 
+WHERE usrId = 1
+AND
+articleId = 1;
+
+SELECT *
+FROM article
+WHERE id=1
+
+SELECT COUNT(*)
+FROM `like`
+WHERE
+usrId = 1
+AND
+articleId = 1;
