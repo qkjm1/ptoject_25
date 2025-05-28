@@ -28,14 +28,15 @@ public class usrBookmarkController {
 
 	@RequestMapping("/usr/bookmark/doLike")
 	@ResponseBody
-	public ResultData doLike(int usrId, int articleId) {
+	public ResultData doLike(String usrId, int articleId) {
 		
-		System.err.println("====");
+		System.err.println("==1==");
 		System.err.println(articleId);
 		System.err.println(usrId);
 		
 		int likeRow = bookmarkService.likeRow(usrId, articleId);
-		
+
+		System.err.println(likeRow);
 		if(likeRow==1) {
 			return ResultData.from("F-1", "좋아요 실패");
 		} 
@@ -44,9 +45,7 @@ public class usrBookmarkController {
 			
 			return ResultData.from(saveLike.getResultCode(),saveLike.getMsg(),"saveLike",saveLike);
 		}
-		
-		
-
+	
 		return null;
 	}
 	

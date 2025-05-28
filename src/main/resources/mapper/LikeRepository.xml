@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.example.demo.repository.BookmarkRepository">
+
+
+
+	<!-->인설트</! -->
+	<insert id="saveLike">
+		INSERT INTO `like`
+		SET
+		regDate = NOW(),
+		usrId =
+		#{usrId},
+		articleId = #{articleId};
+	</insert>
+
+
+	<!-->삭제</! -->
+	<delete id="delLike">
+		DELETE FROM `like`
+		WHERE usrId = #{usrId}
+		AND
+		articleId = #{articleId];
+	</delete>
+
+	<!-->===============select</! -->
+
+	<!-->id 기준으로 한줄가져오기</! -->
+	<select id="likeRow">
+		SELECT COUNT(*)
+		FROM `like`
+		WHERE
+		usrId =
+		#{usrId}
+		AND
+		articleId = #{articleId};
+	</select>
+
+
+</mapper>
