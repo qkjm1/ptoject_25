@@ -19,8 +19,8 @@
 	<div class="box">123</div>
 
 	<form action="../bookmark/doLike" method="POST">
-		<input type="hidden" value=1 name="articleId" />
-		<input type="hidden" value=1 name="usrId" />
+		<input type="hidden" value="1" name="articleId" />
+		<input type="hidden" value="1" name="usrId" />
 		<input type="submit" value="하트하트" />
 	</form>
 

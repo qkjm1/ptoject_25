@@ -24,7 +24,8 @@
 		DELETE FROM `like`
 		WHERE usrId = #{usrId}
 		AND
-		articleId = #{articleId];
+		articleId
+		= #{articleId};
 	</delete>
 
 	<!-->===============select</! -->
@@ -38,6 +39,17 @@
 		#{usrId}
 		AND
 		articleId = #{articleId};
+	</select>
+
+
+	<!-->유저아이디를 기준으로 여려줄 가져오기</! -->
+	<select id="likeByUsrid">
+		SELECT *
+		FROM `like` L
+		INNER JOIN article A
+		ON L.articleId = A.id
+		WHERE
+		L.usrId = #{usrId};
 	</select>
 
 

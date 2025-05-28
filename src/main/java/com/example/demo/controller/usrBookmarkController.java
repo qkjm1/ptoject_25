@@ -31,14 +31,16 @@ public class usrBookmarkController {
 	public ResultData doLike(String usrId, int articleId) {
 		
 		System.err.println("==1==");
-		System.err.println(articleId);
-		System.err.println(usrId);
+		System.err.println("articleId "+articleId);
+		System.err.println("usrId "+usrId);
 		
 		int likeRow = bookmarkService.likeRow(usrId, articleId);
 
 		System.err.println(likeRow);
 		if(likeRow==1) {
-			return ResultData.from("F-1", "좋아요 실패");
+			bookmarkService.delLike(usrId, articleId);
+			
+			return ResultData.from("S-1", "즐찾취소");
 		} 
 		if(likeRow==0) {
 			ResultData saveLike  = bookmarkService.saveLike(usrId, articleId);
