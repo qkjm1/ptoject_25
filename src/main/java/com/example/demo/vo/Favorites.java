@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Cartoon {
+public class Favorites {
 
 	private int id;
 	private String imgUrl;

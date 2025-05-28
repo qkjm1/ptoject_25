@@ -10,7 +10,7 @@ import com.example.demo.vo.ResultData;
 
 @Service
 public class ArticleService {
-	
+
 	@Autowired
 	private ArticleRepository articleRepository;
 
@@ -20,13 +20,13 @@ public class ArticleService {
 
 	public ResultData writeArticle(int memberId, String title, String body, int boardId) {
 		articleRepository.writeArticle(memberId, title, body, boardId);
-		
+
 		int id = articleRepository.lastInsertId();
-	
+
 		return ResultData.from("S-1", Ut.f("%s번 글이 등록되었습니다", id));
 	}
 
-	public void delArticle(int articleId) {	
+	public void delArticle(int articleId) {
 		articleRepository.delArticle(articleId);
 	}
 
@@ -45,6 +45,6 @@ public class ArticleService {
 	}
 
 	public void modifyArticle(int articleId, String title, String body) {
-		articleRepository.modifyArticle(articleId, title, body);		
+		articleRepository.modifyArticle(articleId, title, body);
 	}
 }
