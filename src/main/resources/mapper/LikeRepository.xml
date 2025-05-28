@@ -43,8 +43,9 @@
 
 
 	<!-->유저아이디를 기준으로 여려줄 가져오기</! -->
-	<select id="likeByUsrid">
-		SELECT *
+	<select id="likeByUsrid"
+	resultType="com.example.demo.vo.Article">
+		SELECT A.*
 		FROM `like` L
 		INNER JOIN article A
 		ON L.articleId = A.id

@@ -1,5 +1,7 @@
 package com.example.demo.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.vo.Article;
@@ -13,6 +15,8 @@ public interface BookmarkRepository {
 	public void saveLike(String usrId, int articleId);
 	
 	public void delLike(String usrId, int articleId);
+	//유저아이디 당 즐찾테이블과 게시글테이블 조인해서 즐찾게시글 가져오기
+	public List<Article> likeByUsrid(int usrId);
 	
 	
 }

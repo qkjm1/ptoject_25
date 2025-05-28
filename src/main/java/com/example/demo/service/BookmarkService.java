@@ -53,7 +53,10 @@ public class BookmarkService {
 	}
 
 	public List<Article> likeByUsrid(int usrId) {
-		return null;
+
+		return bookmarkRepository.likeByUsrid(usrId);
 	}
+
+
 
 }

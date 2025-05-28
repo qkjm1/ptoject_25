@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,14 +27,17 @@ public class usrMemberController {
 		return "ㅎㅇ";
 	}
 	
-	@RequestMapping("/usr/article/likeList")
-	public String showList(int usrId) {
+	@RequestMapping("/usr/member/myPage/likepage")
+	public String likeList(Model model, int usrId) {
 
 		List<Article> likeArticles = bookmarkService.likeByUsrid(usrId);
 
+		for (Article article : likeArticles) {
+			System.out.println(article.getBody());
+		}
+		model.addAttribute("likeArticles", likeArticles);
 
-
-		return "usr/article/list";
+		return "usr/member/mypage/likepage";
 
 	}
 }
