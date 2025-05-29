@@ -52,7 +52,7 @@ public class BookmarkService {
 		return likeRow;
 	}
 
-	public List<Article> likeByUsrid(int usrId) {
+	public List<Article> likeByUsrid(String usrId) {
 
 		return bookmarkRepository.likeByUsrid(usrId);
 	}

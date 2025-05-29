@@ -28,7 +28,7 @@ public class usrBookmarkController {
 
 	@RequestMapping("/usr/bookmark/doLike")
 	@ResponseBody
-	public ResultData doLike(String usrId, int articleId) {
+	public ResultData doLike(HttpServletRequest req, String usrId, int articleId) {
 		
 		System.err.println("==1==");
 		System.err.println("articleId "+articleId);

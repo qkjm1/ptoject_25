@@ -16,7 +16,7 @@ public interface BookmarkRepository {
 	
 	public void delLike(String usrId, int articleId);
 	//유저아이디 당 즐찾테이블과 게시글테이블 조인해서 즐찾게시글 가져오기
-	public List<Article> likeByUsrid(int usrId);
+	public List<Article> likeByUsrid(String usrId);
 	
 	
 }
