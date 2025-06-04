@@ -9,12 +9,18 @@ import com.example.demo.vo.Rq;
 
 @Controller
 public class usrHomeController {
-	@Autowired
-	private Rq rq;
-	
 	@RequestMapping("/usr/home/main")
-	@ResponseBody
-	public String showMain() {
-		return "main";
+	public String main() {
+		return "/usr/home/main";
+	}
+	
+	@RequestMapping("/")
+	public String demo() {
+		return "/usr/home/main";
+	}
+	
+	@RequestMapping("/demo")
+	public String dddemo() {
+		return "/usr/demo";
 	}
 }

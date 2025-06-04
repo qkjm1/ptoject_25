@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:set var="pageTitle" value="MY PAGE"></c:set>
-<%@ include file="../../common/head.jspf"%>
+<c:set var="pageTitle" value="${board.code} LIST"></c:set>
+<%@ include file="../common/head.jspf"%>
 
 
 <link rel="stylesheet" href="/resource/common.css" />
@@ -32,27 +32,48 @@
 			<div class="h-40"></div>
 			<ul>
 				<li>
-					<a href="/usr/member/mypage/likepage">즐겨찾기</a>
+					<a href="">머리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/member/mypage/myarticle">내가쓴글</a>
+					<a href="">목/어깨</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/member/mypage/usrmodify">회원정보수정</a>
+					<a href="">팔</a>
 				</li>
 			</ul>
-
+			<ul>
+				<li>
+					<a href="">등/허리</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="">골반/다리</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="">종아리/발목</a>
+				</li>
+			</ul>
 			<div class="flex-grow"></div>
 		</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
+
+			<c:if test="${rq.isLogined() }">
+				<div class="write">
+					<a class="hover:underline" href="../article/write">글쓰기</a>
+				</div>
+			</c:if>
+
 			<div class="info-box-in flex flex-col">
 				<div class="grid grid-cols-3 gap-2">
-					<c:forEach var="article" items="${likeArticles}">
+					<c:forEach var="article" items="${articles}">
 						<div class="p-3 ">
 							<div class="info-title flex justify-between">
 								<a  href="detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
@@ -64,7 +85,7 @@
 						</div>
 					</c:forEach>
 				</div>
-				<c:if test="${empty likeArticles }">
+				<c:if test="${empty articles }">
 					<div class="flex">
 						<div>게시글이 없습니다</div>
 					</div>

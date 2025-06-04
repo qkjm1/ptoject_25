@@ -1,52 +1,60 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Import"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!-- 구글 폰트 직접 링크 -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,300,400,500,600,700,800&display=swap"
-	rel="stylesheet">
+<c:set var="pageTitle" value="MAIN PAGE"></c:set>
+<%@ include file="../common/head.jspf"%>
+<title>MAIN</title>
 
-<!-- 스타일 정의 -->
-<style>
-body {
-	font-family: 'Raleway', sans-serif;
-}
-</style>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
-<title>sadasd</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<link type="text/css" rel="stylesheet" href="main.css">
-</head>
-
-<div id="container">
-
-	<img id="border" src="https://image.ibb.co/gFxj6F/border.png">
-	<div id="welcome">
-
-		<p id="firstSentence">
-			Welcome to my
-			<span id="universe">universe</span>
-		</p>
-		<p id="lastSentence">
-			Click on the
-			<span id="sun">sun</span>
-			to get started
-		</p>
+<link rel="stylesheet" href="/resource/main.css" />
+<div class="contain mx-auto flex flex-col">
+	<div class="main_1-box flex justify-center mx-auto">
+		<div id="webgl-container"></div>
 	</div>
-	<div id="content">
-		<h2 id="contentTitle"></h2>
-		<p id="subtitle"></p>
-		<p id="description"></p>
-	</div>
-	<div>
-		<a id="social" target="_blank" href="https://twitter.com/nskargovskii">follow : @nskargovskii</a>
+	<div class="main-line"></div>
+	<div class="main_2-box">
+		<div class="info-box flex flex-col">
+			<form action="/usr/article/infolist" method="post" class="mx-auto">
+				<input type="hidden" name="searchKeywordTypeCode" value="QnA" />
+				<input type="hidden" name="boardId" value="2" />
+				<div class="search-box">
+					<input type="text" placeholder="검색어를 입력하세요" name="searchKeyword" value="${param.searchKeyword}" />
+					<button type="submit">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="8" />
+  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+</svg>
+					</button>
+				</div>
+			</form>
+			<div class="flex-grow mx-auto">
+				<div class="flex info-box-top">
+					<div>1</div>
+					<div>2</div>
+					<div>3</div>
+				</div>
+				<div class="flex info-box-bot">
+					<div>11</div>
+					<div>22</div>
+					<div>33</div>
+				</div>
+			</div>
+			<div class="flex-grow"></div>
+		</div>
 	</div>
 </div>
 
 
-</body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+        "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+  </script>
 
+	<script type="module" src="/resource/00_TEST.js"></script>
+</body>
 </html>

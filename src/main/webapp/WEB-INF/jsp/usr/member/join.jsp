@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="pageTitle" value="MEMBER JOIN"></c:set>
 <%@ include file="../common/head.jspf"%>
-<head>
-<meta charset="UTF-8">
+
 <title>JOIN</title>
-</head>
-<body>
+<link rel="stylesheet" href="/resource/common.css" />
 <div class="contents-box">
 	<div class="signup-box flex">
 		<form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();">

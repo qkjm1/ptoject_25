@@ -45,26 +45,32 @@
 					<a href="/usr/member/mypage/usrmodify">회원정보수정</a>
 				</li>
 			</ul>
-
 			<div class="flex-grow"></div>
 		</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
+
+			<c:if test="${rq.isLogined() }">
+				<div class="write">
+					<a class="hover:underline" href="../article/write">글쓰기</a>
+				</div>
+			</c:if>
+
 			<div class="info-box-in flex flex-col">
 				<div class="grid grid-cols-3 gap-2">
-					<c:forEach var="article" items="${likeArticles}">
+					<c:forEach var="article" items="${myArticles}">
 						<div class="p-3 ">
 							<div class="info-title flex justify-between">
-								<a  href="detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
+								<a href="detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
 								<button type="submit">ㅁ</button>
 							</div>
 							<div class="info-body">
-								<a  href="detail?articleId=${article.id}">${article.body}</a>
+								<a href="detail?articleId=${article.id}">${article.body}</a>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-				<c:if test="${empty likeArticles }">
+				<c:if test="${empty myArticles }">
 					<div class="flex">
 						<div>게시글이 없습니다</div>
 					</div>

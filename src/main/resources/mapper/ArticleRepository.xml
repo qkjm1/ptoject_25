@@ -28,7 +28,7 @@
 		</set>
 		WHERE id = #{articleId}
 	</update>
-	
+
 	<!-->게시글 id 기준으로 삭제</! -->
 	<delete id="delArticle" parameterType="int">
 		DELETE FROM article
@@ -51,7 +51,207 @@
 		LAST_INSERT_ID()
 	</select>
 
+	<!-->검색해서 가져오기!</! -->
+	<select id="getArticleCountByBoard" parameterType="int">
+		SELECT COUNT(*) , M.nickname AS extra__writer
+		FROM article AS A
+		INNER
+		JOIN `user` AS M
+		ON A.usrId = M.id
+		WHERE 1
+		<if test="boardId != 0">AND A.boardId = ${boardId}</if>
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
 
 
 
+	<!--> </! -->
+	<select id="getForPrintArticles"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer
+		FROM
+		article A
+		INNER
+		JOIN
+		`user` M
+		ON A.usrId = M.id
+		INNER
+		JOIN board B
+		ON
+		A.boardId = B.id
+		WHERE 1
+		<if test='boardId != 0'>AND A.boardId = ${boardId}</if>
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND `body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+		GROUP BY A.id
+		ORDER BY A.id DESC
+		<if test="limitForm >= 0">
+			LIMIT #{limitForm},#{limitTake}
+		</if>
+	</select>
+
+
+	<select id="getForPrintArticle" parameterType="int"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer
+		FROM
+		article A
+		INNER
+		JOIN
+		`user` M
+		ON A.usrId = M.id
+		INNER
+		JOIN board B
+		ON
+		A.boardId = B.id
+		WHERE
+		A.id =#{articleId}
+	</select>
+
+	<!--> 좋아요 기준으로 가지고오기 </! -->
+	<select id="getForPrintLikeArticles"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer
+		FROM article AS A
+		INNER
+		JOIN
+		`user` M
+		ON A.usrId = M.id
+		LEFT JOIN `like` L
+		ON A.id = L.articleId
+		WHERE
+		L.usrId = ${isLoginMemberId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+		GROUP BY A.id
+		ORDER BY A.id DESC
+		<if test="limitForm >= 0">
+			LIMIT #{limitForm},#{limitTake}
+		</if>
+	</select>
+
+	<select id="getArticleCountByLike" parameterType="int">
+		SELECT COUNT(*)
+		FROM article AS A
+		LEFT JOIN `like` L
+		ON A.id =
+		L.articleId
+		WHERE L.usrId = ${isLoginMemberId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+	<!--> 내가 쓴글 가지고오기 </! -->
+	
+		<select id="getForPrintMyArticles"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer
+		FROM article AS A
+		INNER
+		JOIN
+		`user` M
+		ON A.usrId = M.id
+		LEFT JOIN `like` L
+		ON A.id = L.articleId
+		WHERE
+		A.usrId = ${isLoginMemberId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+		GROUP BY A.id
+		ORDER BY A.id DESC
+		<if test="limitForm >= 0">
+			LIMIT #{limitForm},#{limitTake}
+		</if>
+	</select>
+
+	<select id="getArticleCountByMy" parameterType="int">
+		SELECT COUNT(*)
+		FROM article AS A
+		INNER
+		JOIN
+		`user` M
+		ON A.usrId = M.id
+		WHERE A.usrId = ${isLoginMemberId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+	
 </mapper>

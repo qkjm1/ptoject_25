@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.ArticleService;
+import com.example.demo.service.BoardService;
 import com.example.demo.util.Ut;
 import com.example.demo.vo.Article;
 import com.example.demo.vo.Board;
@@ -27,20 +28,39 @@ public class usrArticleController {
 	@Autowired
 	private ArticleService articleService;
 
+	@Autowired
+	private BoardService boardService;
+	
+	
+	@RequestMapping("/usr/article/detail")
+	public String showDetail(HttpServletRequest req, Model model, int articleId) {
+
+		Article article = articleService.getForPrintArticle(rq.getIsLoginMemberId(), articleId);
+		
+		model.addAttribute("article", article);
+		
+		return "usr/article/detail";
+	}
+
+	
 	@RequestMapping("/usr/article/doWrite")
 	@ResponseBody
-	public ResultData doWrite(int usrId, String title, String body, int boardId) {
+	public ResultData doWrite(HttpServletRequest req, String title, String body, int boardId) {
 
-		ResultData doWriteRd = articleService.writeArticle(usrId, title, body, boardId);
+		ResultData doWriteRd = articleService.writeArticle(rq.getIsLoginMemberId(), title, body, boardId);
 
 		return ResultData.from(doWriteRd.getResultCode(), doWriteRd.getMsg());
 	}
-	
-	
+
+	@RequestMapping("/usr/article/write")
+	public String showWrite(HttpServletRequest req) {
+		return "usr/article/write";
+	}
+
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
-	public ResultData doModify(int usrId, String title, String body, int articleId) {
-		
+	public ResultData doModify(HttpServletRequest req, int usrId, String title, String body, int articleId) {
+
 		Article article = articleService.articleRowById(articleId);
 
 		if (article == null) {
@@ -57,15 +77,12 @@ public class usrArticleController {
 			articleService.modifyArticle(articleId, title, body);
 		}
 
-
 		return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
 	}
-	
-	
 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
-	public ResultData doDelete(int usrId, int articleId) {
+	public ResultData doDelete(HttpServletRequest req, int articleId) {
 
 		Article article = articleService.articleRowById(articleId);
 
@@ -73,7 +90,7 @@ public class usrArticleController {
 			return ResultData.from("F-1", "없는 게시글");
 		}
 
-		ResultData usrAuthor = articleService.usrAuthor(usrId, article);
+		ResultData usrAuthor = articleService.usrAuthor(rq.getIsLoginMemberId(), article);
 
 		if (usrAuthor.isFail()) {
 			return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
@@ -81,10 +98,87 @@ public class usrArticleController {
 
 		if (usrAuthor.isSuccess()) {
 			articleService.delArticle(articleId);
-		}		
+		}
 
 		return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
 	}
 
+	@RequestMapping("/usr/article/qnalist")
+	public String showQnaList(
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
+			@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "QnA") String searchKeywordTypeCode,
+			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
+
+		// 보드아이디로 있는 게시판인지 확인
+		if (boardId != 0) {
+			Board board = boardService.getBoardById(boardId);
+			if (board == null) {
+				return "존재하지 않는 게시판";
+			}
+		}
+
+		Board board = boardService.getBoardById(boardId);
+
+		int listInApage = 5;
+
+		int articlesCntByboard = articleService.getArticleCountByBoard(boardId, searchKeywordTypeCode, searchKeyword);
+		System.err.println(articlesCntByboard);
+		int totalPage = (int) Math.ceil(articlesCntByboard / (double) listInApage);
+		System.err.println(totalPage);
+
+		List<Article> articles = articleService.getForPrintArticles(boardId, listInApage, page, searchKeywordTypeCode,
+				searchKeyword);
+
+		model.addAttribute("articlesCntByboard", articlesCntByboard);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("articles", articles);
+		model.addAttribute("board", board);
+		model.addAttribute("boardId", boardId);
+		model.addAttribute("page", page);
+		model.addAttribute("searchKeywordTypeCode", searchKeywordTypeCode);
+		model.addAttribute("searchKeyword", searchKeyword);
+
+		return "/usr/article/qnalist";
+	}
+	
+	@RequestMapping("/usr/article/infolist")
+	public String showInfoList(
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
+			@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "info") String searchKeywordTypeCode,
+			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
+
+		// 보드아이디로 있는 게시판인지 확인
+		if (boardId != 0) {
+			Board board = boardService.getBoardById(boardId);
+			if (board == null) {
+				return "존재하지 않는 게시판";
+			}
+		}
+
+		Board board = boardService.getBoardById(boardId);
+
+		int listInApage = 6;
+
+		int articlesCntByboard = articleService.getArticleCountByBoard(boardId, searchKeywordTypeCode, searchKeyword);
+		System.err.println("articlesCntByboard: "+articlesCntByboard);
+		int totalPage = (int) Math.ceil(articlesCntByboard / (double) listInApage);
+		System.err.println("totalPage: "+totalPage);
+
+		List<Article> articles = articleService.getForPrintArticles(boardId, listInApage, page, searchKeywordTypeCode,
+				searchKeyword);
+
+		model.addAttribute("articlesCntByboard", articlesCntByboard);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("articles", articles);
+		model.addAttribute("board", board);
+		model.addAttribute("boardId", boardId);
+		model.addAttribute("page", page);
+		model.addAttribute("searchKeywordTypeCode", searchKeywordTypeCode);
+		model.addAttribute("searchKeyword", searchKeyword);
+
+		return "/usr/article/infolist";
+	}
 
 }

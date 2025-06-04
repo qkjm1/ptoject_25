@@ -25,7 +25,7 @@ public class Rq {
 	private final HttpSession session;
 
 	private boolean isLogined = false;
-	private int loginedMemberId = 0;
+	private int isLoginMemberId = 0;
 
 	public Rq(HttpServletRequest req, HttpServletResponse resp) {
 		this.req = req;
@@ -34,7 +34,7 @@ public class Rq {
 
 		if (session.getAttribute("loginedMemberId") != null) {
 			isLogined = true;
-			loginedMemberId = (int) session.getAttribute("loginedMemberId");
+			isLoginMemberId = (int) session.getAttribute("loginedMemberId");
 		}
 
 		this.req.setAttribute("rq", this);

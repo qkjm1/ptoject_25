@@ -12,6 +12,42 @@
 		loginId = #{loginId}
 	</select>
 
+
+	<!-->고유번호(id)로 전체 행 가져오기</! -->
+	<select id="memberByIntId"
+		resultType="com.example.demo.vo.Member">
+		SELECT *
+		FROM `user`
+		WHERE
+		id = #{loginId}
+	</select>
+
+
+	<select id="printBookmark">
+		SELECT A.*
+		FROM article A
+		LEFT JOIN `like` L
+		ON A.id = L.articleId
+		WHERE
+		L.usrId = ${memberId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+
+
 	<!-->인설트</! -->
 	<insert id="memberJoin" parameterType="map">
 		INSERT INTO `user`
@@ -29,5 +65,7 @@
 		email =
 		#{email};
 	</insert>
+
+
 
 </mapper>

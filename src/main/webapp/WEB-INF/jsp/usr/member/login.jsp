@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="pageTitle" value="MEMBER JOIN"></c:set>
 <%@ include file="../common/head.jspf"%>
-<meta charset="UTF-8">
+
 <title>LOGIN</title>
-</head>
-<body>
+<link rel="stylesheet" href="/resource/common.css" />
 
 	<div class="contents-box">
 		<div class="signup-box flex">
