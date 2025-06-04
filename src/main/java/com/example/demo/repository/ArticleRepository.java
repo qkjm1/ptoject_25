@@ -35,4 +35,9 @@ public interface ArticleRepository {
 
 	public List<Article> getForPrintMyArticles(int isLoginMemberId, int limitTake, int limitForm,
 			String searchKeywordTypeCode, String searchKeyword);
+
+	public int getArticleCountByPartId(int partId, String searchKeywordTypeCode, String searchKeyword);
+
+	public List<Article> getForPrintArticlesByPartId(int partId, int limitTake, int limitForm,
+			String searchKeywordTypeCode, String searchKeyword);
 }

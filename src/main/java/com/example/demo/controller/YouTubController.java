@@ -21,8 +21,7 @@ public class YouTubController {
 	private final String apiKey = "AIzaSyB1kZOuCJjjffXMAzbGZy5btsWfuKqE700";
 
 	@GetMapping("/search")
-	@ResponseBody
-    public Map<String, Object> search(@RequestParam("q") String query, Model model) {
+    public String search(@RequestParam("q") String query, Model model) {
         String baseUrl = "https://www.googleapis.com/youtube/v3/search";
         String fullUri = baseUrl+            
         		"?part=snippet" +
@@ -36,12 +35,11 @@ public class YouTubController {
                 "&key=" + apiKey;
 
         RestTemplate restTemplate = new RestTemplate();
-//        Map response = restTemplate.getForObject(url, Map.class);
-
-//        <Map<String, Object>> items = (List<Map<String, Object>>) response.get("items");
-//        model.addAttribute("videos", items);
         Map<String, Object> response = restTemplate.getForObject(fullUri, Map.class);
-        
-        return response; // /WEB-INF/views/youtube/result.jsp
+
+        List<Map<String, Object>> items = (List<Map<String, Object>>) response.get("items");
+        model.addAttribute("videos", items); // JSP에 전달
+
+        return "usr/youtube/result";
     }
 }

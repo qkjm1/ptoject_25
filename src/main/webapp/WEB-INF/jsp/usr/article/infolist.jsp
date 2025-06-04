@@ -32,32 +32,32 @@
 			<div class="h-40"></div>
 			<ul>
 				<li>
-					<a href="">머리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=1">머리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="">목/어깨</a>
+					<a href="/usr/article/infolist?boardId=2&partId=2">목/어깨</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="">팔</a>
+					<a href="/usr/article/infolist?boardId=2&partId=3">팔</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="">등/허리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=4">등/허리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="">골반/다리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=5">골반/다리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="">종아리/발목</a>
+					<a href="/usr/article/infolist?boardId=2&partId=6">종아리/발목</a>
 				</li>
 			</ul>
 			<div class="flex-grow"></div>

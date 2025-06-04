@@ -105,7 +105,7 @@ public class usrArticleController {
 
 	@RequestMapping("/usr/article/qnalist")
 	public String showQnaList(
-			HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId,
 			@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "QnA") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
@@ -144,7 +144,7 @@ public class usrArticleController {
 	
 	@RequestMapping("/usr/article/infolist")
 	public String showInfoList(
-			HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId, @RequestParam(defaultValue = "1")int partId,
 			@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "info") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
@@ -161,15 +161,15 @@ public class usrArticleController {
 
 		int listInApage = 6;
 
-		int articlesCntByboard = articleService.getArticleCountByBoard(boardId, searchKeywordTypeCode, searchKeyword);
-		System.err.println("articlesCntByboard: "+articlesCntByboard);
-		int totalPage = (int) Math.ceil(articlesCntByboard / (double) listInApage);
+		int getArticleCountByPartId = articleService.getArticleCountByPartId(partId, searchKeywordTypeCode, searchKeyword);
+		System.err.println("getArticleCountByPartId: "+getArticleCountByPartId);
+		int totalPage = (int) Math.ceil(getArticleCountByPartId / (double) listInApage);
 		System.err.println("totalPage: "+totalPage);
 
-		List<Article> articles = articleService.getForPrintArticles(boardId, listInApage, page, searchKeywordTypeCode,
+		List<Article> articles = articleService.getForPrintArticlesByPartId(partId, listInApage, page, searchKeywordTypeCode,
 				searchKeyword);
 
-		model.addAttribute("articlesCntByboard", articlesCntByboard);
+		model.addAttribute("getArticleCountByPartId", getArticleCountByPartId);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("articles", articles);
 		model.addAttribute("board", board);

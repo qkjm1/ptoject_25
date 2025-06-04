@@ -194,8 +194,8 @@
 		</if>
 	</select>
 	<!--> 내가 쓴글 가지고오기 </! -->
-	
-		<select id="getForPrintMyArticles"
+
+	<select id="getForPrintMyArticles"
 		resultType="com.example.demo.vo.Article">
 		SELECT A.*, M.nickname AS extra__writer
 		FROM article AS A
@@ -253,5 +253,67 @@
 			</choose>
 		</if>
 	</select>
-	
+
+
+	<!--> 부위별로 가지고오기 </! -->
+	<select id="getArticleCountByPartId" parameterType="int">
+		SELECT COUNT(*)
+		FROM article A
+		INNER JOIN board B
+		ON A.boardId = B.id
+		INNER JOIN anatomy T
+		ON
+		A.partId = T.id
+		WHERE T.id = ${partId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+
+	<select id="getForPrintArticlesByPartId"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer, T.part AS part__tag
+		FROM article A
+		INNER JOIN `user` M
+		ON A.usrId = M.id
+		INNER JOIN board B
+		ON A.boardId = B.id
+		INNER JOIN anatomy T
+		ON
+		A.partId = T.id
+		WHERE T.id = ${partId}
+		<if test="searchKeyword != ''">
+			<choose>
+				<when test="searchKeywordTypeCode == 'title'">
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<when test="searchKeywordTypeCode == 'body'">
+					AND A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</when>
+				<otherwise>
+					AND A.title LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR
+					A.`body` LIKE CONCAT('%', #{searchKeyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+		GROUP BY A.id
+		ORDER BY A.id DESC
+		<if test="limitForm >= 0">
+			LIMIT #{limitForm},#{limitTake}
+		</if>
+	</select>
+
 </mapper>

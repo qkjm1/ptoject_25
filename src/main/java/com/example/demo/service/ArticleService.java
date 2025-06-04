@@ -99,4 +99,15 @@ public class ArticleService {
 		int limitForm = (page-1)*listInApage;
 		return articleRepository.getForPrintMyArticles(isLoginMemberId, limitTake, limitForm, searchKeywordTypeCode, searchKeyword);
 	}
+
+	public int getArticleCountByPartId(int partId, String searchKeywordTypeCode, String searchKeyword) {
+		return articleRepository.getArticleCountByPartId(partId ,searchKeywordTypeCode, searchKeyword);
+	}
+
+	public List<Article> getForPrintArticlesByPartId(int partId, int listInApage, int page,
+			String searchKeywordTypeCode, String searchKeyword) {
+		int limitTake = listInApage;
+		int limitForm = (page-1)*listInApage;
+		return articleRepository.getForPrintArticlesByPartId(partId, limitTake, limitForm, searchKeywordTypeCode, searchKeyword);
+	}
 }

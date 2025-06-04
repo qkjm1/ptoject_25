@@ -24,6 +24,7 @@ public class Article {
 	private int boardId;
 	private int hitCount;
 	private int goodRp;
+	private int partId;
 
 	private boolean delStatus;
 	private LocalDateTime delDate;
@@ -31,4 +32,5 @@ public class Article {
 	private boolean usrAuthor;
 	
 	private String extra__writer;
+	private String part__tag;
 }
