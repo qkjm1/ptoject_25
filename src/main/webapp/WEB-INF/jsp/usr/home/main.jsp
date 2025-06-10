@@ -68,7 +68,7 @@
 			<div class="info-box-items grid grid-cols-3 gap-4 max-w-xl mx-auto">
 				<div>
 					<a href="">
-						<img src="" alt="" />
+						<img src="../imgs/Head.jpg" alt="머리" />
 					</a>
 				</div>
 				<div>
