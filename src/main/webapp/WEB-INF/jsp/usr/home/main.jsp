@@ -73,7 +73,7 @@
 				</div>
 				<div>
 					<a href="">
-						<img src="" alt="" />
+						<img src="../imgs/neck_shoulder.png" alt="목/어깨" />
 					</a>
 				</div>
 				<div>
