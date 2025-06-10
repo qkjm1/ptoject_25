@@ -78,7 +78,7 @@ function InfoArticle__get(partId) {
 	}, function(data) {
 		const articles = data.articles;
 
-		const $listContainer = $('#article-list'); // 결과를 뿌릴 요소 ID
+		const $listContainer = $('#article-list'+partId); // 결과를 뿌릴 요소 ID
 		$listContainer.empty(); // 기존 리스트 비우기
 
 
@@ -97,7 +97,9 @@ function InfoArticle__get(partId) {
 				<div class="qna-con flex flex-col mx-auto">				
 						<div class="qna-box">
 						<div class="qna-title mx-auto flex items-end justify-center">
-							<a href="/" class="text-xl font-bold text-black">${article.title}</a>
+							<div class="flex-grow">	
+								<a href="/" class="text-xl font-bold text-black">${article.title}</a>
+							</div>
 							<div class="flex-grow"></div>
 							<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
 							<div class="text-black">작성일:${dateStr}</div>

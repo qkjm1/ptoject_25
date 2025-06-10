@@ -37,21 +37,6 @@ body {
 }
 
 /*  위에는 자리 정리  */
-.info-box-top>div {
-	border-radius: 8px;
-	width: 200px;
-	height: 200px;
-	background-color: white;
-	margin: 10px;
-}
-
-.info-box-bot>div {
-	border-radius: 8px;
-	width: 200px;
-	height: 200px;
-	background-color: white;
-	margin: 10px;
-}
 
 /*  검색박스 */
 .search-box {
@@ -87,7 +72,6 @@ body {
 }
 
 /*메인 인포*/
-
 .show {
 	position: absolute;
 	display: none;
@@ -105,6 +89,69 @@ body {
 
 .show.active {
 	display: block;
+}
+
+/*2번박스*/
+.info-box-items>div {
+	padding: 10px;
+	border-radius: 8px;
+	width: 180px;
+	height: 180px;
+	background-color: white;
+	border-radius: 8px;
+}
+
+.info-box-items>div {
+	position: relative; /* ::after를 올바르게 위치시키기 위해 필요 */
+	overflow: hidden; /* ::after가 바깥으로 넘치지 않게 */
+}
+
+.info-box-items>div::after {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	font: bold;
+	content: '';
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0); /* 기본은 투명 */
+	pointer-events: none; /* 마우스 이벤트 방해하지 않도록 */
+}
+
+.info-box-items>div:first-child::after{
+	content: '머리';
+}
+
+.info-box-items>div:nth-child(2)::after{
+	content: '목/어깨';
+}
+
+.info-box-items>div:nth-child(3)::after{
+	content: '팔';
+}
+
+.info-box-items>div:nth-child(4)::after{
+	content: '등/허리';
+}
+
+.info-box-items>div:nth-child(5)::after{
+	content: '골반/다리';
+}
+
+.info-box-items>div:nth-child(6)::after{
+	content: '종아리';
+}
+
+
+
+
+.info-box-items>div:hover::after {
+	background-color: rgba(0, 0, 0, 0.3); /* 마우스 오버 시 반투명 검정 */
 }
 
 /*3박스*/

@@ -11,34 +11,34 @@
 	<div class="main_1-box flex">
 
 		<div class="show Head">
-		
+			<div id="article-list1" class="flex flex-col"></div>
 		</div>
 		<div class="show Neck_Shoulder_B">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list2" class="flex flex-col"></div>
 		</div>
 		<div class="show Neck_Shoulder_F">
-			<div id="article-list" class="flex flex-col"></div>
-		</div>
-		<div class="show Chest_B">
-			<div id="article-list" class="flex flex-col"></div>
-		</div>
-		<div class="show Chest_F">21231
-			<div id="article-list" class="flex flex-col">123123</div>
+			<div id="article-list2" class="flex flex-col"></div>
 		</div>
 		<div class="show Arms">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list3" class="flex flex-col"></div>
+		</div>
+		<div class="show Chest_B">
+			<div id="article-list4" class="flex flex-col"></div>
+		</div>
+		<div class="show Chest_F">
+			<div id="article-list4" class="flex flex-col"></div>
 		</div>
 		<div class="show Legs_B">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list5" class="flex flex-col"></div>
 		</div>
 		<div class="show Legs_F">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list5" class="flex flex-col"></div>
 		</div>
 		<div class="show Pelvic">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list5" class="flex flex-col"></div>
 		</div>
 		<div class="show Calf">
-			<div id="article-list" class="flex flex-col"></div>
+			<div id="article-list6" class="flex flex-col"></div>
 		</div>
 
 
@@ -65,19 +65,38 @@
 					</button>
 				</div>
 			</form>
-			<div class="flex-grow mx-auto">
-				<div class="flex info-box-top">
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
+			<div class="info-box-items grid grid-cols-3 gap-4 max-w-xl mx-auto">
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
 				</div>
-				<div class="flex info-box-bot">
-					<div>11</div>
-					<div>22</div>
-					<div>33</div>
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
+				</div>
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
+				</div>
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
+				</div>
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
+				</div>
+				<div>
+					<a href="">
+						<img src="" alt="" />
+					</a>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div class="flex-grow main_3-box"></div>

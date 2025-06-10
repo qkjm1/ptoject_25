@@ -1,9 +1,8 @@
 .show {
 	overflow: auto;
 	font-size: 10px;
-	padding: 20px 5px 20px 5px;
+	padding: 17px 5px 20px 5px;
 }
-
 
 .qna-con {
 	border-radius: 8px;
@@ -14,7 +13,7 @@
 }
 
 .qna-box {
-	padding:5px;
+	padding: 5px;
 	border-radius: 8px; /* 둥글게 */
 	width: 100%;
 	position: relative;
@@ -25,22 +24,34 @@
 	height: 35px;
 	width: 100%;
 	background-color: white;
-	text-overflow: none;
+}
+
+
+.qna-title>div:first-child {
+	width: 58%;
+}
+
+.qna-title>div:first-child > a {
+	width: 100%;
+	display: block;
+	white-space: nowrap;      
+	overflow: hidden; /* 넘치는 부분 숨김 */
+	text-overflow: ellipsis;
 }
 
 .qna-body {
-	padding:5px;
+	font-size:13px;
+	padding: 5px;
 	border-radius: 8px; /* 둥글게 */
 	width: 100%;
 	background-color: #F5F5F5;
-	height: 50%;
+	height: 60%;
 	overflow-y: auto;
 }
 
-.qna-body > a {
+.qna-body>a {
 	display: block;
 }
-
 
 .qna-open {
 	position: absolute;
@@ -49,7 +60,7 @@
 }
 
 .noAr {
-	align-content:center;
+	align-content: center;
 	color: white;
 	height: 100%
 }
@@ -58,7 +69,3 @@
 	border: 1px solid black;
 	margin: 5px;
 }
-
-
-
-
