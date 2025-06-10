@@ -103,8 +103,7 @@ public class usrMemberController {
 
 		rq.logout();
 
-//		return Ut.jsReplace("S-1", "로그아웃 성공", "/");
-		return "성공이여라~";
+		return Ut.jsReplace("", "로그아웃되었습니다", "/");
 	}
 
 	@RequestMapping("/usr/member/myPage/likepage")

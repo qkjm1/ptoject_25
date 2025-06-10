@@ -72,7 +72,7 @@
 			</c:if>
 
 			<div class="info-box-in flex flex-col">
-				<div class="grid grid-cols-3 gap-2">
+				<div class="grid grid-cols-3 gap-2" id="article-list">
 					<c:forEach var="article" items="${articles}">
 						<div class="p-3 ">
 							<div class="info-title flex justify-between">
@@ -85,7 +85,7 @@
 						</div>
 					</c:forEach>
 				</div>
-				<c:if test="${empty articles }">
+				<c:if test="${empty articles}">
 					<div class="flex">
 						<div>게시글이 없습니다</div>
 					</div>
@@ -131,5 +131,4 @@
 	</div>
 </div>
 
-</body>
-</html>
+<%@ include file="../common/poot.jspf"%>

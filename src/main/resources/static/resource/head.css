@@ -11,8 +11,9 @@ html, body {
 .top-bar {
 	position: absolute;
 	width: 100%;
-	background-color: #A9A9A9;
+	background-color: #012C4E;
 	height: 50px;
+	color: #EAD292;
 }
 
 ul li {

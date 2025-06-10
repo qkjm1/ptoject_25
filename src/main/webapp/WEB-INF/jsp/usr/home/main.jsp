@@ -6,11 +6,49 @@
 <title>MAIN</title>
 
 <link rel="stylesheet" href="/resource/main.css" />
+<link rel="stylesheet" href="/resource/main2.css" />
 <div class="contain mx-auto flex flex-col">
-	<div class="main_1-box flex justify-center mx-auto">
+	<div class="main_1-box flex">
+
+		<div class="show Head">
+		
+		</div>
+		<div class="show Neck_Shoulder_B">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Neck_Shoulder_F">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Chest_B">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Chest_F">21231
+			<div id="article-list" class="flex flex-col">123123</div>
+		</div>
+		<div class="show Arms">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Legs_B">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Legs_F">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Pelvic">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+		<div class="show Calf">
+			<div id="article-list" class="flex flex-col"></div>
+		</div>
+
+
+
 		<div id="webgl-container"></div>
+
 	</div>
-	<div class="main-line"></div>
+
+
+
 	<div class="main_2-box">
 		<div class="info-box flex flex-col">
 			<form action="/usr/article/infolist" method="post" class="mx-auto">
@@ -39,13 +77,15 @@
 					<div>33</div>
 				</div>
 			</div>
-			<div class="flex-grow"></div>
+
 		</div>
 	</div>
+	<div class="flex-grow main_3-box"></div>
 </div>
+<%@ include file="../common/poot.jspf"%>
 
 
-  <script type="importmap">
+<script type="importmap">
     {
       "imports": {
         "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
@@ -55,6 +95,6 @@
     }
   </script>
 
-	<script type="module" src="/resource/00_TEST.js"></script>
-</body>
-</html>
+<script type="module" src="/resource/00_TEST.js"></script>
+
+</script>

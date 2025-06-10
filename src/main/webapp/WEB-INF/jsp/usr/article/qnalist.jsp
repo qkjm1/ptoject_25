@@ -99,5 +99,5 @@
 	</div>
 
 </div>
-</body>
-</html>
+
+<%@ include file="../common/poot.jspf"%>

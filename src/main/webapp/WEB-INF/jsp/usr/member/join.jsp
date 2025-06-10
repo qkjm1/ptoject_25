@@ -6,6 +6,7 @@
 
 <title>JOIN</title>
 <link rel="stylesheet" href="/resource/common.css" />
+<div class="top-boundry-box"></div>
 <div class="contents-box">
 	<div class="signup-box flex">
 		<form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();">
@@ -28,6 +29,10 @@
 		</form>
 	</div>
 </div>
+
+<a href="/oauth2/code/naver">
+    네이버 로그인하기
+</a>
 
 <script>
 	function validatePasswords() {
@@ -57,5 +62,5 @@
 		return location.replace('/usr/member/dojoin');
 	}
 </script>
-</body>
-</html>
+
+<%@ include file="../common/poot.jspf"%>

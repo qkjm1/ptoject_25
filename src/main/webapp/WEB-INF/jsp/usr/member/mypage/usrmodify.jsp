@@ -68,5 +68,4 @@
 
 
 
-</body>
-</html>
+<%@ include file="../../common/poot.jspf"%>

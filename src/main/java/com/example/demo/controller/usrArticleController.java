@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,11 +47,15 @@ public class usrArticleController {
 	
 	@RequestMapping("/usr/article/doWrite")
 	@ResponseBody
-	public ResultData doWrite(HttpServletRequest req, String title, String body, int boardId) {
+	public String doWrite(HttpServletRequest req, String title, String body, int boardId, int partId) {
+		System.err.println("로그인id: "+rq.getIsLoginMemberId());
+		System.err.println("title: "+title);
+		System.err.println("body: "+body);
+		System.err.println("boardId: "+boardId);
+		System.err.println("partId: "+partId);
+		ResultData doWriteRd = articleService.writeArticle(rq.getIsLoginMemberId(), title, body, boardId, partId);
 
-		ResultData doWriteRd = articleService.writeArticle(rq.getIsLoginMemberId(), title, body, boardId);
-
-		return ResultData.from(doWriteRd.getResultCode(), doWriteRd.getMsg());
+		return Ut.jsReplace(doWriteRd.getResultCode(), doWriteRd.getMsg(), "/usr/article/infolist?boardId="+boardId+"&partId="+partId);
 	}
 
 	@RequestMapping("/usr/article/write")
@@ -59,25 +65,25 @@ public class usrArticleController {
 
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
-	public ResultData doModify(HttpServletRequest req, int usrId, String title, String body, int articleId) {
+	public String doModify(HttpServletRequest req, int usrId, String title, String body, int articleId) {
 
 		Article article = articleService.articleRowById(articleId);
 
 		if (article == null) {
-			return ResultData.from("F-1", "없는 게시글");
+			return Ut.f("F-1", "없는 게시글");
 		}
 
 		ResultData usrAuthor = articleService.usrAuthor(usrId, article);
 
 		if (usrAuthor.isFail()) {
-			return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
+			return Ut.f(usrAuthor.getResultCode(), usrAuthor.getMsg());
 		}
 
 		if (usrAuthor.isSuccess()) {
 			articleService.modifyArticle(articleId, title, body);
 		}
 
-		return ResultData.from(usrAuthor.getResultCode(), usrAuthor.getMsg());
+		return Ut.f(usrAuthor.getResultCode(), usrAuthor.getMsg());
 	}
 
 	@RequestMapping("/usr/article/doDelete")
@@ -149,6 +155,8 @@ public class usrArticleController {
 			@RequestParam(defaultValue = "info") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
 
+		System.err.println("partId : "+partId);
+		
 		// 보드아이디로 있는 게시판인지 확인
 		if (boardId != 0) {
 			Board board = boardService.getBoardById(boardId);
@@ -179,6 +187,53 @@ public class usrArticleController {
 		model.addAttribute("searchKeyword", searchKeyword);
 
 		return "/usr/article/infolist";
+	}
+	
+	
+	@RequestMapping("/usr/article/infomainlist")
+	@ResponseBody
+	public Map<String, Object> showMainInfoList(
+	        HttpServletRequest req, Model model,
+	        @RequestParam(defaultValue = "2") int boardId,
+	        @RequestParam(defaultValue = "1") int partId,
+	        @RequestParam(defaultValue = "1") int page,
+	        @RequestParam(defaultValue = "info") String searchKeywordTypeCode,
+	        @RequestParam(defaultValue = "") String searchKeyword) throws IOException {
+
+	    System.err.println("partId : "+partId);
+
+	    if (boardId != 0) {
+	        Board board = boardService.getBoardById(boardId);
+	        if (board == null) {
+	            Map<String, Object> error = new HashMap<>();
+	            error.put("error", "존재하지 않는 게시판");
+	            return error;
+	        }
+	    }
+
+	    Board board = boardService.getBoardById(boardId);
+
+	    int listInApage = 6;
+
+	    int getArticleCountByPartId = articleService.getArticleCountByPartId(partId, searchKeywordTypeCode, searchKeyword);
+	    System.err.println("getArticleCountByPartId: "+getArticleCountByPartId);
+	    int totalPage = (int) Math.ceil(getArticleCountByPartId / (double) listInApage);
+	    System.err.println("totalPage: "+totalPage);
+
+	    List<Article> articles = articleService.getForPrintArticlesByPartId(partId, listInApage, page, searchKeywordTypeCode,
+	            searchKeyword);
+
+	    Map<String, Object> result = new HashMap<>();
+	    result.put("getArticleCountByPartId", getArticleCountByPartId);
+	    result.put("totalPage", totalPage);
+	    result.put("articles", articles);
+	    result.put("board", board);
+	    result.put("boardId", boardId);
+	    result.put("page", page);
+	    result.put("searchKeywordTypeCode", searchKeywordTypeCode);
+	    result.put("searchKeyword", searchKeyword);
+
+	    return result;
 	}
 
 }

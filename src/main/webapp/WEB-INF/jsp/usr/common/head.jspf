@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>${pageTitle}</title>
 <link rel="stylesheet" href="/resource/head.css" />
-<script src="/resource/common.js" defer="defer"></script>
+
 <!-- 제이쿼리 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -48,7 +48,7 @@
 							<a class="hover:underline" href="/usr/member/mypage/usrmodify">마이페이지</a>
 						</li>
 						<li>
-							<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" class="hover:underline" href="../member/doLogout">로그아웃</a>
+							<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" class="hover:underline" href="/usr/member/doLogout">로그아웃</a>
 						</li>
 					</c:if>
 				</ul>

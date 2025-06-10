@@ -9,7 +9,7 @@ import com.example.demo.vo.Article;
 @Mapper
 public interface ArticleRepository {
 	
-	public int writeArticle(int memberId, String title, String body, int boardId);
+	public int writeArticle(int memberId, String title, String body, int boardId, int partId);
 
 	public int lastInsertId();
 

@@ -15,7 +15,8 @@
 		#{boardId},
 		title =
 		#{title},
-		`body` = #{body}
+		`body` = #{body},
+		partId = #{partId}
 	</insert>
 
 	<!-->게시들 id 기준으로 수정</! -->
@@ -285,15 +286,18 @@
 	<select id="getForPrintArticlesByPartId"
 		resultType="com.example.demo.vo.Article">
 		SELECT A.*, M.nickname AS extra__writer, T.part AS part__tag
-		FROM article A
+		FROM
+		article A
 		INNER JOIN `user` M
 		ON A.usrId = M.id
 		INNER JOIN board B
-		ON A.boardId = B.id
+		ON
+		A.boardId = B.id
 		INNER JOIN anatomy T
 		ON
 		A.partId = T.id
-		WHERE T.id = ${partId}
+		WHERE T.id =
+		${partId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
