@@ -59,15 +59,15 @@ loader.load('/models/Low_Part.glb', function(gltf) {
 
 const nameToIdMap = {
 	"Head": 1,
-	"Neck_Shoulder_F": 2,
 	"Neck_Shoulder_B": 2,
-	"Arms": 3,
-	"Chest_F": 4,
-	"Chest_B": 4,
-	"Legs_F": 5,
-	"Legs_B": 5,
-	"Pelvic": 5,
-	"calf": 6
+	"Neck_Shoulder_F": 3,
+	"Arms": 4,
+	"Chest_B": 5,
+	"Chest_F": 6,
+	"Pelvic": 7,
+	"Legs_F": 8,
+	"Legs_B": 9,
+	"Calf": 10
 };
 
 function InfoArticle__get(partId) {
@@ -82,7 +82,7 @@ function InfoArticle__get(partId) {
 		$listContainer.empty(); // 기존 리스트 비우기
 
 
-		if (!articles || articles.length === 0) {
+		if (!articles || articles.length == 0) {
 			$listContainer.append('<div class="noAr flex" style="text-align:center;">게시글이 없습니다</div>');
 		} else {
 			articles.forEach(article => {
@@ -180,6 +180,7 @@ window.addEventListener('click', (event) => {
 				clickedPart.material = clickedPart.material.clone();
 				clickedPart.material.color.set('#EAD292'); // 강조색
 				selectedMesh = clickedPart;
+				console.log(partId);
 			}
 
 			if (partId !== undefined) {

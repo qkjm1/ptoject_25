@@ -87,7 +87,7 @@
 					</c:forEach>
 				</div>
 				<c:if test="${empty articles}">
-					<div class="flex">
+					<div class="flex ">
 						<div>게시글이 없습니다</div>
 					</div>
 				</c:if>

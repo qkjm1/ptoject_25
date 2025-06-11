@@ -300,6 +300,7 @@
 		A.partId = T.id
 		WHERE T.id =
 		${partId}
+		AND B.code = 'info'
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">

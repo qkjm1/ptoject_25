@@ -2,6 +2,8 @@
 	overflow: auto;
 	font-size: 10px;
 	padding: 17px 5px 20px 5px;
+	border: none;
+	z-index: 1;
 }
 
 .qna-con {
@@ -26,21 +28,20 @@
 	background-color: white;
 }
 
-
 .qna-title>div:first-child {
 	width: 58%;
 }
 
-.qna-title>div:first-child > a {
+.qna-title>div:first-child>a {
 	width: 100%;
 	display: block;
-	white-space: nowrap;      
+	white-space: nowrap;
 	overflow: hidden; /* 넘치는 부분 숨김 */
 	text-overflow: ellipsis;
 }
 
 .qna-body {
-	font-size:13px;
+	font-size: 13px;
 	padding: 5px;
 	border-radius: 8px; /* 둥글게 */
 	width: 100%;
@@ -53,19 +54,44 @@
 	display: block;
 }
 
-.qna-open {
-	position: absolute;
-	right: 15px;
-	top: 70%;
-}
 
 .noAr {
+	padding-top: 220px; 
+	margin : auto;
 	align-content: center;
 	color: white;
-	height: 100%
+	height: 100%;
+	margin: auto;
+	font-size: 13px;
 }
 
 .partLine {
 	border: 1px solid black;
 	margin: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

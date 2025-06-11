@@ -84,15 +84,15 @@ public class usrMemberController {
 
 		Member member = memberService.doLogin(loginId);
 
-		if (member == null) {
-			return Ut.jsHistoryBack("F-1", Ut.f("s%아이디 없음", loginId));
+		if (member==null) {
+			return Ut.jsHistoryBack(" ", Ut.f("%s는 없는 아이디입니다", loginId));
 		}
 		if (member.getLoginPw().equals(loginPw) == false) {
-			return Ut.jsHistoryBack("F-2", "비밀번호 틀림");
+			return Ut.jsHistoryBack(" ", "아이디 혹은 비밀번호가 틀렸습니다");
 		}
 		rq.login(member);
 		System.err.println("doLogin 실행 후--" + rq.getIsLoginMemberId());
-		return Ut.jsReplace("S-1", "로그인 성공", "../home/main");
+		return Ut.jsReplace(" ", "로그인되었습니다", "/");
 	}
 
 	@RequestMapping("/usr/member/doLogout")
@@ -103,7 +103,7 @@ public class usrMemberController {
 
 		rq.logout();
 
-		return Ut.jsReplace("", "로그아웃되었습니다", "/");
+		return Ut.jsReplace(" ", "로그아웃되었습니다", "/");
 	}
 
 	@RequestMapping("/usr/member/myPage/likepage")

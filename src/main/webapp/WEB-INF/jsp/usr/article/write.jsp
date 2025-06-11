@@ -18,11 +18,15 @@
 				<select name="partId" class="partId anto">
 					<option value="" selected disabled>분류</option>
 					<option value="1">머리</option>
-					<option value="2">목/어깨</option>
-					<option value="3">팔</option>
-					<option value="4">등/허리</option>
-					<option value="5">골반/다리</option>
-					<option value="6">종아리/발목</option>
+					<option value="2">목/어깨뒤쪽</option>
+					<option value="3">쇄골/어깨앞쪽</option>
+					<option value="4">팔</option>
+					<option value="5">등/허리</option>
+					<option value="6">가슴/배</option>
+					<option value="7">골반</option>
+					<option value="8">다리 앞쪽</option>
+					<option value="9">다리 뒤쪽</option>
+					<option value="10">종아리/발목</option>
 				</select>
 
 				<input id="titleInput" required="required" name="title" type="text" autocomplete="off" placeholder="제목" />
