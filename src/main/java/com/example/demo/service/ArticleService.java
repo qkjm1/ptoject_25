@@ -111,4 +111,8 @@ public class ArticleService {
 		int limitForm = (page-1)*listInApage;
 		return articleRepository.getForPrintArticlesByPartId(partId, limitTake, limitForm, searchKeywordTypeCode, searchKeyword);
 	}
+
+	public Article partName(int partId) {
+		return articleRepository.partName(partId);
+	}
 }

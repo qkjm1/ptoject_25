@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="pageTitle" value="${board.code} LIST"></c:set>
+<script type="module" src="/resource/ajax.js"></script>
 <%@ include file="../common/head.jspf"%>
 
 
@@ -32,39 +33,39 @@
 			<div class="h-40"></div>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=1">머리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=1" class="partID">머리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=2">목/어깨</a>
+					<a href="/usr/article/infolist?boardId=2&partId=2" class="partID">목/어깨</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=3">팔</a>
+					<a href="/usr/article/infolist?boardId=2&partId=3" class="partID">팔</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=4">등/허리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=4" class="partID">등/허리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=5">골반/다리</a>
+					<a href="/usr/article/infolist?boardId=2&partId=5" class="partID">골반/다리</a>
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=6">종아리/발목</a>
+					<a href="/usr/article/infolist?boardId=2&partId=6" class="partID">종아리/발목</a>
 				</li>
 			</ul>
 			<div class="flex-grow"></div>
 		</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
-
+		<div class="article__part__name getPartId">분류: ${getPartId.part__name}</div>
 			<c:if test="${rq.isLogined() }">
 				<div class="write">
 					<a class="hover:underline" href="../article/write">글쓰기</a>
@@ -72,7 +73,7 @@
 			</c:if>
 
 			<div class="info-box-in flex flex-col">
-				<div class="grid grid-cols-3 gap-2" id="article-list">
+				<div class="grid grid-cols-3 gap-2" class="article-list">
 					<c:forEach var="article" items="${articles}">
 						<div class="p-3 ">
 							<div class="info-title flex justify-between">

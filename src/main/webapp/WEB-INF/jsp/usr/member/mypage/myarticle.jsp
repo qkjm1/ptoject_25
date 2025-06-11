@@ -61,11 +61,11 @@
 					<c:forEach var="article" items="${myArticles}">
 						<div class="p-3 ">
 							<div class="info-title flex justify-between">
-								<a href="detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
+								<a href="/usr/article/detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
 								<button type="submit">ㅁ</button>
 							</div>
 							<div class="info-body">
-								<a href="detail?articleId=${article.id}">${article.body}</a>
+								<a href="/usr/article/detail?articleId=${article.id}">${article.body}</a>
 							</div>
 						</div>
 					</c:forEach>

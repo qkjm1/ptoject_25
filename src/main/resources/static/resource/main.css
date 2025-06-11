@@ -122,27 +122,27 @@ body {
 	pointer-events: none; /* 마우스 이벤트 방해하지 않도록 */
 }
 
-.info-box-items>div:first-child::after{
+.info-box-items>div:first-child:hover::after{
 	content: '머리';
 }
 
-.info-box-items>div:nth-child(2)::after{
+.info-box-items>div:nth-child(2):hover::after{
 	content: '목/어깨';
 }
 
-.info-box-items>div:nth-child(3)::after{
+.info-box-items>div:nth-child(3):hover::after{
 	content: '팔';
 }
 
-.info-box-items>div:nth-child(4)::after{
+.info-box-items>div:nth-child(4):hover::after{
 	content: '등/허리';
 }
 
-.info-box-items>div:nth-child(5)::after{
+.info-box-items>div:nth-child(5):hover::after{
 	content: '골반/다리';
 }
 
-.info-box-items>div:nth-child(6)::after{
+.info-box-items>div:nth-child(6):hover::after{
 	content: '종아리';
 }
 

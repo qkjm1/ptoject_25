@@ -285,15 +285,17 @@
 
 	<select id="getForPrintArticlesByPartId"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.*, M.nickname AS extra__writer, T.part AS part__tag
+		SELECT A.*, M.nickname AS extra__writer
 		FROM
 		article A
-		INNER JOIN `user` M
+		INNER JOIN `user`
+		M
 		ON A.usrId = M.id
 		INNER JOIN board B
 		ON
 		A.boardId = B.id
-		INNER JOIN anatomy T
+		INNER JOIN
+		anatomy T
 		ON
 		A.partId = T.id
 		WHERE T.id =
@@ -318,6 +320,18 @@
 		<if test="limitForm >= 0">
 			LIMIT #{limitForm},#{limitTake}
 		</if>
+	</select>
+
+	<!-->부위 이름가지고오기</! -->
+	<select id="partName" parameterType="int"
+		resultType="com.example.demo.vo.Article">
+		SELECT T.part AS part__name
+		FROM article A
+		INNER JOIN anatomy
+		T
+		ON
+		A.partId = T.id
+		WHERE T.id = ${partId} LIMIT 1
 	</select>
 
 </mapper>

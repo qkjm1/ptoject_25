@@ -40,4 +40,6 @@ public interface ArticleRepository {
 
 	public List<Article> getForPrintArticlesByPartId(int partId, int limitTake, int limitForm,
 			String searchKeywordTypeCode, String searchKeyword);
+
+	public Article partName(int partId);
 }

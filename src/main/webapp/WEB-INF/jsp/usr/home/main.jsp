@@ -67,33 +67,33 @@
 			</form>
 			<div class="info-box-items grid grid-cols-3 gap-4 max-w-xl mx-auto">
 				<div>
-					<a href="">
+					<a href="/usr/article/infolist?boardId=2&partId=1">
 						<img src="../imgs/Head.jpg" alt="머리" />
 					</a>
 				</div>
 				<div>
-					<a href="">
+					<a href="/usr/article/infolist?boardId=2&partId=2">
 						<img src="../imgs/neck_shoulder.png" alt="목/어깨" />
 					</a>
 				</div>
 				<div>
-					<a href="">
-						<img src="" alt="" />
+					<a href="/usr/article/infolist?boardId=2&partId=3">
+						<img src="../imgs/Arms.jpg" alt="팔" />
 					</a>
 				</div>
 				<div>
-					<a href="">
-						<img src="" alt="" />
+					<a href="/usr/article/infolist?boardId=2&partId=4">
+						<img src="../imgs/chest.png" alt="몸톰(등허리)" />
 					</a>
 				</div>
 				<div>
-					<a href="">
-						<img src="" alt="" />
+					<a href="/usr/article/infolist?boardId=2&partId=5">
+						<img src="../imgs/pelvic.png" alt="골반 다리" />
 					</a>
 				</div>
 				<div>
-					<a href="">
-						<img src="" alt="" />
+					<a href="/usr/article/infolist?boardId=2&partId=6">
+						<img src="../imgs/calf.png" alt="종아리 발" />
 					</a>
 				</div>
 			</div>

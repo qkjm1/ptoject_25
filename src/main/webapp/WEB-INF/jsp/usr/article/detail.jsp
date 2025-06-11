@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:set var="pageTitle" value="${board.code} LIST"></c:set>
+<c:set var="pageTitle" value="DETAIL"></c:set>
 <%@ include file="../common/head.jspf"%>
 
 
@@ -12,32 +11,6 @@
 
 
 
-	<script>
-		function ArticleDetail__doIncreaseHitCount() {
-
-			const localKey = 'article__' + params.id + '__OnView';
-
-			if (localStorage.getItem(localKey)) {
-				return;
-			}
-			localStorage.setItem(localKey, true);
-
-			$.get('../article/doIncreaseHitCountRd', {
-				id : params.id,
-				ajaxMode : 'Y'
-			}, function(data) {
-				console.log(data);
-				console.log(data.data1);
-				console.log(data.msg);
-				$('.article-detail__hit-count').html(data.data1);
-			}, 'json');
-		}
-
-		$(function() {
-			ArticleDetail__doIncreaseHitCount();
-
-		})
-	</script>
 
 
 	<section class="mt-24 text-xl px-4">

@@ -34,6 +34,8 @@ public class usrArticleController {
 	private BoardService boardService;
 	
 	
+	
+	
 	@RequestMapping("/usr/article/detail")
 	public String showDetail(HttpServletRequest req, Model model, int articleId) {
 
@@ -63,6 +65,20 @@ public class usrArticleController {
 		return "usr/article/write";
 	}
 
+	@RequestMapping("/usr/article/modify")
+	public String showModify(HttpServletRequest req, Model model, int id) {
+
+		Article article = articleService.getForPrintArticle(rq.getIsLoginMemberId(), id);
+
+		if (article == null) {
+			return Ut.jsHistoryBack("F-1", Ut.f("%d번 게시글은 없습니다", id));
+		}
+
+		model.addAttribute("article", article);
+
+		return "/usr/article/modify";
+	}
+	
 	@RequestMapping("/usr/article/doModify")
 	@ResponseBody
 	public String doModify(HttpServletRequest req, int usrId, String title, String body, int articleId) {
@@ -176,9 +192,12 @@ public class usrArticleController {
 
 		List<Article> articles = articleService.getForPrintArticlesByPartId(partId, listInApage, page, searchKeywordTypeCode,
 				searchKeyword);
+		
+		Article getPartId = articleService.partName(partId);
 
 		model.addAttribute("getArticleCountByPartId", getArticleCountByPartId);
 		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("getPartId", getPartId);
 		model.addAttribute("articles", articles);
 		model.addAttribute("board", board);
 		model.addAttribute("boardId", boardId);
@@ -236,4 +255,14 @@ public class usrArticleController {
 	    return result;
 	}
 
+	
+	
+
+	
+	
+	
+	
+	
 }
+
+

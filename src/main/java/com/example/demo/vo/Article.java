@@ -32,5 +32,5 @@ public class Article {
 	private boolean usrAuthor;
 	
 	private String extra__writer;
-	private String part__tag;
+	private String part__name;
 }

@@ -250,6 +250,14 @@ ul, li, a {
 	border-radius: 4px; /* 둥글게 */
 }
 
+.getPartId {
+	font-size:12px;
+	left: 5px;
+	top:100px;
+	position: absolute;
+	border-radius: 4px;
+}
+
 .paging {
 	position: absolute;
 	bottom: 50px;
