@@ -166,7 +166,7 @@ public class usrArticleController {
 	
 	@RequestMapping("/usr/article/infolist")
 	public String showInfoList(
-			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId, @RequestParam(defaultValue = "0")int partId,
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId, @RequestParam(defaultValue = "1")int partId,
 			@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "info") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {

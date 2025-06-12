@@ -28,22 +28,21 @@ public class usrBookmarkController {
 
 	@RequestMapping("/usr/bookmark/doLike")
 	@ResponseBody
-	public ResultData doLike(HttpServletRequest req, String usrId, int articleId) {
+	public ResultData doLike(HttpServletRequest req, int articleId) {
 		
 		System.err.println("==1==");
 		System.err.println("articleId "+articleId);
-		System.err.println("usrId "+usrId);
 		
-		int likeRow = bookmarkService.likeRow(usrId, articleId);
+		int likeRow = bookmarkService.likeRow(rq.getIsLoginMemberId(), articleId);
 
 		System.err.println(likeRow);
 		if(likeRow==1) {
-			bookmarkService.delLike(usrId, articleId);
+			bookmarkService.delLike(rq.getIsLoginMemberId(), articleId);
 			
 			return ResultData.from("S-1", "즐찾취소");
 		} 
 		if(likeRow==0) {
-			ResultData saveLike  = bookmarkService.saveLike(usrId, articleId);
+			ResultData saveLike  = bookmarkService.saveLike(rq.getIsLoginMemberId(), articleId);
 			
 			return ResultData.from(saveLike.getResultCode(),saveLike.getMsg(),"saveLike",saveLike);
 		}

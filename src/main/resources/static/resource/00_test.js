@@ -91,9 +91,8 @@ function InfoArticle__get(partId) {
 				console.log(articles);
 
 
-				const dateStr = typeof article.regDate === 'string'
-					? article.regDate.substring(0, 10)
-					: new Date(article.regDate).toISOString().substring(0, 10);
+				const dateStr = article.regDate.substring(0, 10);
+
 
 				const html = `
 				<div class="qna-con flex flex-col mx-auto">				
@@ -223,9 +222,8 @@ renderer.domElement.addEventListener('mousemove', (event) => {
 
 // === 반응형 ===
 window.addEventListener('resize', () => {
-	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = window.innerWidth / height;
 	camera.updateProjectionMatrix();
-	renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 // === 애니메이션 루프 ===

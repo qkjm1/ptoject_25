@@ -18,7 +18,7 @@ public class BookmarkService {
 	private BookmarkRepository bookmarkRepository;
 
 	// 즐겨찾기 저장
-	public ResultData saveLike(String usrId, int articleId) {
+	public ResultData saveLike(int usrId, int articleId) {
 		bookmarkRepository.saveLike(usrId, articleId);
 		int likeRow = likeRow(usrId, articleId);
 
@@ -32,7 +32,7 @@ public class BookmarkService {
 	}
 
 	// 즐겨찾기 삭제
-	public ResultData delLike(String usrId, int articleId) {
+	public ResultData delLike(int usrId, int articleId) {
 		bookmarkRepository.delLike(usrId, articleId);
 		
 		int likeRow = likeRow(usrId, articleId);
@@ -45,7 +45,7 @@ public class BookmarkService {
 	}
 
 	// 유저고유번호랑 글아이디로 한줄 가지고오기
-	public int likeRow(String usrId, int articleId) {
+	public int likeRow(int usrId, int articleId) {
 		System.err.println("==2==");
 		int likeRow = bookmarkRepository.likeRow(usrId, articleId);
 		System.err.println("==3==");
