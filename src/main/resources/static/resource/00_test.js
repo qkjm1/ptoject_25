@@ -10,7 +10,7 @@ scene.background = new THREE.Color(0x494949);
 
 
 const width = window.innerWidth;
-const height = window.innerHeight;
+const height = 1000;
 
 const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 camera.position.set(0, 3, 8);
@@ -24,6 +24,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false; // 이동 비활성화 (고정)
 controls.enableRotate = false;
+controls.enableZoom = false; //확대축소 막기
 controls.update();
 
 // === Lighting ===
@@ -72,6 +73,7 @@ const nameToIdMap = {
 
 function InfoArticle__get(partId) {
 
+	console.log(partId);
 	$.get('/usr/article/infomainlist', {
 		partId: partId,
 		ajaxMode: 'Y'
@@ -82,7 +84,7 @@ function InfoArticle__get(partId) {
 		$listContainer.empty(); // 기존 리스트 비우기
 
 
-		if (!articles || articles.length == 0) {
+		if (!articles || articles.length === 0) {
 			$listContainer.append('<div class="noAr flex" style="text-align:center;">게시글이 없습니다</div>');
 		} else {
 			articles.forEach(article => {
@@ -98,7 +100,7 @@ function InfoArticle__get(partId) {
 						<div class="qna-box">
 						<div class="qna-title mx-auto flex items-end justify-center">
 							<div class="flex-grow">	
-								<a href="/" class="text-xl font-bold text-black">${article.title}</a>
+								<a href="#" class="text-xl font-bold text-black">${article.title}</a>
 							</div>
 							<div class="flex-grow"></div>
 							<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
@@ -106,7 +108,7 @@ function InfoArticle__get(partId) {
 						</div>
 						<div class="partLine w-100%"></div>		
 						<div class="qna-body text-black">
-						<a href="detail?articleId=${article.id}">${article.body}</a>
+						<a href="/usr/article/detail?articleId=${article.id}">${article.body}</a>
 						</div>
 					</div>
 				</div>
@@ -119,18 +121,7 @@ function InfoArticle__get(partId) {
 	}, 'json');
 }
 
-$(function() {
-	InfoArticle__get(nameToIdMap["Head"]);
-	InfoArticle__get(nameToIdMap["Neck_Shoulder_F"]);
-	InfoArticle__get(nameToIdMap["Neck_Shoulder_B"]);
-	InfoArticle__get(nameToIdMap["Chest_F"]);
-	InfoArticle__get(nameToIdMap["Chest_B"]);
-	InfoArticle__get(nameToIdMap["Arms"]);
-	InfoArticle__get(nameToIdMap["Legs_F"]);
-	InfoArticle__get(nameToIdMap["Legs_B"]);
-	InfoArticle__get(nameToIdMap["Calf"]);
-	InfoArticle__get(nameToIdMap["Pelvic"]);
-})
+
 
 // === Raycaster ===
 const raycaster = new THREE.Raycaster();
@@ -228,6 +219,7 @@ renderer.domElement.addEventListener('mousemove', (event) => {
 	previousMousePosition.x = event.clientX;
 	previousMousePosition.y = event.clientY;
 });
+
 
 // === 반응형 ===
 window.addEventListener('resize', () => {

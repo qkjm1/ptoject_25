@@ -10,9 +10,6 @@
 <div class="contain mx-auto flex flex-col">
 	<div class="main_1-box flex">
 
-		<div id="webgl-container"></div>
-
-
 		<div class="show Head">
 			<div id="article-list1" class="flex flex-col"></div>
 		</div>
@@ -20,30 +17,31 @@
 			<div id="article-list2" class="flex flex-col"></div>
 		</div>
 		<div class="show Neck_Shoulder_F">
-			<div id="article-list2" class="flex flex-col"></div>
-		</div>
-		<div class="show Arms">
 			<div id="article-list3" class="flex flex-col"></div>
 		</div>
-		<div class="show Chest_B">
+		<div class="show Arms">
 			<div id="article-list4" class="flex flex-col"></div>
+		</div>
+		<div class="show Chest_B">
+			<div id="article-list5" class="flex flex-col"></div>
 		</div>
 		<div class="show Chest_F">
-			<div id="article-list4" class="flex flex-col"></div>
-		</div>
-		<div class="show Legs_B">
-			<div id="article-list5" class="flex flex-col"></div>
-		</div>
-		<div class="show Legs_F">
-			<div id="article-list5" class="flex flex-col"></div>
-		</div>
-		<div class="show Pelvic">
-			<div id="article-list5" class="flex flex-col"></div>
-		</div>
-		<div class="show Calf">
 			<div id="article-list6" class="flex flex-col"></div>
 		</div>
+		<div class="show Legs_B">
+			<div id="article-list7" class="flex flex-col"></div>
+		</div>
+		<div class="show Legs_F">
+			<div id="article-list8" class="flex flex-col"></div>
+		</div>
+		<div class="show Pelvic">
+			<div id="article-list9" class="flex flex-col"></div>
+		</div>
+		<div class="show Calf">
+			<div id="article-list10" class="flex flex-col"></div>
+		</div>
 
+		<div id="webgl-container"></div>
 
 	</div>
 	<div class="main_2-box">
@@ -133,4 +131,3 @@
 
 <script type="module" src="/resource/00_TEST.js"></script>
 
-</script>

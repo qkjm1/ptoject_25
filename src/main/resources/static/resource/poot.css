@@ -1,6 +1,7 @@
 .poot {
 	width: 100%;
-	height:100%;
+	height: 700px;
+	bottom: 0;
 	background-color: #012C4E;
 	color: #EAD292;
 }

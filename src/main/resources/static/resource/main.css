@@ -1,4 +1,4 @@
-body {
+html, body {
 	height: 4000px;
 	background-color: #F5F5F5;
 }
@@ -16,7 +16,7 @@ body {
 
 #webgl-container {
 	position: relative;
-	width: 900px;
+	width: 100%;
 	height: 1000px;
 }
 
@@ -66,6 +66,7 @@ body {
 }
 
 .search-box input:focus {
+	background-color: #F5F5F5;
 	outline: none;
 	border-color: #007BFF; /* 포커스 시 파란색 */
 	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);

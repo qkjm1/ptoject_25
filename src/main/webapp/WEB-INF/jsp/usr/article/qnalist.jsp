@@ -6,6 +6,7 @@
 
 
 <link rel="stylesheet" href="/resource/common.css" />
+<script type="module" src="/resource/ajax.js"></script>
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
 
@@ -51,6 +52,7 @@
 						</div>
 					</div>
 				</div>
+				<div id="qna-answer" class=""></div>
 			</c:forEach>
 			<c:if test="${empty articles }">
 				<div class="qna-box flex flex-col">

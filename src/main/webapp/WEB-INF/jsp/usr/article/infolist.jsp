@@ -65,7 +65,6 @@
 		</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
-		<div class="article__part__name getPartId">분류: ${getPartId.part__name}</div>
 			<c:if test="${rq.isLogined() }">
 				<div class="write">
 					<a class="hover:underline" href="../article/write">글쓰기</a>

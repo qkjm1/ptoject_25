@@ -265,7 +265,8 @@
 		INNER JOIN anatomy T
 		ON
 		A.partId = T.id
-		WHERE T.id = ${partId}
+		WHERE T.id = #{partId}
+		AND B.id =#{boardId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -332,7 +333,28 @@
 		T
 		ON
 		A.partId = T.id
-		WHERE T.id = ${partId} LIMIT 1
+		WHERE T.id = #{partId} LIMIT 1
 	</select>
 
+	<!-->부위 이름으로 페이지네이션없이 가지고오기</! -->
+	<select id="getForPrintArticlesByPartIdNP"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.*, M.nickname AS extra__writer
+		FROM
+		article A
+		INNER JOIN `user`
+		M
+		ON
+		A.usrId = M.id
+		INNER JOIN board B
+		ON
+		A.boardId = B.id
+		INNER JOIN
+		anatomy T
+		ON
+		A.partId = T.id
+		WHERE T.id =
+		#{partId}
+		AND B.id = 2
+	</select>
 </mapper>

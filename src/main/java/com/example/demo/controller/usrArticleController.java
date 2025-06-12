@@ -166,7 +166,7 @@ public class usrArticleController {
 	
 	@RequestMapping("/usr/article/infolist")
 	public String showInfoList(
-			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId, @RequestParam(defaultValue = "1")int partId,
+			HttpServletRequest req, Model model, @RequestParam(defaultValue = "2") int boardId, @RequestParam(defaultValue = "0")int partId,
 			@RequestParam(defaultValue = "1") int page,
 			@RequestParam(defaultValue = "info") String searchKeywordTypeCode,
 			@RequestParam(defaultValue = "") String searchKeyword) throws IOException {
@@ -185,7 +185,7 @@ public class usrArticleController {
 
 		int listInApage = 6;
 
-		int getArticleCountByPartId = articleService.getArticleCountByPartId(partId, searchKeywordTypeCode, searchKeyword);
+		int getArticleCountByPartId = articleService.getArticleCountByPartId(boardId, partId, searchKeywordTypeCode, searchKeyword);
 		System.err.println("getArticleCountByPartId: "+getArticleCountByPartId);
 		int totalPage = (int) Math.ceil(getArticleCountByPartId / (double) listInApage);
 		System.err.println("totalPage: "+totalPage);
@@ -214,12 +214,9 @@ public class usrArticleController {
 	public Map<String, Object> showMainInfoList(
 	        HttpServletRequest req, Model model,
 	        @RequestParam(defaultValue = "2") int boardId,
-	        @RequestParam(defaultValue = "1") int partId,
-	        @RequestParam(defaultValue = "1") int page,
-	        @RequestParam(defaultValue = "info") String searchKeywordTypeCode,
-	        @RequestParam(defaultValue = "") String searchKeyword) throws IOException {
+	        @RequestParam(defaultValue = "0") int partId) throws IOException {
 
-	    System.err.println("partId : "+partId);
+	    System.err.println("showMainPartId : "+partId);
 
 	    if (boardId != 0) {
 	        Board board = boardService.getBoardById(boardId);
@@ -229,28 +226,16 @@ public class usrArticleController {
 	            return error;
 	        }
 	    }
+	    
 
-	    Board board = boardService.getBoardById(boardId);
-
-	    int listInApage = 6;
-
-	    int getArticleCountByPartId = articleService.getArticleCountByPartId(partId, searchKeywordTypeCode, searchKeyword);
-	    System.err.println("getArticleCountByPartId: "+getArticleCountByPartId);
-	    int totalPage = (int) Math.ceil(getArticleCountByPartId / (double) listInApage);
-	    System.err.println("totalPage: "+totalPage);
-
-	    List<Article> articles = articleService.getForPrintArticlesByPartId(partId, listInApage, page, searchKeywordTypeCode,
-	            searchKeyword);
-
+	    List<Article> articles = articleService.getForPrintArticlesByPartIdNP(partId);
+	    
+	    // html에서 오류나도 놀라지말것 내용 호출 확인용
+//	    System.err.println(articles.get(partId));
+	    
 	    Map<String, Object> result = new HashMap<>();
-	    result.put("getArticleCountByPartId", getArticleCountByPartId);
-	    result.put("totalPage", totalPage);
+
 	    result.put("articles", articles);
-	    result.put("board", board);
-	    result.put("boardId", boardId);
-	    result.put("page", page);
-	    result.put("searchKeywordTypeCode", searchKeywordTypeCode);
-	    result.put("searchKeyword", searchKeyword);
 
 	    return result;
 	}
