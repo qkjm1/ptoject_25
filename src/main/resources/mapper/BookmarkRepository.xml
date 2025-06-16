@@ -44,14 +44,41 @@
 
 	<!-->유저아이디를 기준으로 여려줄 가져오기</! -->
 	<select id="likeByUsrid"
-	resultType="com.example.demo.vo.Article">
+		resultType="com.example.demo.vo.Article">
 		SELECT A.*
 		FROM `like` L
 		INNER JOIN article A
-		ON L.articleId = A.id
+		ON L.articleId =
+		A.id
 		WHERE
 		L.usrId = #{usrId};
 	</select>
 
+	<!-->유저id 기준, 글에 좋아요를 했는지 한줄가져오기</! -->
+	<select id="isBookmarked">
+		SELECT COUNT(*)
+		FROM `like` L
+		INNER JOIN `user` U
+		ON
+		L.usrId =
+		U.id
+		WHERE
+		L.articleId = #{articleId}
+		AND
+		U.id = #{usrId};
+	</select>
+
+	<!-->유저id 기준, 글에 좋아요를 했는지 한줄가져오기</! -->
+	<select id="isBookmarkedbyId"
+		resultType="com.example.demo.vo.Article">
+		SELECT A.id
+		FROM `like` L
+		INNER JOIN article A
+		ON L.articleId
+		=
+		A.id
+		WHERE
+		L.usrId = #{usrId};
+	</select>
 
 </mapper>

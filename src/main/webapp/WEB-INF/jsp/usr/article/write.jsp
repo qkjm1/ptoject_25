@@ -3,8 +3,8 @@
 
 <c:set var="pageTitle" value="WRTITE"></c:set>
 <%@ include file="../common/head.jspf"%>
+<%@ include file="../common/toastUiEditorLib.jspf"%>
 
-<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 <link rel="stylesheet" href="/resource/common.css" />
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">

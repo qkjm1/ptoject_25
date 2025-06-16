@@ -1,0 +1,80 @@
+/* 전체 컨테이너 */
+.article-detail {
+	position: relative;
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #212529;
+	line-height: 1.7;
+}
+
+/* 제목 */
+.article-detail h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+/* 작성자/날짜 정보 */
+.article-meta {
+	font-size: 0.875rem;
+	color: #868e96;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #dee2e6;
+	padding-bottom: 1rem;
+}
+
+.article-content p {
+	font-size: 1.1rem;
+	margin-bottom: 1.5rem;
+}
+
+.article-content img {
+	max-width: 100%;
+	display: block;
+	margin: 2rem auto;
+	border-radius: 8px;
+}
+
+.toastui-editor-contents {
+	text-align: center;
+}
+
+.top-con {
+	height: 50px;
+	z-index: 1;
+	margin: 0 auto;
+	padding: 1rem 5rem;
+	width: 90%;
+	padding: 30px;
+}
+
+.btns {
+	width: 96%;
+	position: absolute;
+	display: flex;
+	flex-direction: row-reverse;
+	top: 126px;
+}
+
+/* 북마크 부분 */
+.bookmark__icon_col {
+	stroke: #EAD292;
+}
+
+.info-title {
+	height: 40px;
+	width: 60%;
+	background-color: white;
+	left: 0;
+}
+
+.info-title-box>div:nth-child(2) {
+	height: 35px;
+	font-size: 10px;
+}
+
+.info-title-box {
+	width: 100%;
+}

@@ -6,6 +6,8 @@
 
 
 <link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/detail.css" />
+<script type="module" src="/resource/ajax.js"></script>
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
 
@@ -57,21 +59,37 @@
 			</c:if>
 
 			<div class="info-box-in flex flex-col">
-				<div class="grid grid-cols-3 gap-2">
+				<div class="grid grid-cols-3 gap-2" class="article-list">
 					<c:forEach var="article" items="${myArticles}">
 						<div class="p-3 ">
-							<div class="info-title flex justify-between">
-								<a href="/usr/article/detail?articleId=${article.id}" class="text-xl font-bold">${article.extra__writer}</a>
-								<button type="submit">ㅁ</button>
+							<div class="info-title-box flex justify-between justify-center items-end">
+								<div class="info-title">
+									<a href="#" class="text-xl font-bold text-black">${article.title}</a>
+								</div>
+								<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
+								<div>
+									<form action="/usr/bookmark/doLike" method="POST" id="bookmark__btn">
+										<input type="hidden" name="articleId" value="${article.id}" />
+										<button type="submit">
+											<div>
+												<svg id="bookmark__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#555"
+													stroke-width="3" viewBox="0 0 24 24" class="${isBookmarked== article.id ? 'bookmark__icon_col' : ''}">
+  <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
+</svg>
+
+											</div>
+										</button>
+									</form>
+								</div>
 							</div>
 							<div class="info-body">
-								<a href="/usr/article/detail?articleId=${article.id}">${article.body}</a>
+								<a href="detail?articleId=${article.id}">${article.body}</a>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-				<c:if test="${empty myArticles }">
-					<div class="flex">
+				<c:if test="${empty myArticles}">
+					<div class="flex ">
 						<div>게시글이 없습니다</div>
 					</div>
 				</c:if>

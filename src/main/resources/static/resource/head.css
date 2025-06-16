@@ -6,20 +6,32 @@ html, body {
 	color: black;
 }
 
-
-
 .top-bar {
+	border-radius: 9999px; /* 둥글게 */
+	margin-top: 8px;
 	position: absolute;
-	width: 100%;
-	background-color: #012C4E;
+	width: 75%;
+	background-color: #3C3C29;
 	height: 50px;
-	color: #EAD292;
+	color: #E1D8CD;
+	z-index: 10;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 75%;
 }
 
 ul li {
 	margin: 10px;
 }
 
-.top-box{
-	width: 75%;
+.top-box {
+	width: 100%;
+}
+
+.top-box>div {
+	padding: 0px 20px 0px 20px;
+}
+
+.top-box>div li {
+	padding: 8px;
 }

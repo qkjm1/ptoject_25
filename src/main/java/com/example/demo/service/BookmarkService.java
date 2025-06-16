@@ -46,17 +46,37 @@ public class BookmarkService {
 
 	// 유저고유번호랑 글아이디로 한줄 가지고오기
 	public int likeRow(int usrId, int articleId) {
-		System.err.println("==2==");
+
 		int likeRow = bookmarkRepository.likeRow(usrId, articleId);
-		System.err.println("==3==");
+
 		return likeRow;
 	}
 
-	public List<Article> likeByUsrid(String usrId) {
+	public List<Article> likeByUsrid(int usrId) {
 
 		return bookmarkRepository.likeByUsrid(usrId);
 	}
 
+	
+	public ResultData isBookmarked(int usrId, int articleId) {
+		int isBookmarked = bookmarkRepository.isBookmarked(usrId, articleId);
+		
+		if (isBookmarked != 1) {
+			
+			return ResultData.from("F-A", Ut.f("즐찾안되어있음"));
+		}
+		
+		if (isBookmarked == 1) {
+			return ResultData.from("S-1", Ut.f("즐찾되어있음"));
+		}
 
+		return ResultData.from("S-1", Ut.f("즐찾되어있음"));
+	}
+
+	public ResultData isBookmarkedbyId(int usrId) {
+		List<Article> isBookmarked = bookmarkRepository.isBookmarkedbyId(usrId);
+
+		return ResultData.from("S-1", Ut.f("즐찾되어있음"), "아티클아이디 저장됨", isBookmarked);
+	}
 
 }

@@ -3,69 +3,64 @@
 
 <c:set var="pageTitle" value="DETAIL"></c:set>
 <%@ include file="../common/head.jspf"%>
-
+<%@ include file="../common/toastUiEditorLib.jspf"%>
 
 <link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/detail.css" />
 <script type="module" src="/resource/ajax.js"></script>
+
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
+	<div class="top-con h-10 w-full flex justify-between self-center">
+		<div class="">
+			<button type="button" onclick="history.back();">
+				<svg style="pointer-events: none" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none"
+					stroke="#555" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M15 6L9 12l6 6" />
+</svg>
 
-	<form action="../bookmark/doLike" method="POST" id="bookmark__btn">
-		<input type="hidden" name="articleId" value="${article.id}" />
-		<button type="submit">
-			<div>
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#555" stroke-width="2"
-					viewBox="0 0 24 24">
+			</button>
+		</div>
+		<div class="top-con-form flex">
+			<form action="../bookmark/doLike" method="POST" id="bookmark__btn">
+				<input type="hidden" name="articleId" value="${article.id}" />
+				<button type="submit">
+					<div>
+						<svg id="bookmark__icon" xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="none" stroke="#555"
+							stroke-width="3" viewBox="0 0 24 24" class="${isBookmarked ? 'bookmark__icon_col' : ''}">
   <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
 </svg>
-			</div>
-		</button>
-	</form>
 
-	<section class="mt-24 text-xl px-4">
-		<div class="mx-auto">
-			<table class="table" border="1" cellspacing="0" cellpadding="5" style="width: 100%; border-collapse: collapse;">
-				<tbody>
-					<tr>
-						<th style="text-align: center;">ID</th>
-						<td style="text-align: center;">${article.id}</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">Registration Date</th>
-						<td style="text-align: center;">${article.regDate}</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">Update Date</th>
-						<td style="text-align: center;">${article.updateDate}</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">Writer</th>
-						<td style="text-align: center;">${article.extra__writer }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">BoardId</th>
-						<td style="text-align: center;">${article.boardId }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">Title</th>
-						<td style="text-align: center;">${article.title }</td>
-					</tr>
-					<tr>
-						<th style="text-align: center;">Body</th>
-						<td style="text-align: center;">${article.body }</td>
-					</tr>
-				</tbody>
-			</table>
+					</div>
+				</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="mx-auto">
+		<div class="article-detail">
+			<h1>${article.title}</h1>
 			<div class="btns">
-				<button class="btn btn-ghost" type="button" onclick="history.back();">뒤로가기</button>
-				<c:if test="${article.usrAuthor }">
-					<a class="btn btn-ghost" href="../article/modify?id=${article.id}">수정</a>
-				</c:if>
 				<c:if test="${article.usrAuthor }">
 					<a class="btn btn-ghost" href="../article/doDelete?id=${article.id}">삭제</a>
 				</c:if>
+				<div class="w-3"></div>
+				<c:if test="${article.usrAuthor }">
+					<a class="btn btn-ghost" href="../article/modify?id=${article.id}">수정</a>
+				</c:if>
+			</div>
+			<div class="article-meta">작성자: ${article.extra__writer } · ${article.updateDate}</div>
+			<div class="article-content">
+				<div class="toast-ui-viewer">
+					<script type="text/x-template">${article.body}</script>
+				</div>
 			</div>
 		</div>
-	</section>
+
+	</div>
+
 </div>
+
+
+
 <%@ include file="../common/poot.jspf"%>

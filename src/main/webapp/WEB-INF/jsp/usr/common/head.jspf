@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/resource/head.css" />
 
 <!-- 제이쿼리 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 
 <!-- 폰트어썸 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -25,33 +25,39 @@
 <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
-<header>
+	<header>
 		<div class="top-bar flex mx-auto items-center text-3xl">
-			<div class="top-box flex items-center mx-auto">
-				<a href="/">LOGO</a>
-				<div class="flex-grow"></div>
-				<ul class="flex log">
-					<li>
-						<a href="/usr/article/infolist?boardId=2">정보</a>
-						<a href="/usr/article/qnalist?boardId=3">qna</a>
-					</li>
-					<c:if test="${!rq.isLogined() }">
+			<div class="top-box flex items-center mx-auto justify-between">
+				<div>
+					<a href="/">LOGO</a>
+				</div>
+				<div class="">
+					<ul class="flex log">
 						<li>
-							<a class="hover:underline" href="/usr/member/login">로그인</a>
+							<a href="/usr/article/infolist?boardId=2">INFO</a>
 						</li>
 						<li>
-							<a class="hover:underline" href="/usr/member/join">회원가입</a>
+							<a href="/usr/article/qnalist?boardId=3">QnA</a>
 						</li>
-					</c:if>
-					<c:if test="${rq.isLogined() }">
-						<li>
-							<a class="hover:underline" href="/usr/member/mypage/usrmodify">마이페이지</a>
-						</li>
-						<li>
-							<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" class="hover:underline" href="/usr/member/doLogout">로그아웃</a>
-						</li>
-					</c:if>
-				</ul>
+						<c:if test="${!rq.isLogined() }">
+							<li>
+								<a class="hover:underline" href="/usr/member/login">LOGIN</a>
+							</li>
+							<li>
+								<a class="hover:underline" href="/usr/member/join">JOIN</a>
+							</li>
+						</c:if>
+						<c:if test="${rq.isLogined() }">
+							<li>
+								<a class="hover:underline" href="/usr/member/mypage/usrmodify">MY</a>
+							</li>
+							<li>
+								<a onclick="if(confirm('로그아웃 하시겠습니까?') == false) return false;" class="hover:underline"
+									href="/usr/member/doLogout">LOGOUT</a>
+							</li>
+						</c:if>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</header>

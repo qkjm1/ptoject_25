@@ -60,7 +60,7 @@
 		JOIN `user` AS M
 		ON A.usrId = M.id
 		WHERE 1
-		<if test="boardId != 0">AND A.boardId = ${boardId}</if>
+		<if test="boardId != 0">AND A.boardId = #{boardId}</if>
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -95,7 +95,7 @@
 		ON
 		A.boardId = B.id
 		WHERE 1
-		<if test='boardId != 0'>AND A.boardId = ${boardId}</if>
+		<if test='boardId != 0'>AND A.boardId = #{boardId}</if>
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -148,7 +148,7 @@
 		LEFT JOIN `like` L
 		ON A.id = L.articleId
 		WHERE
-		L.usrId = ${isLoginMemberId}
+		L.usrId = #{isLoginMemberId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -177,7 +177,7 @@
 		LEFT JOIN `like` L
 		ON A.id =
 		L.articleId
-		WHERE L.usrId = ${isLoginMemberId}
+		WHERE L.usrId = #{isLoginMemberId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -207,7 +207,7 @@
 		LEFT JOIN `like` L
 		ON A.id = L.articleId
 		WHERE
-		A.usrId = ${isLoginMemberId}
+		A.usrId = #{isLoginMemberId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
@@ -237,7 +237,7 @@
 		JOIN
 		`user` M
 		ON A.usrId = M.id
-		WHERE A.usrId = ${isLoginMemberId}
+		WHERE A.usrId = #{isLoginMemberId}
 		<if test="searchKeyword != ''">
 			<choose>
 				<when test="searchKeywordTypeCode == 'title'">
