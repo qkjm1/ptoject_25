@@ -148,7 +148,7 @@ public class usrArticleController {
 
 		Board board = boardService.getBoardById(boardId);
 
-		int listInApage = 5;
+		int listInApage = 4;
 
 		int articlesCntByboard = articleService.getArticleCountByBoard(boardId, searchKeywordTypeCode, searchKeyword);
 		System.err.println(articlesCntByboard);

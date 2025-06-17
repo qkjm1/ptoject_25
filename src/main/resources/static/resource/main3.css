@@ -1,0 +1,99 @@
+/* ::after 기본 표시 */
+.sprite::after {
+	content: attr(data-label);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(60, 60, 41, 0.3);
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	opacity: 1;
+	filter: none;
+}
+
+.container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.image-wrapper {
+	position: absolute;
+	right:50%;
+	perspective: 2000px;
+	margin-top: 200px; /* 이게 포인트 */
+}
+
+.image-wrapper img {
+	  width: 100%;
+  height: 100%;
+	transition: transform 0.2s ease;
+	filter: drop-shadow(0 20px 40px 0 rgba(0, 0, 0, 0.3));
+	transform-style: preserve-3d;
+	border-radius: 16px;
+}
+
+.sprite {
+	width: 165px;
+	height: 165px;
+	filter: blur(1.5px);
+	position: relative;
+	background-image: url('/imgs/anatomy.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	margin: 10px auto;
+	cursor: pointer;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	transition: filter 0.3s ease;
+}
+
+/* 각 파트에 맞는 background-position 설정 */
+.sprite-1 {
+	background-position: 0 0;
+}
+
+.sprite-2 {
+	background-position: 0 -165px;
+}
+
+.sprite-3 {
+	background-position: 0 -330px;
+}
+
+.sprite-4 {
+	background-position: 0 -495px;
+}
+
+.sprite-5 {
+	background-position: 0 -660px;
+}
+
+.sprite-6 {
+	background-position: 0 -825px;
+}
+
+.sprite-7 {
+	background-position: 0 -990px;
+}
+
+.sprite-8 {
+	background-position: 0 -1155px;
+}
+
+.sprite-9 {
+	background-position: 0 -1320px;
+}
+
+.sprite-10 {
+	background-position: 0 -1485px;
+}

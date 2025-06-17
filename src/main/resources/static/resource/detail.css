@@ -50,6 +50,7 @@
 	padding: 30px;
 }
 
+
 .btns {
 	width: 96%;
 	position: absolute;
@@ -64,17 +65,70 @@
 }
 
 .info-title {
-	height: 40px;
-	width: 60%;
-	background-color: white;
-	left: 0;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
 .info-title-box>div:nth-child(2) {
 	height: 35px;
-	font-size: 10px;
+	font-size: 13px;
 }
 
 .info-title-box {
-	width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.info-body {
+height: 200px;
+  height: 150px;
+  padding-top: 0.5rem;
+}
+
+.info-box-in > div {
+	width: 80%;
+	padding: 20px;
+
+}
+
+.info-box {
+	padding: 20px;
+}
+
+.p-1:hover {
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.p-1 {
+	height: 340px;
+	justify-content: center;
+	align-content: center;
+	background-color: white;
+	border-radius: 4px; /* 둥글게 */
+	padding: 10px;
+}
+
+
+.toast-msg {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0.9;
+}
+
+.info-title-box{
+	justify-content: space-around;
+}
+
+.info-body {
+	border-top: 1px solid #012C4E;
 }

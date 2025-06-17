@@ -10,12 +10,10 @@
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
 
-
-	<div class="h-6"></div>
-	<div class="flex ">
-		<form class="mx-auto w-full">
-			<input type="hidden" name="searchKeywordTypeCode" value="QnA" />
-			<input type="hidden" name="boardId" value="3" />
+	<div class="flex justify-center">
+		<form class="w-full flex">
+			<input type="hidden" name="searchKeywordTypeCode" value="info" />
+			<input type="hidden" name="boardId" value="2" />
 			<div class="search-box">
 				<input type="text" placeholder="검색어를 입력하세요" name="searchKeyword" value="${param.searchKeyword}" />
 				<button type="submit">
@@ -28,9 +26,6 @@
 			</div>
 		</form>
 	</div>
-
-
-
 
 
 	<div class="flex flex-grow ">
