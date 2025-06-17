@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,6 +38,24 @@ public class usrArticleController {
 	
 	@Autowired
 	private BookmarkService bookmarkService;
+	
+	
+//	@PostMapping("/upload-image")
+//	@ResponseBody
+//	public ResultData uploadImage(@RequestParam("image") MultipartFile image) throws IOException {
+//	    String uploadDir = "C:/upload/";
+//	    String filename = UUID.randomUUID() + "_" + image.getOriginalFilename();
+//	    Path path = Paths.get(uploadDir + filename);
+//	    Files.copy(image.getInputStream(), path);
+//
+//	    Map<String, String> result = new HashMap<>();
+//	    result.put("url", "/images/" + filename); // 클라이언트에서 접근 가능한 경로
+//	    return ResultData.from(filename, uploadDir, filename, null);
+//	}
+//	
+//	
+//	
+	
 	
 	
 	@RequestMapping("/usr/article/detail")
@@ -197,16 +216,14 @@ public class usrArticleController {
 		int totalPage = (int) Math.ceil(getArticleCountByPartId / (double) listInApage);
 		System.err.println("totalPage: "+totalPage);
 
+		// 가지고올때 해당글에 좋아요를 누른 사람의 id도 같이 들고와서 jsp에서 if문쓰기
 		List<Article> articles = articleService.getForPrintArticlesByPartId(partId, listInApage, page, searchKeywordTypeCode,
-				searchKeyword);
+				searchKeyword);		
+		
 		
 		Article getPartId = articleService.partName(partId);
 
-//		ResultData isBookmarkedRD = bookmarkService.isBookmarked(rq.getIsLoginMemberId(), articleId);
-//		System.out.println("++++===="+isBookmarkedRD.isSuccess());
-//		model.addAttribute("isBookmarked", isBookmarkedRD.isSuccess()); // 좋아요를 했는지 안했는지		
-		
-		
+		model.addAttribute("usr", rq.getIsLoginMemberId());
 		model.addAttribute("getArticleCountByPartId", getArticleCountByPartId);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("getPartId", getPartId);

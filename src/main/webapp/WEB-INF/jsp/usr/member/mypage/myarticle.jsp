@@ -5,9 +5,9 @@
 <%@ include file="../../common/head.jspf"%>
 
 
-<link rel="stylesheet" href="/resource/common.css" />
-<link rel="stylesheet" href="/resource/detail.css" />
 <script type="module" src="/resource/ajax.js"></script>
+<link rel="stylesheet" href="/resource/detail.css" />
+<link rel="stylesheet" href="/resource/common.css" />
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
 
@@ -58,47 +58,52 @@
 				</div>
 			</c:if>
 
-			<div class="info-box-in flex flex-col">
-				<div class="grid grid-cols-3 gap-2" class="article-list">
-					<c:forEach var="article" items="${myArticles}">
-						<div class="p-3 ">
-							<div class="info-title-box flex justify-between justify-center items-end">
-								<div class="info-title">
-									<a href="#" class="text-xl font-bold text-black">${article.title}</a>
+			<div class=" flex flex-col">
+				<div class="info-title-body">
+					<div class="grid grid-cols-3 gap-4 flex" class="article-list">
+						<c:forEach var="article" items="${myArticles}">
+							<div class="p-1 flex flex-col">
+								<div class="info-title-box flex flex-grow-0">
+									<div class="info-title">
+										<a href="#" class="text-xl font-bold text-black">${article.title}</a>
+									</div>
+									<div>
+										<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
+										<div>
+											<form action="/usr/bookmark/doLike" method="POST" class="bookmark__form" data-article-id="${article.id}">
+												<input type="hidden" name="articleId" value="${article.id}" />
+												<button type="submit" class="bookmark-btn" title="북마크 추가/해제">
+													<svg class="bookmark__icon ${article.isBookmarked == usr ? 'bookmark__icon_col' : ''}"
+														xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#555" stroke-width="3"
+														viewBox="0 0 24 24">
+      <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
+    </svg>
+												</button>
+											</form>
+										</div>
+									</div>
 								</div>
-								<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
-								<div>
-									<form action="/usr/bookmark/doLike" method="POST" id="bookmark__btn">
-										<input type="hidden" name="articleId" value="${article.id}" />
-										<button type="submit">
-											<div>
-												<svg id="bookmark__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#555"
-													stroke-width="3" viewBox="0 0 24 24" class="${isBookmarked== article.id ? 'bookmark__icon_col' : ''}">
-  <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
-</svg>
+								<div class="info-body flex-grow">
+									<div>
+										<a href="detail?articleId=${article.id}">${article.body}</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
 
-											</div>
-										</button>
-									</form>
-								</div>
-							</div>
-							<div class="info-body">
-								<a href="detail?articleId=${article.id}">${article.body}</a>
-							</div>
-						</div>
-					</c:forEach>
 				</div>
-				<c:if test="${empty myArticles}">
-					<div class="flex ">
+				<c:if test="${empty articles}">
+					<div class="flex mx-auto">
 						<div>게시글이 없습니다</div>
 					</div>
 				</c:if>
 			</div>
 
 
+			<div class="flex-grow"></div>
 
-
-			<div class="paging flex justify-center mt-4">
+			<div class="paging">
 				<div class="btn-group join ">
 					<c:set var="paginationLen" value="5" />
 					<c:set var="startPage" value="${page - paginationLen >= 1 ? page - paginationLen : 1 }" />

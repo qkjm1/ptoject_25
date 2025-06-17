@@ -58,42 +58,22 @@
 }
 
 /* 각 파트에 맞는 background-position 설정 */
-.sprite-1 {
-	background-position: 0 0;
-}
+.sprite-1 {background-position: 0 0;}
 
-.sprite-2 {
-	background-position: 0 -165px;
-}
+.sprite-2 {background-position: 0 -165px;}
 
-.sprite-3 {
-	background-position: 0 -330px;
-}
+.sprite-3 {background-position: 0 -330px;}
 
-.sprite-4 {
-	background-position: 0 -495px;
-}
+.sprite-4 {background-position: 0 -495px;}
 
-.sprite-5 {
-	background-position: 0 -660px;
-}
+.sprite-5 {background-position: 0 -660px;}
 
-.sprite-6 {
-	background-position: 0 -825px;
-}
+.sprite-6 {background-position: 0 -825px;}
 
-.sprite-7 {
-	background-position: 0 -990px;
-}
+.sprite-7 {background-position: 0 -990px;}
 
-.sprite-8 {
-	background-position: 0 -1155px;
-}
+.sprite-8 {background-position: 0 -1155px;}
 
-.sprite-9 {
-	background-position: 0 -1320px;
-}
+.sprite-9 {background-position: 0 -1320px;}
 
-.sprite-10 {
-	background-position: 0 -1485px;
-}
+.sprite-10 {background-position: 0 -1485px;}

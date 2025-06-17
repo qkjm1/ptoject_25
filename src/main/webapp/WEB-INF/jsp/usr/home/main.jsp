@@ -5,6 +5,19 @@
 <%@ include file="../common/head.jspf"%>
 <title>MAIN</title>
 
+
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
+        "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+  </script>
+
+
+<script type="module" src="/resource/00_TEST.js"></script>
 <link rel="stylesheet" href="/resource/main.css" />
 <link rel="stylesheet" href="/resource/main2.css" />
 <link rel="stylesheet" href="/resource/main3.css" />
@@ -45,11 +58,14 @@
 		</form>
 
 	</div>
+	
+
 	<div class="container">
 		<div class="image-wrapper">
 			<img src="/imgs/123.png" alt="Sample Image" />
 		</div>
 	</div>
+
 	<div class="main_line_1-2"></div>
 	<div class="main_2-box">
 		<div id="map" style="width: 500px; height: 400px;">map</div>
@@ -84,15 +100,3 @@
 <%@ include file="../common/poot.jspf"%>
 
 
-<script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
-        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js",
-        "OrbitControls": "https://unpkg.com/three@0.141.0/examples/jsm/controls/OrbitControls.js"
-      }
-    }
-  </script>
-
-
-<script type="module" src="/resource/00_TEST.js"></script>

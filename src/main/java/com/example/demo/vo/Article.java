@@ -33,4 +33,5 @@ public class Article {
 	
 	private String extra__writer;
 	private String part__name;
+	private String isBookmarked;
 }

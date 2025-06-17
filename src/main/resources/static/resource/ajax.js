@@ -12,7 +12,7 @@ $(document).ready(function () {
       success: function (response) {
         const resultCode = response.resultCode;
         const $icon = $form.find(".bookmark__icon");
-
+		
         if (resultCode.startsWith("S")) {
           $icon.addClass('bookmark__icon_col');
           showToast("북마크 추가됨");

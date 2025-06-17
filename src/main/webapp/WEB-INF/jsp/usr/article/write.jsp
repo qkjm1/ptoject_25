@@ -54,41 +54,29 @@
 
 </div>
 <script>
-	$(document).ready(function() {
-		const editor = new toastui.Editor({
-			el : document.querySelector('#editor'),
-			height : '750px',
-			initialEditType : 'markdown',
-			previewStyle : 'vertical'
-		});
+const editor = new toastui.Editor({
+    el: document.querySelector('#editor'),
+    height: '750px',
+    initialEditType: 'markdown',
+    previewStyle: 'vertical',
+    hooks: {
+      addImageBlobHook: async (blob, callback) => {
+        const formData = new FormData();
+        formData.append('image', blob);
 
-		$('#articleForm').on('submit', function(e) {
-			const title = $('#titleInput').val().trim();
-			const content = editor.getMarkdown().trim();
-			const partId = $('.partId').val();
-
-			if (!partId) {
-				alert('분류를 선택해주세요.');
-				e.preventDefault();
-				return;
-			}
-
-			if (!title) {
-				alert('제목을 입력해주세요.');
-				$('#titleInput').focus();
-				e.preventDefault();
-				return;
-			}
-
-			if (!content) {
-				alert('내용을 입력해주세요.');
-				e.preventDefault();
-				return;
-			}
-
-			$('#bodyInput').val(content);
-		});
-	});
+        try {
+          const response = await fetch('/upload-image', {
+            method: 'POST',
+            body: formData
+          });
+          const result = await response.json();
+          callback(result.url, 'image');
+        } catch (error) {
+          alert('이미지 업로드 실패');
+        }
+      }
+    }
+  });
 </script>
 
 

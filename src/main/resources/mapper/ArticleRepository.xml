@@ -139,7 +139,7 @@
 	<!--> 좋아요 기준으로 가지고오기 </! -->
 	<select id="getForPrintLikeArticles"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.*, M.nickname AS extra__writer
+		SELECT A.*, M.nickname AS extra__writer, L.usrId AS isBookmarked
 		FROM article AS A
 		INNER
 		JOIN
@@ -198,7 +198,7 @@
 
 	<select id="getForPrintMyArticles"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.*, M.nickname AS extra__writer
+		SELECT A.*, M.nickname AS extra__writer, L.usrId AS isBookmarked
 		FROM article AS A
 		INNER
 		JOIN
@@ -286,7 +286,7 @@
 
 	<select id="getForPrintArticlesByPartId"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.*, M.nickname AS extra__writer
+		SELECT A.*, M.nickname AS extra__writer, L.usrId AS isBookmarked
 		FROM
 		article A
 		INNER JOIN `user`
@@ -299,6 +299,8 @@
 		anatomy T
 		ON
 		A.partId = T.id
+		LEFT JOIN `like` L
+		ON A.id = L.articleId
 		WHERE T.id =
 		${partId}
 		AND B.code = 'info'

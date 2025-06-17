@@ -140,6 +140,7 @@ public class usrMemberController {
 		List<Article> likeArticles = articleService.getForPrintLikeArticles(rq.getIsLoginMemberId(), listInApage, page, searchKeywordTypeCode,
 				searchKeyword);
 
+		model.addAttribute("usr", rq.getIsLoginMemberId());
 		model.addAttribute("articlesCntBylike", articlesCntBylike);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("likeArticles", likeArticles);
@@ -167,11 +168,7 @@ public class usrMemberController {
 		List<Article> myArticles = articleService.getForPrintMyArticles(rq.getIsLoginMemberId(), listInApage, page, searchKeywordTypeCode,
 				searchKeyword);
 		
-		ResultData isBookmarkedRD = bookmarkService.isBookmarkedbyId(rq.getIsLoginMemberId());
-		// 아티클과 북마크 조인 유저아이디로 순회해서 동일한지
-		model.addAttribute("isBookmarked", isBookmarkedRD.getData1()); // 좋아요를 했는지 안했는지		
-		
-
+		model.addAttribute("usr", rq.getIsLoginMemberId());
 		model.addAttribute("articlesCntByMy", articlesCntByMy);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("myArticles", myArticles);
