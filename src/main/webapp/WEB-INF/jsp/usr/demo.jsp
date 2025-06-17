@@ -7,13 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="map" style="width: 500px; height: 400px;">map</div> 
-	
-	<p>
-		<button onclick="setCenter()">지도 중심좌표 이동시키기</button>
-		<button onclick="panTo()">지도 중심좌표 부드럽게 이동시키기</button>
-	</p>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfd275f49b78960a0458d6f6294cbde2&libraries=services"></script>
-<script type="module" src="/resource/kakao.js"></script>
+<form action="/member/uploadProfile" method="post" enctype="multipart/form-data">
+    <input type="file" name="profileImage" accept="image/*" />
+    <button type="submit">사진 업로드</button>
+</form>
+
+<div class="img_upload" ></div>
+<style>
+.img_upload {
+width: 100px;
+height: 100px;
+}
+
+</style>
 </body>
 </html>

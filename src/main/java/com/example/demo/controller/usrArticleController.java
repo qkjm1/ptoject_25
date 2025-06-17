@@ -1,9 +1,14 @@
 package com.example.demo.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.BoardService;
@@ -52,9 +58,28 @@ public class usrArticleController {
 //	    result.put("url", "/images/" + filename); // 클라이언트에서 접근 가능한 경로
 //	    return ResultData.from(filename, uploadDir, filename, null);
 //	}
-//	
-//	
-//	
+	
+	@PostMapping("/upload-image")
+	@ResponseBody
+	public ResultData uploadImage(@RequestParam("image") MultipartFile image) throws IOException {
+	    String uploadDir = "C:/upload/";
+
+	    // 저장 디렉터리 생성 (없는 경우)
+	    File dir = new File(uploadDir);
+	    if (!dir.exists()) {
+	        dir.mkdirs();
+	    }
+
+	    String filename = UUID.randomUUID() + "_" + image.getOriginalFilename();
+	    Path path = Paths.get(uploadDir + filename);
+	    Files.copy(image.getInputStream(), path);
+
+	    // 클라이언트에서 접근할 수 있는 경로
+	    String imageUrl = "/images/" + filename;
+
+	    return ResultData.from("S-1", "이미지 업로드 성공", "imageUrl", imageUrl);
+	}
+	
 	
 	
 	

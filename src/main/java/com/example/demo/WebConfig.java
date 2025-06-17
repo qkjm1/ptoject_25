@@ -18,6 +18,9 @@ public class WebConfig implements WebMvcConfigurer {
     	registry.addResourceHandler("/models/**")
         .addResourceLocations("classpath:/static/models/")
         .setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS));
-        
+    
+    	
+    	registry.addResourceHandler("/profile/**")
+        .addResourceLocations("file:///C:/upload/profile/");
     }
 }

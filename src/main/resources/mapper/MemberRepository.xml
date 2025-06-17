@@ -66,6 +66,10 @@
 		#{email};
 	</insert>
 
-
+	<select id="updateProfileImage">
+		INSERT INTO cartoon
+		SET
+		`img`= #{string};
+	</select>
 
 </mapper>
