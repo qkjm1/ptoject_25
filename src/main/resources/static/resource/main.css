@@ -27,7 +27,7 @@ html, body {
 	position: relative;
 	display: flex;
 	justify-content: center; /* 수평 정렬 */
-	align-items:flex-start;;
+	align-items: flex-start;;
 }
 
 .main_line_1-2 {
@@ -138,15 +138,14 @@ html, body {
 
 /* hover 시 오버레이 사라짐 */
 .sprite:hover::after {
-  opacity: 0;
+	opacity: 0;
 }
 
 /* 해당 요소만 선명하게 */
 .sprite:hover {
-  filter: none;
-  z-index: 1;
+	filter: none;
+	z-index: 1;
 }
-
 
 .info-box-items>div:nth-child(1):hover {
 	content: '머리';
@@ -192,15 +191,14 @@ html, body {
 }
 
 .info-box-items>div:nth-child(10):hover {
-	
 	content: '종아리/발목';
 }
 
 /*2박스*/
-#map{
-	position: absolute; 
-	left:220px;
-	top: 320px;
+#map {
+	position: absolute;
+	margin: auto;
+	top: 80px;
 	border-radius: 8px; /* 둥글게 */
 }
 

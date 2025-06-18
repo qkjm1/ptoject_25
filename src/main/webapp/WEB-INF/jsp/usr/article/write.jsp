@@ -11,9 +11,8 @@
 	<div class="h-5"></div>
 	<div>
 		<div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
-			<form id="articleForm" action="../article/doWrite" method="POST">
+			<form onsubmit="ArticleWrite__submit(this); return false;" id="articleForm" action="../article/doWrite" method="POST">
 				<input type="hidden" name="boardId" value="2" />
-				<input type="hidden" name="body" id="bodyInput" />
 
 				<div>
 					<label for="partId" class="block mb-1 text-sm font-semibold text-gray-700">분류</label>
@@ -35,49 +34,52 @@
 				<div>
 					<label for="titleInput" class="block text-sm font-semibold text-gray-700">제목</label>
 					<input id="titleInput" required name="title" type="text"
-  class="border border-[#3C3C29] bg-white text-[#3C3C29] px-3 py-2 rounded w-full mt-2"
-  autocomplete="off" placeholder="제목" />
+						class="border border-[#3C3C29] bg-white text-[#3C3C29] px-3 py-2 rounded w-full mt-2" autocomplete="off"
+						placeholder="제목" />
 				</div>
 				<div>
+					<input type="hidden" name="body" id="bodyInput" />
 					<label class="block mb-1 text-sm font-semibold text-gray-700"></label>
-					<div id="editor" class="border border-gray-300 rounded-md"></div>
+					<div id="editor" class="toast-ui-editor border border-white rounded-md"></div>
 				</div>
 
 				<!-- 버튼 -->
 				<div class="flex justify-between pt-4">
 					<button type="button" onclick="history.back();" class="px-4 py-2 bg-gray-200 text-gray-800 rounde">뒤로가기</button>
-					<button class="btn btn-primary bg-[#3C3C29] text-[#E1D8CD] hover:bg-[#2f2f20]" type="submit">작성</button>
+					<button class="btn btn-primary" type="submit">작성</button>
 				</div>
 			</form>
 		</div>
 	</div>
-
 </div>
-<script>
-const editor = new toastui.Editor({
-    el: document.querySelector('#editor'),
-    height: '500px',
-    initialEditType: 'markdown',
-    previewStyle: 'vertical',
-    hooks: {
-      addImageBlobHook: async (blob, callback) => {
-        const formData = new FormData();
-        formData.append('image', blob);
+<script type="text/javascript">
+function ArticleWrite__submit(form) {
+	form.title.value = form.title.value.trim();
 
-        try {
-          const response = await fetch('/upload-image', {
-            method: 'POST',
-            body: formData
-          });
-          const result = await response.json();
-          callback(result.url, 'image');
-        } catch (error) {
-          alert('이미지 업로드 실패');
-        }
-      }
-    }
-  });
+	if (form.partId.value.length == 0) {
+		alert('분류를 선택해주세요');
+		return;
+	}
+	
+	if (form.title.value.length == 0) {
+		alert('제목을 써주세요');
+		return;
+	}
+
+	const editor = $(form).find('.toast-ui-editor').data(
+			'data-toast-editor');
+	const markdown = editor.getMarkdown().trim();
+
+	if (markdown.length == 0) {
+		alert('내용을 써주세요');
+		return;
+	}
+
+	form.body.value = markdown;
+	form.submit();
+}
 </script>
+
 
 
 <%@ include file="../common/poot.jspf"%>

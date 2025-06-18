@@ -5,30 +5,69 @@
 <%@ include file="../common/head.jspf"%>
 
 <title>JOIN</title>
+
 <link rel="stylesheet" href="/resource/common.css" />
 <div class="top-boundry-box"></div>
-<div class="contents-box">
-	<div class="signup-box flex">
-		<form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();">
-			<h2>회원가입</h2>
-			<input type="text" name="loginId" placeholder="아이디">
 
-			<input type="password" name="loginPw" placeholder="비밀번호">
+<div class="contents-box flex justify-center items-center min-h-screen"">
+  <div class="signup-box p-10 w-full max-w-lg">
+    <div class="text-2xl font-bold text-center text-[#3C3C29]">회원가입</div>
 
-			<input type="password" name="loginPwConfirm" placeholder="비밀번호 확인">
 
-			<input type="text" name="name" placeholder="이름">
+    <form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();" class="space-y-4">
 
-			<input type="text" name="email" placeholder="이메일">
+      <div>
+        <label class="block font-medium text-[#3C3C29]">아이디</label>
+        <input type="text" name="loginId" placeholder="아이디"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
 
-			<input type="text" name="nickname" placeholder="닉네임">
+      <div>
+        <label class="block font-medium text-[#3C3C29]">비밀번호</label>
+        <input type="password" name="loginPw" placeholder="비밀번호"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
 
-			<input type="text" name="cellphoneNum" placeholder="전화번호">
+      <div>
+        <label class="block font-medium text-[#3C3C29]">비밀번호 확인</label>
+        <input type="password" name="loginPwConfirm" placeholder="비밀번호 확인"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
 
-			<button type="submit">가입하기</button>
-		</form>
-	</div>
+      <div>
+        <label class="block font-medium text-[#3C3C29]">이름</label>
+        <input type="text" name="name" placeholder="이름"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
+
+      <div>
+        <label class="block font-medium text-[#3C3C29]">이메일</label>
+        <input type="email" name="email" placeholder="이메일"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
+
+      <div>
+        <label class="block font-medium text-[#3C3C29]">닉네임</label>
+        <input type="text" name="nickname" placeholder="닉네임"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
+
+      <div>
+        <label class="block font-medium text-[#3C3C29]">전화번호</label>
+        <input type="text" name="cellphoneNum" placeholder="010-1234-5678"
+               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      </div>
+
+      <div class="pt-4">
+        <button type="submit"
+                class="w-full bg-[#3C3C29] hover:bg-opacity-90 text-white font-semibold py-2 rounded-lg transition duration-200">
+          가입하기
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
 
 <a href="/oauth2/code/naver">
     네이버 로그인하기

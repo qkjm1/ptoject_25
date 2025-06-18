@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.demo.repository.ArticleRepository">
 
-	<insert id="writeArticle" parameterType="map">
+<insert id="writeArticle" parameterType="map">
 		INSERT INTO article
 		SET
 		regDate = NOW(),

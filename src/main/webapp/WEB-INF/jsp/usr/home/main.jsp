@@ -65,12 +65,25 @@
 			<img src="/imgs/123.png" alt="Sample Image" />
 		</div>
 	</div>
+	
+	
 
 	<div class="main_line_1-2"></div>
+
+	
+	
 	<div class="main_2-box">
-		<div id="map" style="width: 500px; height: 400px;">map</div>
+	
+		<div id="map" style="width: 800px; height: 800px;">map</div>
+		
 	</div>
+	
+	
+	
 	<div class="main_line_2-3"></div>
+	
+	
+	
 	<div class="flex-grow main_3-box">
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
@@ -98,5 +111,3 @@
 </div>
 
 <%@ include file="../common/poot.jspf"%>
-
-

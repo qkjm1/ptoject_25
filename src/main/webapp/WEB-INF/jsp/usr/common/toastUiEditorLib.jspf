@@ -345,7 +345,7 @@ function getUriParams(uri) {
 	      el: node,
 	      previewStyle: "vertical",
 	      initialValue: initialValue,
-	      height: "600px",
+	      height: "800px",
 	      plugins: [
 	        [toastui.Editor.plugin.chart, ToastEditor__chartOptions],
 	        [toastui.Editor.plugin.codeSyntaxHighlight, { highlighter: Prism }],
@@ -357,6 +357,12 @@ function getUriParams(uri) {
 	        codepenPlugin,
 	        replPlugin
 	      ],
+	      hooks: {
+	            addImageBlobHook(blob, callback) {  // 이미지 업로드 로직 커스텀
+	                console.log(blob);
+	                console.log(callback);
+	            }
+	        },
 	      customHTMLSanitizer: (html) => {
 	        return (
 	          DOMPurify.sanitize(html, {

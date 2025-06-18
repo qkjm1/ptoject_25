@@ -59,5 +59,10 @@ public class MemberService {
 	}
 
 
+	public Member findById(int loginId) {
+		return memberRepository.findById(loginId);
+	}
+
+
 
 }

@@ -93,7 +93,7 @@
 					</div>
 
 				</div>
-				<c:if test="${empty articles}">
+				<c:if test="${empty myArticles}">
 					<div class="flex mx-auto">
 						<div>게시글이 없습니다</div>
 					</div>

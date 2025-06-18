@@ -1,4 +1,4 @@
- body {
+body {
 	background-color: #f0f0f0;
 	font-family: 'Noto Sans KR', 'Arial', sans-serif;
 	color: #333;
@@ -17,14 +17,15 @@ ul, li, a {
 	padding: 0;
 	font-family: 'Arial', sans-serif;
 	display: flex;
-	height: 1300px;	
+	height: 100%;	
 	justify-content: center;
 	align-items: center;
+	
 }
 
 
 .signup-box>div {
-	border-bottom: 1px solid #012C4E;
+	border-bottom: 1px solid #3C3C29;
 	margin-bottom: 10px;
 	width: 100%;
 	text-align: center;
@@ -40,7 +41,7 @@ ul, li, a {
 }
 
 .signup-box input {
-	background-color: white;
+	background-color: #E1D8CD;
 	width: 100%;
 	padding: 10px;
 	margin-top: 10px;
@@ -54,11 +55,15 @@ ul, li, a {
 	padding: 10px;
 	margin-top: 20px;
 	background-color: white;
-	color: #012C4E;
+	color: #3C3C29;
 	font-weight: bold;
 	border: none;
 	border-radius: 6px;
 	cursor: pointer;
+}
+
+.signup-box {
+	width: 400px;
 }
 
 .signup-box button:hover {
@@ -67,7 +72,7 @@ ul, li, a {
 
 .signup-box input:focus {
 	outline: none;
-	box-shadow: 0 0 0 2px #012C4E;
+	box-shadow: 0 0 0 2px #3C3C29;
 }
 
 /* 회원가입 폼
@@ -88,8 +93,9 @@ ul, li, a {
 	padding: 2rem;
 	display: flex;
 	gap: 1.5rem;
-	height: 1300px;
+	height: 1200px;
 	position: relative;
+	justify-content: center;
 }
 
 .top-boundry-box {
@@ -279,8 +285,8 @@ ul, li, a {
 .bookmark-btn {
 	background: transparent;
 	border: none;
-	padding: 6px;
-	margin-left: 5px;
+	top: 40px;
+	margin-left: 50px;
 	cursor: pointer;
 	transition: transform 0.2s ease;
 	position: relative; /* 툴팁 위치 기준 */
@@ -315,11 +321,52 @@ ul, li, a {
 	position: absolute;
 	border-radius: 4px;
 }
+/*페이지네이션*/
+
 
 .paging {
-	display: flex;
-	margin-bottom: 40px;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.btn-group.join {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  background-color: white;
+  color: #3C3C29;
+  border: 1px solid #EAD292;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  min-width: 36px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-group .btn:hover {
+  background-color: #EAD292;
+  color: #3C3C29;
+}
+
+.btn-group .btn-active {
+  background-color: #3C3C29;
+  color: white;
+  border-color: #3C3C29;
+}
+
+.btn-group .btn-disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  cursor: default;
+  pointer-events: none;
+  border-color: #ddd;
 }
 
 /*글쓰기*/

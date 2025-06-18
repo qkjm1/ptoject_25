@@ -42,6 +42,7 @@ CREATE TABLE article (
 
 CREATE TABLE cartoon (
    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+   usrId INT(10) UNSIGNED NOT NULL,
    img TEXT NOT NULL COMMENT '이미지 주소'
 );
 
@@ -447,18 +448,18 @@ SET
 `code` = 'QnA',
 `name` = '질의응답';
 
-		
-		INSERT INTO `like`
-		SET
-		regDate = NOW(),
-		usrId = 1,
-		articleId = 1;
-		
-		INSERT INTO `like`
-		SET
-		regDate = NOW(),
-		usrId = 2,
-		articleId = 1;
+      
+      INSERT INTO `like`
+      SET
+      regDate = NOW(),
+      usrId = 1,
+      articleId = 1;
+      
+      INSERT INTO `like`
+      SET
+      regDate = NOW(),
+      usrId = 2,
+      articleId = 1;
 ################
 
 
@@ -524,54 +525,60 @@ FROM article
 WHERE partId = 8
 
 SELECT *
-		FROM board
-		WHERE id = 1 AND delStatus = 0
-		
-		
-		SELECT COUNT(*) , M.nickname AS extra__writer
-		FROM article AS A
-		INNER
-		JOIN `user` AS M
-		ON A.usrId = M.id
-		WHERE  A.title LIKE '%어깨%'
-		
-		
-		SELECT COUNT(*)
-		FROM `like` L
-		INNER JOIN `user` U
-		ON L.usrId =
-		U.id
-		WHERE
-		L.articleId = 1
-		AND
-		U.id = 1;
-		
-		SELECT COUNT(*)
-		FROM `like` L
-		INNER JOIN `user` U
-		ON L.usrId =
-		U.id
-		WHERE
-		L.articleId = 16
-		AND
-		U.id = 1;
-		
-		
-		
-		SELECT COUNT(*)
-		FROM article A
-		INNER JOIN board B
-		ON A.boardId = B.id
-		INNER JOIN anatomy T
-		ON
-		A.partId = T.id
-		WHERE T.id = 3
-		AND B.id =2
-		
-				SELECT A.id
-		FROM `like` L
-		INNER JOIN article A
-		ON L.articleId =
-		A.id
-		WHERE
-		L.usrId = 1;
+      FROM board
+      WHERE id = 1 AND delStatus = 0
+      
+      
+      SELECT COUNT(*) , M.nickname AS extra__writer
+      FROM article AS A
+      INNER
+      JOIN `user` AS M
+      ON A.usrId = M.id
+      WHERE  A.title LIKE '%어깨%'
+      
+      
+      SELECT COUNT(*)
+      FROM `like` L
+      INNER JOIN `user` U
+      ON L.usrId =
+      U.id
+      WHERE
+      L.articleId = 1
+      AND
+      U.id = 1;
+      
+      SELECT COUNT(*)
+      FROM `like` L
+      INNER JOIN `user` U
+      ON L.usrId =
+      U.id
+      WHERE
+      L.articleId = 16
+      AND
+      U.id = 1;
+      
+      
+      
+      SELECT COUNT(*)
+      FROM article A
+      INNER JOIN board B
+      ON A.boardId = B.id
+      INNER JOIN anatomy T
+      ON
+      A.partId = T.id
+      WHERE T.id = 3
+      AND B.id =2
+      
+            SELECT A.id
+      FROM `like` L
+      INNER JOIN article A
+      ON L.articleId =
+      A.id
+      WHERE
+      L.usrId = 1;
+      
+      SELECT C.img AS ProfileImage
+      FROM cartoon C
+      INNER JOIN `user` U
+      ON C.usrId = U.id
+      WHERE C.usrId = 1

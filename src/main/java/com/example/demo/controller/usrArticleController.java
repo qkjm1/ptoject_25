@@ -59,29 +59,7 @@ public class usrArticleController {
 //	    return ResultData.from(filename, uploadDir, filename, null);
 //	}
 	
-	@PostMapping("/upload-image")
-	@ResponseBody
-	public ResultData uploadImage(@RequestParam("image") MultipartFile image) throws IOException {
-	    String uploadDir = "C:/upload/";
 
-	    // 저장 디렉터리 생성 (없는 경우)
-	    File dir = new File(uploadDir);
-	    if (!dir.exists()) {
-	        dir.mkdirs();
-	    }
-
-	    String filename = UUID.randomUUID() + "_" + image.getOriginalFilename();
-	    Path path = Paths.get(uploadDir + filename);
-	    Files.copy(image.getInputStream(), path);
-
-	    // 클라이언트에서 접근할 수 있는 경로
-	    String imageUrl = "/images/" + filename;
-
-	    return ResultData.from("S-1", "이미지 업로드 성공", "imageUrl", imageUrl);
-	}
-	
-	
-	
 	
 	@RequestMapping("/usr/article/detail")
 	public String showDetail(HttpServletRequest req, Model model, int articleId) {
@@ -296,4 +274,3 @@ public class usrArticleController {
 
 
 }
-

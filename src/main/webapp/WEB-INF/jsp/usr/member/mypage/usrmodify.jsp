@@ -4,7 +4,9 @@
 <c:set var="pageTitle" value="MY PAGE"></c:set>
 <%@ include file="../../common/head.jspf"%>
 
+<script type="module" src="/resource/ajax.js"></script>
 <link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/detail.css" />
 <link rel="stylesheet" href="/resource/common2.css" />
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
@@ -30,9 +32,21 @@
 			<div class="flex-grow"></div>
 		</div>
 		<div class="w-3"></div>
-		<div class="info-box flex flex-col">
+		<div class="info-box flex justify-around">
 
+			<div class="profile_img flex flex-col">
 
+				<div class="img_upload">
+					<img src="${profileImage}" alt="프로필 이미지"
+						style="width: 200px; height: 200px; border-radius: 50%;">
+				</div>
+				
+				<form class="img_uploard flex flex-col" action="/member/uploadProfile" method="post" enctype="multipart/form-data">
+					<input type="file" name="profileImage" accept="image/*" />
+					<button class="btn" type="submit">저장</button>
+				</form>
+				
+			</div>
 			<div class="contents-box">
 				<div class="usrModify-box">
 					<form action="/usr/member/doModify" method="POST" onsubmit="return validatePasswords();">
@@ -52,17 +66,17 @@
 
 						<input type="text" required="required" name="cellphoneNum" placeholder="전화번호" value="${member.cellphoneNum}">
 						<c:if test="${rq.isLogined() }">
-							<button type="submit">수정하기</button>
+							<button type="submit">수정</button>
 						</c:if>
 					</form>
 				</div>
 			</div>
-			
+
 
 		</div>
-		
-		
-		
+
+
+
 	</div>
 </div>
 

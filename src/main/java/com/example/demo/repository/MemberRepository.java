@@ -18,8 +18,12 @@ public interface MemberRepository {
 			String cellphoneNum);
 
 	// id로 전체 셀렉
-	public Member memberByIntId(int loginId);
+	public Member memberByIntId(int usrId);
 
-	public void updateProfileImage(String string);
+	
+	// 멤버프로필 사진
+	public void updateProfileImage(int usrId, String url);
+
+	public Member findById(int usrId);
 		
 }

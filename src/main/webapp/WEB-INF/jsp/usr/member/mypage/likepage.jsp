@@ -5,9 +5,10 @@
 <%@ include file="../../common/head.jspf"%>
 
 
-<script type="module" src="/resource/ajax.js"></script>
+
 <link rel="stylesheet" href="/resource/detail.css" />
 <link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/common2.css" />
 <div class="top-boundry-box"></div>
 <div class="contain flex flex-col mx-auto">
 
@@ -87,7 +88,7 @@
 					</div>
 
 				</div>
-				<c:if test="${empty articles}">
+				<c:if test="${empty likeArticles}">
 					<div class="flex mx-auto">
 						<div>게시글이 없습니다</div>
 					</div>

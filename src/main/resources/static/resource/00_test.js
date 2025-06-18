@@ -43,8 +43,8 @@ let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수
 loader.load('/models/Low_Part.glb', function(gltf) {
 	model = gltf.scene;
 	model.rotation.set(0, 0, 0);
-	model.scale.set(2, 2, 2); // ===========================크기바꾸기 크기 바뀌;ㅣ
-	model.position.set(0, -2, 0);
+	model.scale.set(3, 3, 3); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.position.set(0, -3, 0);
 
 	scene.add(model);
 	model.traverse((child) => {
@@ -280,9 +280,9 @@ function InfoArticle__get(partId) {
 	}, 'json');
 }
 
-
+/*
 youtubeList__getMultiple(queryMap);
-
+*/
 
 let nextPageToken = null;
 let isLoading = false;
@@ -294,7 +294,7 @@ async function youtubeList__getMultiple(queryMap) {
 	// queryMap: { partId: query, ... }
 	if (isLoading) return;
 	isLoading = true;
-	
+
 	const entries = Object.entries(queryMap);
 
 	const requests = entries.map(async ([partId, query]) => {
@@ -418,4 +418,22 @@ $('.show').on('scroll', function() {
 	if (nearBottom && !isLoading && nextPageToken && currentQuery && currentPartId) {
 		youtubeList__get(currentQuery, currentPartId);
 	}
+});
+
+
+
+/**/
+$(document).ready(function() {
+	// 프로필 이미지 클릭 시 메뉴 토글
+	$('.img_upload').on('click', function(e) {
+		e.stopPropagation(); // 이벤트 버블링 방지
+		$('.mybtn').toggle(); // show/hide 토글
+	});
+
+	// 문서의 다른 영역 클릭 시 메뉴 닫기
+	$(document).on('click', function(e) {
+		if (!$(e.target).closest('.img_upload').length) {
+			$('.mybtn').hide();
+		}
+	});
 });
