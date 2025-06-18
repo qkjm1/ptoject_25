@@ -41,27 +41,21 @@ ul li {
 	align-items: flex-end;
 	top: 60px;
 	background-color: #E1D8CD;;
-	right: -30px;
+	right: 0px;
 	border-radius: 30px; /* 둥글게 */
-	z-index: -10;
 	font-size: 20px;
 	width: 140px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	color: #3C3C29;
+
 }
 
-.myimg>ul a{
+
+.myimgshow {
+display: block;
+}
+
+
+.myimg>ul a {
 	display: block;
-}
-
-.myimg >ul{
-	display: none;
-}
-
-.myimgshow{
-	display: block;
-}
-
-.myimg {
-left: 30px;
 }

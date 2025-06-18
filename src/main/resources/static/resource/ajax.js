@@ -69,28 +69,20 @@ $(document).ready(function() {
 		type: 'GET',
 		success: function(res) {
 
-			const resultCode = res.resultCode
-			const profileImage = res.data
-
-			if (resultCode.startsWith("S")) {
-				// 이미지 경로 캐시 방지용 timestamp 추가
-				let imageUrl = profileImage + '?t=' + new Date().getTime();
-				console.log(imageUrl);
-				$('.img_reload img').attr('src', imageUrl);
-			}
-		},
+			const resultCode = res.resultCode;
+			
+			  if (resultCode.startsWith("S")) {
+			    const profileImage = res.data.profileImage;
+			    let imageUrl = profileImage + '?t=' + new Date().getTime();
+			    $('.img_reload img').attr('src', imageUrl);
+			  } else {
+			    console.error('이미지 경로가 없습니다:', res);
+			  }
+			},
 		error: function() {
 			console.error('프로필 이미지를 불러오지 못했습니다.');
 		}
 	});
-
-
-	// .myimg 전체에 hover 감지
-	$('.myimg > div').mouseoner('mouseenter', function() {
-		$('.myimg >ul').addclass('myimgshow')
-	});
-
-
 
 });
 

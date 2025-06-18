@@ -422,18 +422,3 @@ $('.show').on('scroll', function() {
 
 
 
-/**/
-$(document).ready(function() {
-	// 프로필 이미지 클릭 시 메뉴 토글
-	$('.img_upload').on('click', function(e) {
-		e.stopPropagation(); // 이벤트 버블링 방지
-		$('.mybtn').toggle(); // show/hide 토글
-	});
-
-	// 문서의 다른 영역 클릭 시 메뉴 닫기
-	$(document).on('click', function(e) {
-		if (!$(e.target).closest('.img_upload').length) {
-			$('.mybtn').hide();
-		}
-	});
-});

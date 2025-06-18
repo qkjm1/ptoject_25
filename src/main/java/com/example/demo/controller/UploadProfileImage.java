@@ -78,7 +78,7 @@ public class UploadProfileImage {
 		if (profileImage == null || profileImage.isEmpty()) {
 			profileImage = "/profile/default.png";
 		}
-
+		
 		return ResultData.from("S-1","사진 가져오기 성공", "profileImage" ,profileImage); // JSP 경로Add commentMore actions
 	}
 	
