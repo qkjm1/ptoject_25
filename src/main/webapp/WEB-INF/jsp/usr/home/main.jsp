@@ -59,13 +59,6 @@
 
 	</div>
 	
-
-	<div class="container">
-		<div class="image-wrapper">
-			<img src="/imgs/123.png" alt="Sample Image" />
-		</div>
-	</div>
-	
 	
 
 	<div class="main_line_1-2"></div>

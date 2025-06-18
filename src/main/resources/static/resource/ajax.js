@@ -68,11 +68,11 @@ $(document).ready(function() {
 		url: '/member/showImg',
 		type: 'GET',
 		success: function(res) {
-
+			console.log(res);
 			const resultCode = res.resultCode;
 			
 			  if (resultCode.startsWith("S")) {
-			    const profileImage = res.data.profileImage;
+			    const profileImage = res.data1;
 			    let imageUrl = profileImage + '?t=' + new Date().getTime();
 			    $('.img_reload img').attr('src', imageUrl);
 			  } else {
@@ -85,7 +85,6 @@ $(document).ready(function() {
 	});
 
 });
-
 
 
 
