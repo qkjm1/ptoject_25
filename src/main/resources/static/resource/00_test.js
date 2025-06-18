@@ -339,9 +339,82 @@ async function youtubeList__getMultiple(queryMap) {
 	});
 }
 
+$('.show').on('scroll', function() {
+	const $this = $(this);
+	const nearBottom = $this.scrollTop() + $this.innerHeight() + 100 >= $this[0].scrollHeight;
 
+	if (nearBottom && !isLoading && nextPageToken && currentQuery && currentPartId) {
+		youtubeList__get(currentQuery, currentPartId);
+	}
+});
 
+/*
+const youtubeLoadCache = {}; // { partId: true }
 
+async function youtubeList__getMultiple(queryMap) {
+	console.log("유튜브 api응답함");
+
+	if (isLoading) return;
+	isLoading = true;
+
+	const entries = Object.entries(queryMap);
+
+	const requests = entries.map(async ([partId, query]) => {
+		// 이미 불러온 적 있으면 건너뜀
+		if (youtubeLoadCache[partId]) {
+			return null;
+		}
+
+		try {
+			const res = await fetch(`/youtube/search?q=${encodeURIComponent(query)}&ajaxMode=Y`);
+			const data = await res.json();
+
+			// 성공적으로 불러오면 캐시에 등록
+			youtubeLoadCache[partId] = true;
+
+			return { partId, data };
+		} catch (err) {
+			console.error(`Error fetching for partId=${partId}`, err);
+			return { partId, data: null };
+		}
+	});
+
+	const results = await Promise.all(requests);
+
+	results.forEach(result => {
+		if (!result) return;
+
+		const { partId, data } = result;
+		const $container = $('#youtube-con' + partId);
+		$container.empty(); // 기존 비우기
+
+		if (!data || !data.videos || data.videos.length === 0) {
+			$container.append('<div class="noAr flex" style="text-align:center;">게시글이 없습니다</div>');
+			return;
+		}
+
+		data.videos.forEach(video => {
+			const html = `
+				<div class="video-item">
+					<div class="thumbnail">
+						<a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+							<img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" />
+						</a>
+					</div>
+					<div class="video-info">
+						<a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+							<strong class="video-title">${video.snippet.title}</strong>
+						</a>
+						<p class="video-description">${video.snippet.description}</p>
+					</div>
+				</div>`;
+			$container.append(html);
+		});
+	});
+
+	isLoading = false;
+}
+*/
 
 
 
@@ -411,14 +484,7 @@ function youtubeList__get(query, partId, isNewSearch = false) {
 	}, 'json');
 }
 */
-$('.show').on('scroll', function() {
-	const $this = $(this);
-	const nearBottom = $this.scrollTop() + $this.innerHeight() + 100 >= $this[0].scrollHeight;
 
-	if (nearBottom && !isLoading && nextPageToken && currentQuery && currentPartId) {
-		youtubeList__get(currentQuery, currentPartId);
-	}
-});
 
 
 

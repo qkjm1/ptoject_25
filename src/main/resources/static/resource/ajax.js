@@ -68,7 +68,7 @@ $(document).ready(function() {
 		url: '/member/showImg',
 		type: 'GET',
 		success: function(res) {
-			console.log(res);
+
 			const resultCode = res.resultCode;
 			
 			  if (resultCode.startsWith("S")) {
@@ -85,6 +85,24 @@ $(document).ready(function() {
 	});
 
 });
+
+let hideTimeout;
+
+$('.img_reload').on('mouseenter', function () {
+  clearTimeout(hideTimeout); // 사라짐 예약 취소
+  $('.myP').addClass('myimgshow');
+});
+
+$('.myP').on('mouseenter', function () {
+  clearTimeout(hideTimeout); // 사라짐 예약 취소
+});
+
+$('.img_reload, .myP').on('mouseleave', function () {
+  hideTimeout = setTimeout(() => {
+    $('.myP').removeClass('myimgshow');
+  }, 300); // 300ms 뒤에 제거
+});
+
 
 
 

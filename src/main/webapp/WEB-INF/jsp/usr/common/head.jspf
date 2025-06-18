@@ -55,7 +55,7 @@
 								<div class="img_reload corsur">
 									<img src="${profileImage}" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 								</div>
-								<ul class="absolute flex flex-col">
+								<ul class="absolute flex flex-col myP">
 									<li>
 										<a class="hover:underline" href="/usr/member/mypage/usrmodify">MY</a>
 									</li>

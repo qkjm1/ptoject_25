@@ -20,8 +20,8 @@ html, body {
 	width: 75%;
 }
 
-ul li {
-	margin: 10px;
+a {
+	padding: 10px;
 }
 
 .top-box {
@@ -36,26 +36,37 @@ ul li {
 	position: relative;
 }
 
-.myimg>ul {
+.myP {
 	justify-content: flex-end;
 	align-items: flex-end;
 	top: 60px;
 	background-color: #E1D8CD;;
 	right: 0px;
-	border-radius: 30px; /* 둥글게 */
+	border-radius: 20px; /* 둥글게 */
 	font-size: 20px;
 	width: 140px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	color: #3C3C29;
-
+	transition: opacity 0.3s ease;
+	opacity: 0;
+	visibility: hidden;
 }
 
 
 .myimgshow {
-display: block;
+	opacity: 1;
+	visibility: visible;
 }
 
-
-.myimg>ul a {
+.myP  {
 	display: block;
+}
+
+.myP > li  {
+	display: block;
+}
+
+.myP > li > a  {
+	display: block;
+	padding: 10px;
 }
