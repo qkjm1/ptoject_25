@@ -41,11 +41,11 @@ public class ArticleService {
 			return ResultData.from("F-A", Ut.f("%d번 게시글에 대한 수정/삭제 권한 없음", article.getId()));
 		}
 
-		return ResultData.from("S-1", Ut.f("%d번 게시글 수정/삭제 가능", article.getId()));
+		return ResultData.from("S-A", Ut.f("%d번 게시글 수정/삭제 권한 있음", article.getId()));
 	}
  
-	public void modifyArticle(int articleId, String title, String body) {
-		articleRepository.modifyArticle(articleId, title, body);
+	public void modifyArticle(int articleId, String title, String body, int boardId, int partId) {
+		articleRepository.modifyArticle(articleId, title, body, boardId, partId);
 	}
 
 	public int getArticleCountByBoard(int boardId, String searchKeywordTypeCode, String searchKeyword) {

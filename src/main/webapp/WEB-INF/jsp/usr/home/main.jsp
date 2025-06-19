@@ -58,10 +58,6 @@
 		</form>
 
 	</div>
-	
-	
-
-	<div class="main_line_1-2"></div>
 
 	
 	

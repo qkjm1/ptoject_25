@@ -83,9 +83,9 @@
 										<div>
 											<form action="/usr/bookmark/doLike" method="POST" class="bookmark__form" data-article-id="${article.id}">
 												<input type="hidden" name="articleId" value="${article.id}" />
-												<button type="submit" class="bookmark-btn" title="북마크 추가/해제">
+												<button type="submit" class="info-bookmark-btn" title="북마크 추가/해제">
 													<svg class="bookmark__icon ${article.isBookmarked == usr ? 'bookmark__icon_col' : ''}"
-														xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" stroke="#555" stroke-width="3"
+														xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="#555" stroke-width="3"
 														viewBox="0 0 24 24">
       <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
     </svg>

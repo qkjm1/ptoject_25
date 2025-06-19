@@ -73,7 +73,6 @@ public class UploadProfileImage {
 		
 		Member member = memberRepository.findById(rq.getIsLoginMemberId());
 		String profileImage = member.getProfileImage();
-		System.err.println(profileImage);
 
 		if (profileImage == null || profileImage.isEmpty()) {
 			profileImage = "/profile/default.png";

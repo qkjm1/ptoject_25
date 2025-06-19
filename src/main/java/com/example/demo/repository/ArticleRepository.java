@@ -17,7 +17,7 @@ public interface ArticleRepository {
 
 	public Article articleRow(int articleId);
 
-	public void modifyArticle(int articleId, String title, String body);
+	public void modifyArticle(int articleId, String title, String body, int boardId, int partId);
 
 	public int getArticleCountByBoard(int boardId, String searchKeywordTypeCode, String searchKeyword);
 

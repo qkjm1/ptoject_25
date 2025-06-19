@@ -4,7 +4,6 @@ body {
 }
 
 ul, li, a {
-	display: block;
 	text-decoration: none;
 }
 

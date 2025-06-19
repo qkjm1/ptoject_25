@@ -85,7 +85,7 @@
 								</div>
 								<div class="info-body flex-grow">
 									<div>
-										<a href="detail?articleId=${article.id}">${article.body}</a>
+										<a href="/usr/article/detail?articleId=${article.id}">${article.body}</a>
 									</div>
 								</div>
 							</div>

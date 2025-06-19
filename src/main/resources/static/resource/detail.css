@@ -1,14 +1,13 @@
 /* 전체 컨테이너 */
 .article-detail {
-	position: relative;
-	width: 1000px;
-	margin: 0 auto;
-	height: 1200px;
-	padding: 3rem 1rem;
+	width: 1300px;
+	margin: auto;
+	height: 1100px;
 	font-family: 'Noto Sans KR', sans-serif;
 	color: #212529;
 	line-height: 1.7;
-	padding: 3rem 1rem;
+	padding:10px;
+	position: relative;
 }
 
 /* 제목 */
@@ -50,14 +49,17 @@
 	padding: 1rem 5rem;
 	width: 90%;
 	padding: 30px;
+	position: relative;
 }
 
+
+
 .btns {
-	width: 96%;
-	position: absolute;
+	position:absolute;
+	width: 100%;
 	display: flex;
+	top:80px;
 	flex-direction: row-reverse;
-	top: 126px;
 }
 
 /* 북마크 부분 */
@@ -113,6 +115,12 @@
 	padding: 10px;
 }
 
+.p-1 > div {
+	 overflow-y: auto;	
+	white-space: wrap;
+	text-overflow: ellipsis;
+}
+
 .toast-msg {
 	position: fixed;
 	bottom: 50px;
@@ -139,7 +147,6 @@
 	display: flex;
 	justify-content:center;
 	align-items: center;
-	padding-bottom:20px; 
 }
 
 
@@ -149,4 +156,11 @@
 	width: 100px;
 	height:20px;
 	justify-content: center;
+}
+
+.toastui-editor-contents {
+	height: 800px;
+	 overflow-y: auto;	
+	white-space: wrap;
+	text-overflow: ellipsis;
 }

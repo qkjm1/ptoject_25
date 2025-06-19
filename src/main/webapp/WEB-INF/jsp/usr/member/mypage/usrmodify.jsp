@@ -36,7 +36,7 @@
 
 			<div class="profile_img flex flex-col">
 
-				<div class="img_upload">
+				<div class="MYimg_upload">
 					<img src="${profileImage}" alt="프로필 이미지"
 						style="width: 200px; height: 200px; border-radius: 50%;">
 				</div>

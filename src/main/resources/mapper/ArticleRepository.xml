@@ -25,9 +25,11 @@
 		<set>
 			<if test="title != null and title != ''">title = #{title},</if>
 			<if test="body != null and body != ''">`body` = #{body},</if>
+			<if test="partId != null and partId != ''">partId = #{partId},</if>
 			updateDate = NOW()
 		</set>
 		WHERE id = #{articleId}
+		AND boardId = #{boardId}
 	</update>
 
 	<!-->게시글 id 기준으로 삭제</! -->
@@ -121,7 +123,7 @@
 
 	<select id="getForPrintArticle" parameterType="int"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.*, M.nickname AS extra__writer
+		SELECT A.*, M.nickname AS extra__writer, T.part AS part__name, L.usrId AS isBookmarked
 		FROM
 		article A
 		INNER
@@ -132,6 +134,11 @@
 		JOIN board B
 		ON
 		A.boardId = B.id
+		INNER JOIN anatomy T
+		ON
+		A.partId = T.id
+		LEFT JOIN `like` L
+		ON A.id = L.articleId
 		WHERE
 		A.id =#{articleId}
 	</select>
@@ -359,4 +366,5 @@
 		#{partId}
 		AND B.id = 2
 	</select>
+
 </mapper>
