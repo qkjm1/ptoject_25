@@ -40,7 +40,7 @@ CREATE TABLE article (
    partId INT(10) UNSIGNED NOT NULL
 );
 
-CREATE TABLE cartoon (
+CREATE TABLE profileImg (
    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
    usrId INT(10) UNSIGNED NOT NULL,
    img TEXT NOT NULL COMMENT '이미지 주소'
@@ -478,7 +478,7 @@ SELECT *
 FROM article;
 
 SELECT *
-FROM cartoon;
+FROM profileImg;
 
 SELECT *
 FROM anatomy;
@@ -577,8 +577,23 @@ SELECT *
       WHERE
       L.usrId = 1;
       
-      SELECT C.img AS ProfileImage
-      FROM cartoon C
-      INNER JOIN `user` U
-      ON C.usrId = U.id
-      WHERE C.usrId = 1
+     SELECT P.img AS ProfileImage
+		FROM profileImg P
+		INNER JOIN `user` U
+		ON P.usrId = U.id
+		WHERE P.usrId =
+		1
+		
+		SELECT U.*, P.img AS ProfileImage
+		FROM `user` U
+		INNER JOIN profileImg P
+		ON P.usrId = U.id
+		WHERE
+		
+		SELECT P.img AS ProfileImage
+		FROM profileImg P
+		INNER JOIN `user` U
+		ON P.usrId = U.id
+		WHERE P.usrId =
+		1
+		LIMIT 1;

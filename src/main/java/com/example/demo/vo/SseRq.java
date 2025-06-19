@@ -12,13 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Info {
-
-	private int id;
-	private String part;
-	private String body;
+public class SseRq {
 	
-	private boolean delStatus;
-	private LocalDateTime delDate;
-
+	private String eventName;
+	private Object data;
+	
 }
