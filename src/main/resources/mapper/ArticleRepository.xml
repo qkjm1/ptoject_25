@@ -141,6 +141,7 @@
 		ON A.id = L.articleId
 		WHERE
 		A.id =#{articleId}
+		LIMIT 1
 	</select>
 
 	<!--> 좋아요 기준으로 가지고오기 </! -->

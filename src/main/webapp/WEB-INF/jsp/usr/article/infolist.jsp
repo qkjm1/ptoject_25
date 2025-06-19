@@ -63,7 +63,7 @@
 		</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
-			<c:if test="${rq.isLogined() }">
+			<c:if test="${rq.isLogined()}">
 				<div class="write">
 					<a class="hover:underline" href="../article/write">글쓰기</a>
 				</div>
@@ -148,5 +148,6 @@
 		</div>
 	</div>
 </div>
+
 
 <%@ include file="../common/poot.jspf"%>

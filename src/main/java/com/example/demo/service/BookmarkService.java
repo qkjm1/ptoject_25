@@ -73,10 +73,35 @@ public class BookmarkService {
 		return ResultData.from("S-1", Ut.f("즐찾되어있음"));
 	}
 
-	public boolean isBookmarkedById(int usrId) {
-		List<Article> isBookmarked = bookmarkRepository.isBookmarkedbyId(usrId);
-
-		return ("S-1", Ut.f("즐찾되어있음"), "아티클아이디 저장됨", isBookmarked);
+	public ResultData isBookmarkedById(int usrId, int articleId) {
+		Article isBookmarkedArtilce = bookmarkRepository.isBookmarkedbyId(usrId);
+		// 좋아요를 한 유저아이디를 조건으로 게시글 불러오기
+		// 가져온게시글 현재 게시물이 같은 게시물인지 boolean으로
+		if(isBookmarkedArtilce.getId()==articleId) {
+			return ResultData.from("S-1", "즐찾한글","즐찾유저기준으로 게시글 조인해서 가져옴",isBookmarkedArtilce);
+		}
+		return ResultData.from("F-1", "게시글을 가져오지못함","즐찾유저기준으로 게시글 조인해서 가져옴",isBookmarkedArtilce);
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

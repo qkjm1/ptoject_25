@@ -105,22 +105,6 @@ public class usrMemberController {
 
 		return Ut.jsReplace(" ", "로그아웃되었습니다", "/");
 	}
-
-	@RequestMapping("/usr/member/myPage/likepage")
-	public String likeList(Model model, HttpServletRequest req) {
-		System.err.println(rq.getIsLoginMemberId());
-
-		List<Article> likeArticles = bookmarkService.likeByUsrid(rq.getIsLoginMemberId());
-
-		for (Article article : likeArticles) {
-			System.out.println(article.getBody());
-		}
-		model.addAttribute("likeArticles", likeArticles); 
-
-		return "usr/member/mypage/likepage";
-
-	}
-
 	//
 
 	@RequestMapping("/usr/member/mypage/likepage")
@@ -186,12 +170,14 @@ public class usrMemberController {
 		System.err.println(member.getId());
 		
 		Member usrProfileImage = memberService.findById(rq.getIsLoginMemberId());
-		System.err.println(usrProfileImage.getProfileImage());
-		String profileImage = usrProfileImage.getProfileImage();
-
-		if (profileImage == null || profileImage.isEmpty()) {
-			profileImage = "/profile/default.png";
-		}
+//		System.err.println(usrProfileImage.getProfileImage());
+		String profileImage;
+		
+		if (usrProfileImage == null || usrProfileImage.getProfileImage() == null || usrProfileImage.getProfileImage().isEmpty()) {
+	        profileImage = "/profile/default.png";
+	    } else {
+	        profileImage = usrProfileImage.getProfileImage();
+	    }
 		
 		model.addAttribute("profileImage", profileImage);
 		model.addAttribute("member", member);

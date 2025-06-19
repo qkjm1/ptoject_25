@@ -70,13 +70,15 @@ public class UploadProfileImage {
 	@GetMapping("/member/showImg")
 	@ResponseBody
 	public ResultData showImg(HttpServletRequest req, Model model) {
+		String profileImage;
 		
-		Member member = memberRepository.findById(rq.getIsLoginMemberId());
-		String profileImage = member.getProfileImage();
+		Member usrProfileImage = memberRepository.findById(rq.getIsLoginMemberId());
 
-		if (profileImage == null || profileImage.isEmpty()) {
+		if (usrProfileImage == null || usrProfileImage.getProfileImage() == null || usrProfileImage.getProfileImage().isEmpty()) {
 			profileImage = "/profile/default.png";
-		}
+		}else {
+	        profileImage = usrProfileImage.getProfileImage();
+	    }
 		
 		return ResultData.from("S-1","사진 가져오기 성공", "profileImage" ,profileImage); // JSP 경로Add commentMore actions
 	}

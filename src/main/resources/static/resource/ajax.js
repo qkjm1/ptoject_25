@@ -26,6 +26,26 @@ $(document).ready(function() {
 				showToast("오류 발생");
 			}
 		});
+		
+		
+
+		$.ajax({
+			url: "/article/bookmark",
+			type: "POST",
+			data: formData,
+			success: function(response) {
+				const resultCode = response.resultCode;
+				alert(resultCode);
+
+			},
+			error: function(xhr, status, error) {
+				console.error("북마크 실패:", error);
+				showToast("오류 발생");
+			}
+		});
+
+		
+		
 	});
 
 	function showToast(message) {
@@ -102,6 +122,27 @@ $('.img_reload, .myP').on('mouseleave', function () {
     $('.myP').removeClass('myimgshow');
   }, 300); // 300ms 뒤에 제거
 });
+
+
+
+// sse
+
+/*
+const userId = parseInt(document.body.dataset.userId, 10);
+
+const eventSource = new EventSource(`/sse/connect/${userId}`);
+
+eventSource.addEventListener("bookmark", function(event) {
+	console.log("SSE 연결됨:", event.data);
+	
+    const data = JSON.parse(event.data);
+    alert(data.message); // "홍길동님이 회원님의 글을 북마크 했습니다."
+});
+
+*/
+
+
+
 
 
 

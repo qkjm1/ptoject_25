@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.BookmarkService;
+import com.example.demo.service.SseEmitters;
 import com.example.demo.util.Ut;
 import com.example.demo.vo.Article;
 import com.example.demo.vo.ResultData;
@@ -27,8 +29,12 @@ public class usrBookmarkController {
 	@Autowired
 	private BookmarkService bookmarkService;
 	
+	@Autowired
 	private ArticleService articleService;
 
+	@Autowired
+	private SseEmitters sseEmitters;
+	
 	@RequestMapping("/usr/bookmark/doLike")
 	@ResponseBody
 	public ResultData doLike(HttpServletRequest req, int articleId) {
@@ -55,28 +61,33 @@ public class usrBookmarkController {
 	
 	@RequestMapping("/usr/bookmark/like")
 	public String showLike() {
-	
 		return "/usr/bookmark/like";
 	}
 	
 	
 	@PostMapping("/article/bookmark")
 	@ResponseBody
-	public ResultData toggleBookmark(@RequestParam int articleId, HttpServletRequest req) {
-	    Article article = articleService.articleRowById(articleId);
-	    boolean bookmarked = bookmarkService.isBookmarkedById(rq.getIsLoginMemberId());
-
+	public ResultData toggleBookmark(int articleId, HttpServletRequest req) {
+		
+		Article article = articleService.articleRowById(articleId);
+		ResultData bookmarked = bookmarkService.isBookmarkedById(rq.getIsLoginMemberId(), articleId);
+	    // 북마크를 했는지 안했는지
 	    // 알림 전송
-	    if (bookmarked) {
-	        String message = actor.getUsername() + "님이 회원님의 글을 북마크 했습니다.";
-	        sseEmitters.notify(article.getAuthor().getId(), "bookmark", message);
+		System.out.println("--------북마크------");
+	    if (bookmarked.isSuccess()) {
+	        String message =  "회원님의 글을 북마크 했습니다."; // 메세지저장
+	        
+	        Map<String, Object> data = Ut.mapOf("message", message, "articleId", articleId); // 키밸류로 묶어주기
+	        System.out.println("🔔 SSE 알림 전송됨: " + message);
+	        
+	        sseEmitters.noti((long) article.getUsrId(), "bookmark", data);
+	    }
+	    if (bookmarked.isFail()) {
+	    	String message =  "";
 	    }
 
-	    return ResultData.from("S-1", bookmarked ? "북마크 추가됨" : "북마크 해제됨");
+   // 게시글 작성자
+	    return ResultData.from("S-1", bookmarked.isSuccess() ? "북마크 추가됨" : "북마크 해제됨");
 	}
-	
-	
-	
-	
-	
+		
 }

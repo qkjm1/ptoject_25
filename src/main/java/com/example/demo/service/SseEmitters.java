@@ -25,6 +25,7 @@ public class SseEmitters {
 	
     public SseEmitter add(Long userId, SseEmitter emitter) {
         this.emitters.put(userId, emitter);
+        System.out.println("-----------------2");
         emitter.onCompletion(() -> {
             this.emitters.remove(userId); // this를 써주는게 더 명확 삭제는 유저아이디를 기준으로
         });
@@ -55,9 +56,10 @@ public class SseEmitters {
 //        });
     	
     	SseEmitter emitter = emitters.get(userId); // 지정된 이용자를 찾고
-    	
+    	System.out.println("-----------------3");
     	if (emitter != null) {
             try {
+            	System.out.println("-----------------1");
                 emitter.send(
                 		SseEmitter.event()
                 		.name(eventName)

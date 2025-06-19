@@ -27,7 +27,7 @@
 <script type="module" src="/resource/ajax.js"></script>
 
 </head>
-<body>
+<body data-user-id="${rq.getIsLoginMemberId()}">
 	<header>
 		<div class="top-bar flex mx-auto items-center text-3xl">
 			<div class="top-box flex items-center mx-auto justify-between">
@@ -68,6 +68,7 @@
 
 						</c:if>
 					</ul>
+					<div class="messege"></div>
 				</div>
 			</div>
 		</div>

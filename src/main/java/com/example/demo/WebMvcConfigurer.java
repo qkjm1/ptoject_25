@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
@@ -42,7 +43,14 @@ public class WebMvcConfigurer implements org.springframework.web.servlet.config.
 		ir.addPathPatterns("/usr/article/doDelete");
 		ir.addPathPatterns("/usr/member/doLogout");
 		ir.addPathPatterns("/usr/member/myPage/likepage");
-
+		ir.addPathPatterns("/usr/member/mypage/usrmodify");
+		ir.addPathPatterns("/usr/member/mypage/myarticle");
+		
+		
+		ir.addPathPatterns("/usr/member/myPage/likepage");
+		ir.addPathPatterns("/usr/member/mypage/likepage");
+		
+		ir.addPathPatterns("/article/bookmark");
 		ir.addPathPatterns("/usr/bookmark/like");
 		ir.addPathPatterns("/usr/bookmark/doLike");
 
@@ -52,5 +60,16 @@ public class WebMvcConfigurer implements org.springframework.web.servlet.config.
 		ir.addPathPatterns("/usr/member/doLogin");
 		ir.addPathPatterns("/usr/member/join");
 		ir.addPathPatterns("/usr/member/doJoin");
+
 	}
+	
+	
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+	    registry.addMapping("/sse/**")
+	            .allowedOrigins("http://localhost:8080") // 프론트엔드 주소 (포트까지 정확히)
+	            .allowedMethods("GET", "POST")
+	            .allowCredentials(true);
+	}
+
 }
