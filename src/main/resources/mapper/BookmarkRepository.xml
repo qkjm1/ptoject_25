@@ -71,7 +71,7 @@
 	<!-->유저id 기준, 글에 좋아요를 했는지 한줄가져오기</! -->
 	<select id="isBookmarkedbyId"
 		resultType="com.example.demo.vo.Article">
-		SELECT A.id
+		SELECT A.*
 		FROM `like` L
 		INNER JOIN article A
 		ON L.articleId

@@ -73,10 +73,10 @@ public class BookmarkService {
 		return ResultData.from("S-1", Ut.f("즐찾되어있음"));
 	}
 
-	public ResultData isBookmarkedbyId(int usrId) {
+	public boolean isBookmarkedById(int usrId) {
 		List<Article> isBookmarked = bookmarkRepository.isBookmarkedbyId(usrId);
 
-		return ResultData.from("S-1", Ut.f("즐찾되어있음"), "아티클아이디 저장됨", isBookmarked);
+		return ("S-1", Ut.f("즐찾되어있음"), "아티클아이디 저장됨", isBookmarked);
 	}
 
 }

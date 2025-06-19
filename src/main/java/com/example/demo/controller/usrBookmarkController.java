@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,6 +26,8 @@ public class usrBookmarkController {
 
 	@Autowired
 	private BookmarkService bookmarkService;
+	
+	private ArticleService articleService;
 
 	@RequestMapping("/usr/bookmark/doLike")
 	@ResponseBody
@@ -55,4 +58,25 @@ public class usrBookmarkController {
 	
 		return "/usr/bookmark/like";
 	}
+	
+	
+	@PostMapping("/article/bookmark")
+	@ResponseBody
+	public ResultData toggleBookmark(@RequestParam int articleId, HttpServletRequest req) {
+	    Article article = articleService.articleRowById(articleId);
+	    boolean bookmarked = bookmarkService.isBookmarkedById(rq.getIsLoginMemberId());
+
+	    // 알림 전송
+	    if (bookmarked) {
+	        String message = actor.getUsername() + "님이 회원님의 글을 북마크 했습니다.";
+	        sseEmitters.notify(article.getAuthor().getId(), "bookmark", message);
+	    }
+
+	    return ResultData.from("S-1", bookmarked ? "북마크 추가됨" : "북마크 해제됨");
+	}
+	
+	
+	
+	
+	
 }
