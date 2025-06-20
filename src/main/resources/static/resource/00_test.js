@@ -347,7 +347,7 @@ $('.show').on('scroll', function() {
 	}
 });
 
-youtubeList__getMultiple(queryMap);
+// youtubeList__getMultiple(queryMap);
 /*
 const youtubeLoadCache = {}; // { partId: true }
 
