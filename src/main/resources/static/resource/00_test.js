@@ -46,7 +46,8 @@ loader.load('/models/Low_Part.glb', function(gltf) {
 	model.scale.set(3, 3, 3); // ===========================크기바꾸기 크기 바뀌;ㅣ
 	model.position.set(0, -3, 0);
 
-	scene.add(model);
+	scene.add(model);   // 비동기식 흐름 제어
+	
 	model.traverse((child) => {
 		if (child.isMesh) {
 			console.log('Mesh Loaded:', child.name);
@@ -162,8 +163,7 @@ window.addEventListener('click', (event) => {
 
 				console.log(partId);
 				InfoArticle__get(partId);
-
-				//				youtubeList__get(query, partId);
+	//			youtubeList__get(query, partId);
 			} else {
 				console.warn('Unknown part name:', partName);
 			}
@@ -280,9 +280,8 @@ function InfoArticle__get(partId) {
 	}, 'json');
 }
 
-/*
-youtubeList__getMultiple(queryMap);
-*/
+
+
 
 let nextPageToken = null;
 let isLoading = false;
@@ -348,6 +347,7 @@ $('.show').on('scroll', function() {
 	}
 });
 
+youtubeList__getMultiple(queryMap);
 /*
 const youtubeLoadCache = {}; // { partId: true }
 

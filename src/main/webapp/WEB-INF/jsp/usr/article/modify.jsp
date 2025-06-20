@@ -12,7 +12,8 @@
 	<div class="h-5"></div>
 	<div>
 		<div class="mx-auto">
-			<form onsubmit="ArticleModify__submit(this); return false;" id="articleForm" action="../article/doModify" method="POST">
+			<form onsubmit="ArticleModify__submit(this); return false;" id="articleForm" action="../article/doModify"
+				method="POST">
 				<input type="hidden" name="id" value="${article.id}" />
 				<input type="hidden" name="boardId" value="2" />
 				<input type="hidden" name="body" id="bodyInput" />
@@ -74,11 +75,12 @@ function ToastEditor__init() {
 	        codepenPlugin,
 	        replPlugin
 	      ],
-      hooks: {
-        addImageBlobHook: (blob, callback) => {
-          // 이미지 업로드 처리 로직이 필요하다면 여기에 추가
-        }
-      }
+	      hooks: {
+	            addImageBlobHook(blob, callback) {  // 이미지 업로드 로직 커스텀
+	                console.log(blob);
+	                console.log(callback);
+	            }
+	        }
     });
 
     $node.data("data-toast-editor", editor);
