@@ -70,3 +70,10 @@ a {
 	display: block;
 	padding: 10px;
 }
+
+.message {
+	color: black;
+	position: absolute;
+	top:200px;
+	font-size: 10px;
+}

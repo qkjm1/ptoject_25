@@ -52,7 +52,7 @@ public class WebMvcConfigurer implements org.springframework.web.servlet.config.
 		
 		ir.addPathPatterns("/article/bookmark");
 		ir.addPathPatterns("/usr/bookmark/like");
-		ir.addPathPatterns("/usr/bookmark/doLike");
+//		ir.addPathPatterns("/usr/bookmark/doLike");
 
 
 		ir = registry.addInterceptor(needLogoutInterceptor);

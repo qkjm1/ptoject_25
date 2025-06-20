@@ -20,22 +20,9 @@ $(document).ready(function() {
 					$icon.removeClass('bookmark__icon_col');
 					showToast("북마크 해제됨");
 				}
-			},
-			error: function(xhr, status, error) {
-				console.error("북마크 실패:", error);
-				showToast("오류 발생");
-			}
-		});
-		
-		
+				
 
-		$.ajax({
-			url: "/article/bookmark",
-			type: "POST",
-			data: formData,
-			success: function(response) {
-				const resultCode = response.resultCode;
-				alert(resultCode);
+
 
 			},
 			error: function(xhr, status, error) {
@@ -43,8 +30,8 @@ $(document).ready(function() {
 				showToast("오류 발생");
 			}
 		});
-
-		
+	
+	
 		
 	});
 
@@ -143,7 +130,52 @@ eventSource.addEventListener("bookmark", function(event) {
 
 
 
+const userId = document.body.dataset.userId;
+
+if (userId) {
+	const sse = new EventSource('/sse/connect/' + userId);
+
+	// bookmark 이벤트 수신
+	sse.addEventListener("bookmark", function(event) {
+		let data;
+		try {
+			data = JSON.parse(event.data);
+		} catch (e) {
+			console.error("알림 데이터 파싱 오류:", e);
+			return;
+		}
+		
+		console.log("🔔 북마크 알림 수신:", data);
+		const $container = $('#notification-box');
+		
+/*		
+		const $container = $('.message');
+		const html = 
+		`
+		<div>
+			<a href="/usr/article/detail?articleId=${data.articleId}" class="hover:underline"> 알람이 도착했습니다! </a>
+		</div>
+		`	;
+*/		
+// 알림 박스에 새 항목 추가
+const html = `
+	<div class="notification-item">
+		<a href="/usr/article/detail?articleId=${data.articleId}">
+			${data.message || '새 알림이 도착했습니다'}
+		</a>
+	</div>
+`;
+		
+		$container.prepend(html);
+		
+		$box.show(); // 알림창 표시
+	});
+} else {
+	console.warn("SSE 연결 실패: 로그인한 사용자 ID가 없습니다.");
+}
 
 
-
+$('#notification-icon').on('click', function () {
+	$('#notification-box').toggle();
+});
 

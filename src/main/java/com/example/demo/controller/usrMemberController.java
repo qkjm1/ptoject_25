@@ -90,7 +90,9 @@ public class usrMemberController {
 		if (member.getLoginPw().equals(loginPw) == false) {
 			return Ut.jsHistoryBack(" ", "아이디 혹은 비밀번호가 틀렸습니다");
 		}
+		
 		rq.login(member);
+		
 		System.err.println("doLogin 실행 후--" + rq.getIsLoginMemberId());
 		return Ut.jsReplace(" ", "로그인되었습니다", "/");
 	}
@@ -167,7 +169,7 @@ public class usrMemberController {
 	public String showusrmodify(HttpServletRequest req, Model model) {		
 		Member member = memberService.memberByIntId(rq.getIsLoginMemberId());
 		
-		System.err.println(member.getId());
+		System.err.println(rq.getIsLoginMemberId());
 		
 		Member usrProfileImage = memberService.findById(rq.getIsLoginMemberId());
 //		System.err.println(usrProfileImage.getProfileImage());

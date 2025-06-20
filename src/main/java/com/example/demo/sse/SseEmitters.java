@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.sse;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,10 +29,13 @@ public class SseEmitters {
         emitter.onCompletion(() -> {
             this.emitters.remove(userId); // this를 써주는게 더 명확 삭제는 유저아이디를 기준으로
         });
+        
         emitter.onTimeout(() -> {
             emitter.complete();
         });
 
+        System.out.println("--------- emitter--------3"+ emitter);
+        
         return emitter;
     }
 
@@ -54,12 +57,12 @@ public class SseEmitters {
 //                throw new RuntimeException(e);
 //            }
 //        });
-    	
+    	System.out.println("-----------------1");
     	SseEmitter emitter = emitters.get(userId); // 지정된 이용자를 찾고
-    	System.out.println("-----------------3");
+    	
     	if (emitter != null) {
             try {
-            	System.out.println("-----------------1");
+            	
                 emitter.send(
                 		SseEmitter.event()
                 		.name(eventName)
@@ -68,7 +71,6 @@ public class SseEmitters {
                 emitters.remove(userId); // 실패한 연결 제거
             }
         }
-    	
     	
     }
 }
