@@ -19,8 +19,7 @@
 <script type="module" src="/resource/ajax.js"></script>
 <script type="module" src="/resource/00_TEST.js"></script>
 <link rel="stylesheet" href="/resource/main.css" />
-<link rel="stylesheet" href="/resource/main2.css" />
-<link rel="stylesheet" href="/resource/main3.css" />
+
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfd275f49b78960a0458d6f6294cbde2&libraries=services"></script>
 <script type="module" src="/resource/kakao.js"></script>

@@ -1,212 +1,320 @@
 html, body {
-	height: 3500px;
-	background-color: #E1D8CD;
+  height: 3500px;
+  background-color: #E1D8CD;
+  margin: 0;
+  padding: 0;
 }
 
+/* 공통 컨테이너 */
 .contain {
-	width: 100%;
+  width: 100%;
 }
 
+/* 메인 박스 */
 .main_1-box {
-	width: 100%;
-	height: 1000px;
-	background-color: #E1D8CD;
-	position: relative;
+  width: 100%;
+  height: 1000px;
+  background-color: #E1D8CD;
+  position: relative;
+  opacity: 1;
 }
 
+.main_1-box1 {
+  margin-top: 20px;
+  height: 800px;
+  position: absolute;
+  right: 38%;
+}
+
+.main_1-box2 {
+  position: absolute;
+  height: 100%;
+  right: 86%;
+}
+
+.main_1-box2 > .show {
+  top: 0;
+  height: 60%;
+  width: 500px;
+}
+
+/* WebGL 박스 */
 #webgl-container {
-	position: relative;
-	width: 100%;
-	height: 1000px;
+  position: relative;
+  width: 100%;
+  height: 1000px;
 }
 
-.main_2-box {
-	border-top-left-radius: 89px;
-	border-top-right-radius: 89px;
-	width: 100%;
-	height: 1000px;
-	background-color: #3C3C29;
-	position: relative;
-	display: flex;
-	justify-content: center; /* 수평 정렬 */
-	align-items: flex-start;;
-}
 
-.main_line_1-2 {
-	top: 1050px;
-	width: 100%;
-	height: 100px;
-	background-color: #3C3C29;
-	border-radius: 9999px; /* 둥글게 */
-	position: absolute;
-	z-index: 1;
-}
-
-.main_line_2-3 {
-	top: 1950px;
-	width: 100%;
-	height: 100px;
-	background-color: #E1D8CD;
-	border-radius: 9999px; /* 둥글게 */
-	position: absolute;
-	z-index: 10;
-}
-
-.info-box {
-	width: 100%;
-	height: 800px;
-	position: absolute;
-	top: 500px;
-	position: absolute;
-	z-index: 5;
-}
-
-/*  위에는 자리 정리  */
-
-/*  검색박스 */
+/* 검색박스 */
 .search-box {
-	margin: auto;
-	position: relative;
-	display: flex;
-	align-items: center;
-	min-width: 500px;
-	margin-top: 450px;
-	display: flex;
-	z-index: 10;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 500px;
+  margin-top: 450px;
+  z-index: 10;
 }
-
 .search-box input {
-	width: 100%;
-	padding: 10px 16px;
-	border: 1px solid #ccc;
-	border-radius: 9999px; /* 둥글게 */
-	font-size: 16px;
-	transition: 0.3s;
-	background-color: #F5F5F5;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  font-size: 16px;
+  transition: 0.3s;
+  background-color: #F5F5F5;
 }
-
-.search-box button {
-	position: absolute;
-	right: 10px;
-	color: black;
-}
-
 .search-box input:focus {
-	outline: none;
-	border-color: #3C3C29; /* 포커스 시 파란색 */
-	box-shadow: 0 0 0 3px rgba(60, 60, 41, 0.2);
+  outline: none;
+  border-color: #3C3C29;
+  box-shadow: 0 0 0 3px rgba(60, 60, 41, 0.2);
 }
-
-.search-box button:hover {
-	color: #EAD292;
-}
-
 .search-box button {
-	position: absolute;
-	right: 8px;
-	top: 50%;
-	transform: translateY(-50%);
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 0;
-	color: #3C3C29;
-	transition: color 0.3s;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #3C3C29;
+  transition: color 0.3s;
+}
+.search-box button:hover {
+  color: #EAD292;
 }
 
-/*메인 인포*/
-/*검색어*/
-.main_2-box>form {
-	position: absolute;
+/* 인포 박스 */
+.main_2-box {
+  opacity: 0;
+  border-top-left-radius: 89px;
+  border-top-right-radius: 89px;
+  width: 100%;
+  height: 1000px;
+  background-color: #3C3C29;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
-
-/*2번박스*/
+.main_2-box > form {
+  position: absolute;
+}
+.info-box {
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  top: 500px;
+  z-index: 5;
+}
 .info-box-items {
-	top: 40px;
-	width: 100%;
+  top: 40px;
+  width: 100%;
+}
+.info-box-items > div {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  width: 165px;
+  height: 165px;
+  position: relative;
+  overflow: hidden;
 }
 
-.info-box-items>div {
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-	border-radius: 8px;
-	width: 165px;
-	height: 165px;
+/* 스프라이트 스타일 */
+.sprite {
+  width: 165px;
+  height: 165px;
+  filter: blur(1.5px);
+  position: relative;
+  background-image: url('/imgs/anatomy.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  margin: 10px auto;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: filter 0.3s ease;
 }
-
-.info-box-items>div {
-	position: relative; /* ::after를 올바르게 위치시키기 위해 필요 */
-	overflow: hidden; /* ::after가 바깥으로 넘치지 않게 */
-}
-
-/* hover 시 오버레이 사라짐 */
-.sprite:hover::after {
-	opacity: 0;
-}
-
-/* 해당 요소만 선명하게 */
 .sprite:hover {
-	filter: none;
-	z-index: 1;
+  filter: none;
+  z-index: 1;
+}
+.sprite:hover::after {
+  opacity: 0;
+}
+.sprite::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60, 60, 41, 0.3);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
-.info-box-items>div:nth-child(1):hover {
-	content: '머리';
+/* 각 부위 background-position */
+.sprite-1 { background-position: 0 0; }
+.sprite-2 { background-position: 0 -165px; }
+.sprite-3 { background-position: 0 -330px; }
+.sprite-4 { background-position: 0 -495px; }
+.sprite-5 { background-position: 0 -660px; }
+.sprite-6 { background-position: 0 -825px; }
+.sprite-7 { background-position: 0 -990px; }
+.sprite-8 { background-position: 0 -1155px; }
+.sprite-9 { background-position: 0 -1320px; }
+.sprite-10 { background-position: 0 -1485px; }
+
+/* 기타 레이아웃 */
+.image-wrapper {
+  position: absolute;
+  right: 50%;
+  perspective: 2000px;
+  margin-top: 200px;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 20px 40px 0 rgba(0, 0, 0, 0.3));
+  transform-style: preserve-3d;
+  border-radius: 16px;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.info-box-items>div:nth-child(2):hover {
-	content: '목/어깨';
+/* show 팝업 */
+.show {
+  position: absolute;
+  display: none;
+  width: 400px;
+  height: 80%;
+  overflow: auto;
+  font-size: 10px;
+  padding: 17px 10px 20px 10px;
+  z-index: 1;
+  background-color: rgba(60, 60, 41, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  margin-top: 100px;
+  color: white;
+}
+.active {
+  display: block;
 }
 
-.info-box-items>div:nth-child(3):hover {
-	filter: none;
-	content: '쇄골/어깨앞쪽';
+/* 콘텐츠 카드 스타일 */
+.maininfo-con {
+  border-radius: 8px;
+  background-color: white;
+  width: 97%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.maininfo-box {
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  position: relative;
+  height: 160px;
+}
+.maininfo-title {
+  height: 35px;
+  width: 100%;
+  background-color: white;
+}
+.maininfo-title > div:first-child {
+  width: 58%;
+}
+.maininfo-title > div:first-child > a {
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.maininfo-body {
+  font-size: 13px;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  background-color: #F5F5F5;
+  height: 60%;
+  overflow-y: auto;
+}
+.maininfo-body > a {
+  display: block;
+}
+.partLine {
+  border: 1px solid black;
+  margin: 5px;
+}
+.noAr {
+  padding-top: 220px;
+  margin: auto;
+  color: white;
+  height: 100%;
+  font-size: 13px;
+  text-align: center;
 }
 
-.info-box-items>div:nth-child(4):hover {
-	filter: none;
-	content: '팔';
+/* 유튜브 콘텐츠 리스트 */
+.video-item {
+  display: flex;
+  gap: 16px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+  height: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
-
-.info-box-items>div:nth-child(5):hover {
-	filter: none;
-	content: '몸톰(등허리)';
+.video-item .thumbnail img {
+  height: 100%;
+  width: auto;
+  border-radius: 6px;
+  object-fit: cover;
 }
-
-.info-box-items>div:nth-child(6):hover {
-	filter: none;
-	content: '몸톰(가슴배)';
+.video-info {
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.info-box-items>div:nth-child(7):hover {
-	filter: none;
-	content: '골반';
+.video-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-.info-box-items>div:nth-child(8):hover {
-	filter: none;
-	content: '다리 앞쪽';
-}
-
-.info-box-items>div:nth-child(9):hover {
-	filter: none;
-	content: '다리 뒤쪽';
-}
-
-.info-box-items>div:nth-child(10):hover {
-	content: '종아리/발목';
-}
-
-/*2박스*/
-#map {
-	position: absolute;
-	margin: auto;
-	top: 80px;
-	border-radius: 8px; /* 둥글게 */
-}
-
-/*3박스*/
-.main_3-box {
-	background-color: #E1D8CD;
-	height: 1300px;
-	position: relative;
+.video-description {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
