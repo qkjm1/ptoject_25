@@ -24,6 +24,10 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfd275f49b78960a0458d6f6294cbde2&libraries=services"></script>
 <script type="module" src="/resource/kakao.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script type="module" src="/resource/scroll.js"></script>
+
 <div class="contain mx-auto flex flex-col">
 	<div class="main_1-box flex">
 

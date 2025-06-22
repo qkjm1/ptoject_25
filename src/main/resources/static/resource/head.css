@@ -8,16 +8,17 @@ html {
 
 .top-bar {
 	border-radius: 9999px; /* 둥글게 */
-	margin-top: 8px;
-	position: absolute;
 	width: 75%;
 	background-color: #3C3C29;
 	height: 50px;
 	color: #E1D8CD;
 	z-index: 10;
-	left: 50%;
-	transform: translateX(-50%);
 	width: 75%;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50px);
+	z-index: 100;
 }
 
 a {
@@ -52,21 +53,20 @@ a {
 	visibility: hidden;
 }
 
-
 .myimgshow {
 	opacity: 1;
 	visibility: visible;
 }
 
-.myP  {
+.myP {
 	display: block;
 }
 
-.myP > li  {
+.myP>li {
 	display: block;
 }
 
-.myP > li > a  {
+.myP>li>a {
 	display: block;
 	padding: 10px;
 }
@@ -74,6 +74,6 @@ a {
 .message {
 	color: black;
 	position: absolute;
-	top:200px;
+	top: 200px;
 	font-size: 10px;
 }
