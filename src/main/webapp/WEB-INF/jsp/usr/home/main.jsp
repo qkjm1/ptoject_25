@@ -30,21 +30,6 @@
 <div class="contain mx-auto flex flex-col">
 	<div class="main_1-box flex">
 
-		<div class="info-box flex flex-col">
-			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
-				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>
-				<div class="sprite sprite-2" onclick="location.href='/usr/article/infolist?boardId=2&partId=2'"></div>
-				<div class="sprite sprite-3" onclick="location.href='/usr/article/infolist?boardId=2&partId=3'"></div>
-				<div class="sprite sprite-4" onclick="location.href='/usr/article/infolist?boardId=2&partId=4'"></div>
-				<div class="sprite sprite-5" onclick="location.href='/usr/article/infolist?boardId=2&partId=5'"></div>
-				<div class="sprite sprite-6" onclick="location.href='/usr/article/infolist?boardId=2&partId=6'"></div>
-				<div class="sprite sprite-7" onclick="location.href='/usr/article/infolist?boardId=2&partId=7'"></div>
-				<div class="sprite sprite-8" onclick="location.href='/usr/article/infolist?boardId=2&partId=8'"></div>
-				<div class="sprite sprite-9" onclick="location.href='/usr/article/infolist?boardId=2&partId=9'"></div>
-				<div class="sprite sprite-10" onclick="location.href='/usr/article/infolist?boardId=2&partId=10'"></div>
-			</div>
-		</div>
-
 		<form class="w-full flex">
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
 			<input type="hidden" name="boardId" value="2" />
@@ -62,20 +47,33 @@
 
 	</div>
 
-	
-	
+
+
 	<div class="main_2-box">
-	
-		<div id="map" style="width: 800px; height: 800px;">map</div>
-		
+
+		<div class="info-box flex flex-col">
+			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
+				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>
+				<div class="sprite sprite-2" onclick="location.href='/usr/article/infolist?boardId=2&partId=2'"></div>
+				<div class="sprite sprite-3" onclick="location.href='/usr/article/infolist?boardId=2&partId=3'"></div>
+				<div class="sprite sprite-4" onclick="location.href='/usr/article/infolist?boardId=2&partId=4'"></div>
+				<div class="sprite sprite-5" onclick="location.href='/usr/article/infolist?boardId=2&partId=5'"></div>
+				<div class="sprite sprite-6" onclick="location.href='/usr/article/infolist?boardId=2&partId=6'"></div>
+				<div class="sprite sprite-7" onclick="location.href='/usr/article/infolist?boardId=2&partId=7'"></div>
+				<div class="sprite sprite-8" onclick="location.href='/usr/article/infolist?boardId=2&partId=8'"></div>
+				<div class="sprite sprite-9" onclick="location.href='/usr/article/infolist?boardId=2&partId=9'"></div>
+				<div class="sprite sprite-10" onclick="location.href='/usr/article/infolist?boardId=2&partId=10'"></div>
+			</div>
+		</div>
+
 	</div>
-	
-	
-	
+
+
+
 	<div class="main_line_2-3"></div>
-	
-	
-	
+
+
+
 	<div class="flex-grow main_3-box">
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
@@ -98,7 +96,7 @@
 
 		<div id="webgl-container"></div>
 
-
+		<div id="map" style="width: 800px; height: 800px;">map</div>
 	</div>
 </div>
 

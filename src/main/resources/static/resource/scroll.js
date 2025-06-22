@@ -2,9 +2,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".top-bar", {
 	scrollTrigger: {
-		trigger: ".main_2-box", // 스크롤 기준 요소 변경
-		start: "top 60%", // .main_1-box가 화면 20% 지점에 오면 트리거
-		end: "top 58%",
+		trigger: ".top-bar", // 스크롤 기준 요소 변경
+		start: "top -10%", // .main_1-box가 화면 20% 지점에 오면 트리거
+		end: "top -11%",
 		scrub:2,
 		markers: true
 		//    markers: true // start/end 디버깅 라인 보이게
@@ -20,12 +20,12 @@ gsap.to(".top-bar", {
 gsap.to(".main_2-box", {
 	scrollTrigger: {
 		trigger: ".main_2-box", // 스크롤 기준 요소 변경
-		start: "top 70%", // .main_1-box가 화면 20% 지점에 오면 트리거
-		end: "top 70%",
+		start: "top 68%", // .main_1-box가 화면 20% 지점에 오면 트리거
+		end: "top 69%",
 		scrub: 1,
 		markers: false // start/end 디버깅 라인 보이게
 	},
-	y: 80,
+	y: -30,
 	opacity: 1,
 	duration: 1,
 	ease: "power1.out"

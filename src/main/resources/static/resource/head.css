@@ -9,7 +9,7 @@ html {
 .top-bar {
 	border-radius: 9999px; /* 둥글게 */
 	width: 75%;
-	background-color: #3C3C29;
+	background-color: #4800ff;
 	height: 50px;
 	color: #E1D8CD;
 	z-index: 10;
@@ -41,13 +41,13 @@ a {
 	justify-content: flex-end;
 	align-items: flex-end;
 	top: 60px;
-	background-color: #E1D8CD;;
+	background-color: #ffffff;;
 	right: 0px;
 	border-radius: 20px; /* 둥글게 */
 	font-size: 20px;
 	width: 140px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-	color: #3C3C29;
+	color: black;
 	transition: opacity 0.3s ease;
 	opacity: 0;
 	visibility: hidden;
