@@ -7,6 +7,7 @@
 <title>JOIN</title>
 
 <link rel="stylesheet" href="/resource/common.css" />
+<script type="module" src="/resource/join.js"></script>
 <div class="top-boundry-box"></div>
 
 <div class="contents-box flex justify-center items-center min-h-screen"">
@@ -18,8 +19,9 @@
 
       <div>
         <label class="block font-medium text-[#3C3C29]">아이디</label>
-        <input type="text" name="loginId" placeholder="아이디"
+        <input id=loginId type="text" name="loginId" placeholder="아이디"
                class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+      <span id="usernameCheckMessage"></span>
       </div>
 
       <div>

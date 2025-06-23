@@ -50,7 +50,7 @@
 
 
 	<div class="main_2-box">
-
+		<span>어디가 아프세요?</span>
 		<div class="info-box flex flex-col">
 			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
 				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>

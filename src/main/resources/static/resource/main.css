@@ -1,320 +1,382 @@
 html, body {
-  height: 3500px;
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
+	height: 3500px;
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
 }
 
 /* 공통 컨테이너 */
 .contain {
-  width: 100%;
+	width: 100%;
 }
 
 /* 메인 박스 */
 .main_1-box {
-  width: 100%;
-  height: 1000px;
-  background-color: #ffffff;
-  position: relative;
-  opacity: 1;
+	width: 100%;
+	height: 1000px;
+	background-color: #ffffff;
+	position: relative;
+	opacity: 1;
 }
 
 .main_1-box1 {
-  margin-top: 20px;
-  height: 800px;
-  position: absolute;
-  right: 38%;
+	margin-top: 20px;
+	height: 800px;
+	position: absolute;
+	right: 38%;
 }
 
 .main_1-box2 {
-  position: absolute;
-  height: 100%;
-  right: 86%;
+	position: absolute;
+	height: 100%;
+	right: 86%;
 }
 
-.main_1-box2 > .show {
-  top: 0;
-  height: 60%;
-  width: 500px;
+.main_1-box2>.show {
+	top: 0;
+	height: 60%;
+	width: 500px;
 }
 
 /* WebGL 박스 */
 #webgl-container {
-  position: relative;
-  width: 100%;
-  height: 1000px;
+	position: relative;
+	width: 100%;
+	height: 1000px;
 }
-
 
 /* 검색박스 */
 .search-box {
-  margin: auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-width: 500px;
-  margin-top: 450px;
-  z-index: 10;
+	margin: auto;
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-width: 500px;
+	margin-top: 450px;
+	z-index: 10;
 }
+
 .search-box input {
-  width: 100%;
-  padding: 10px 16px;
-  border: 1px solid #4800ff;
-  border-radius: 9999px;
-  font-size: 16px;
-  transition: 0.3s;
-  background-color: #ffffff;
+	width: 100%;
+	padding: 10px 16px;
+	border: 1px solid #4800ff;
+	border-radius: 9999px;
+	font-size: 16px;
+	transition: 0.3s;
+	background-color: #ffffff;
 }
+
 .search-box input:focus {
-  outline: none;
-  border-color: #4800ff;
-  box-shadow: 0 0 0 3px rgba(60, 60, 41, 0.2);
+	outline: none;
+	border-color: #4800ff;
+	box-shadow: 0 0 0 3px rgba(60, 60, 41, 0.2);
 }
+
 .search-box button {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  color: #4800ff;
-  transition: color 0.3s;
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: #4800ff;
+	transition: color 0.3s;
 }
+
 .search-box button:hover {
-  color: black;
+	color: black;
 }
 
 /* 인포 박스 */
 .main_2-box {
-  opacity: 0;
-  border-top-left-radius: 89px;
-  border-top-right-radius: 89px;
-  width: 100%;
-  height: 1000px;
-  background-color: #4800ff;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+	opacity: 0;
+	border-top-left-radius: 89px;
+	border-top-right-radius: 89px;
+	width: 100%;
+	height: 1000px;
+	background-color: #4800ff;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
-.main_2-box > form {
-  position: absolute;
+
+.main_2-box>form {
+	position: absolute;
 }
+
 .info-box {
-  width: 100%;
-  height: 800px;
-  position: absolute;
-  top: 500px;
-  z-index: 5;
+	width: 100%;
+	height: 800px;
+	position: absolute;
+	top: 500px;
+	z-index: 5;
 }
+
 .info-box-items {
-  top: 40px;
-  width: 100%;
+	top: 40px;
+	width: 100%;
 }
-.info-box-items > div {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  width: 165px;
-  height: 165px;
-  position: relative;
-  overflow: hidden;
+
+.info-box-items>div {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
+	width: 165px;
+	height: 165px;
+	position: relative;
+	overflow: hidden;
 }
 
 /* 스프라이트 스타일 */
 .sprite {
-  width: 165px;
-  height: 165px;
-  filter: blur(1.5px);
-  position: relative;
-  background-image: url('/imgs/anatomy.png');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  margin: 10px auto;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: filter 0.3s ease;
+	width: 165px;
+	height: 165px;
+	filter: blur(1.5px);
+	position: relative;
+	background-image: url('/imgs/anatomy.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	margin: 10px auto;
+	cursor: pointer;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	transition: filter 0.3s ease;
+
+	transform: translateY(-50px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.sprite.in-view {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 .sprite:hover {
-  filter: none;
-  z-index: 1;
+	filter: none;
+	z-index: 1;
 }
+
 .sprite:hover::after {
-  opacity: 0;
+	opacity: 0;
 }
+
 .sprite::after {
-  content: attr(data-label);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(60, 60, 41, 0.3);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  opacity: 1;
+	content: attr(data-label);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(60, 60, 41, 0.3);
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	opacity: 1;
 }
 
 /* 각 부위 background-position */
-.sprite-1 { background-position: 0 0; }
-.sprite-2 { background-position: 0 -165px; }
-.sprite-3 { background-position: 0 -330px; }
-.sprite-4 { background-position: 0 -495px; }
-.sprite-5 { background-position: 0 -660px; }
-.sprite-6 { background-position: 0 -825px; }
-.sprite-7 { background-position: 0 -990px; }
-.sprite-8 { background-position: 0 -1155px; }
-.sprite-9 { background-position: 0 -1320px; }
-.sprite-10 { background-position: 0 -1485px; }
+.sprite-1 {
+	background-position: 0 0;
+}
+
+.sprite-2 {
+	background-position: 0 -165px;
+}
+
+.sprite-3 {
+	background-position: 0 -330px;
+}
+
+.sprite-4 {
+	background-position: 0 -495px;
+}
+
+.sprite-5 {
+	background-position: 0 -660px;
+}
+
+.sprite-6 {
+	background-position: 0 -825px;
+}
+
+.sprite-7 {
+	background-position: 0 -990px;
+}
+
+.sprite-8 {
+	background-position: 0 -1155px;
+}
+
+.sprite-9 {
+	background-position: 0 -1320px;
+}
+
+.sprite-10 {
+	background-position: 0 -1485px;
+}
 
 /* 기타 레이아웃 */
 .image-wrapper {
-  position: absolute;
-  right: 50%;
-  perspective: 2000px;
-  margin-top: 200px;
+	position: absolute;
+	right: 50%;
+	perspective: 2000px;
+	margin-top: 200px;
 }
+
 .image-wrapper img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s ease;
-  filter: drop-shadow(0 20px 40px 0 rgba(0, 0, 0, 0.3));
-  transform-style: preserve-3d;
-  border-radius: 16px;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.2s ease;
+	filter: drop-shadow(0 20px 40px 0 rgba(0, 0, 0, 0.3));
+	transform-style: preserve-3d;
+	border-radius: 16px;
 }
+
 .container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
 }
 
 /* show 팝업 */
 .show {
-  position: absolute;
-  display: none;
-  width: 400px;
-  height: 80%;
-  overflow: auto;
-  font-size: 10px;
-  padding: 17px 10px 20px 10px;
-  z-index: 1;
-  background-color: rgba(60, 60, 41, 0.5);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-  margin-top: 100px;
-  color: white;
+	position: absolute;
+	display: none;
+	width: 400px;
+	height: 80%;
+	overflow: auto;
+	font-size: 10px;
+	padding: 17px 10px 20px 10px;
+	z-index: 1;
+	background-color: rgba(60, 60, 41, 0.5);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	transition: opacity 0.3s ease;
+	border-radius: 8px;
+	margin-top: 100px;
+	color: white;
 }
+
 .active {
-  display: block;
+	display: block;
 }
 
 /* 콘텐츠 카드 스타일 */
 .maininfo-con {
-  border-radius: 8px;
-  background-color: white;
-  width: 97%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+	border-radius: 8px;
+	background-color: white;
+	width: 97%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
+
 .maininfo-box {
-  padding: 5px;
-  border-radius: 8px;
-  width: 100%;
-  position: relative;
-  height: 160px;
+	padding: 5px;
+	border-radius: 8px;
+	width: 100%;
+	position: relative;
+	height: 160px;
 }
+
 .maininfo-title {
-  height: 35px;
-  width: 100%;
-  background-color: white;
+	height: 35px;
+	width: 100%;
+	background-color: white;
 }
-.maininfo-title > div:first-child {
-  width: 58%;
+
+.maininfo-title>div:first-child {
+	width: 58%;
 }
-.maininfo-title > div:first-child > a {
-  width: 100%;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.maininfo-title>div:first-child>a {
+	width: 100%;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+
 .maininfo-body {
-  font-size: 13px;
-  padding: 5px;
-  border-radius: 8px;
-  width: 100%;
-  background-color: #F5F5F5;
-  height: 60%;
-  overflow-y: auto;
+	font-size: 13px;
+	padding: 5px;
+	border-radius: 8px;
+	width: 100%;
+	background-color: #F5F5F5;
+	height: 60%;
+	overflow-y: auto;
 }
-.maininfo-body > a {
-  display: block;
+
+.maininfo-body>a {
+	display: block;
 }
+
 .partLine {
-  border: 1px solid black;
-  margin: 5px;
+	border: 1px solid black;
+	margin: 5px;
 }
+
 .noAr {
-  padding-top: 220px;
-  margin: auto;
-  color: white;
-  height: 100%;
-  font-size: 13px;
-  text-align: center;
+	padding-top: 220px;
+	margin: auto;
+	color: white;
+	height: 100%;
+	font-size: 13px;
+	text-align: center;
 }
 
 /* 유튜브 콘텐츠 리스트 */
 .video-item {
-  display: flex;
-  gap: 16px;
-  background-color: white;
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 20px;
-  height: 150px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+	display: flex;
+	gap: 16px;
+	background-color: white;
+	border-radius: 10px;
+	padding: 12px;
+	margin-bottom: 20px;
+	height: 150px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
 }
+
 .video-item .thumbnail img {
-  height: 100%;
-  width: auto;
-  border-radius: 6px;
-  object-fit: cover;
+	height: 100%;
+	width: auto;
+	border-radius: 6px;
+	object-fit: cover;
 }
+
 .video-info {
-  flex-grow: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	flex-grow: 1;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
+
 .video-title {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 6px;
-  display: block;
-  text-decoration: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 6px;
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+
 .video-description {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+	color: #555;
+	font-size: 14px;
+	line-height: 1.4;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }

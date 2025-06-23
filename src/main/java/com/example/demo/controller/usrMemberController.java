@@ -107,6 +107,24 @@ public class usrMemberController {
 
 		return Ut.jsReplace(" ", "로그아웃되었습니다", "/");
 	}
+	
+	
+	@RequestMapping("/usr/member/checkUsername")
+	@ResponseBody
+	public ResultData checkUsername(HttpServletRequest req, String loginId) {
+		
+		Member logincof =  memberService.doLogin(loginId);
+
+		if(logincof!=null) {
+			return ResultData.from("S-1", "사용 불가능한 아이디입니다","boolean",false);
+		}
+		if(logincof==null) {
+			return ResultData.from("S-2", "사용 가능한 아이디입니다","boolean",true);
+		}
+
+		return ResultData.from("F-1", "오류발생");
+	}
+	
 	//
 
 	@RequestMapping("/usr/member/mypage/likepage")
