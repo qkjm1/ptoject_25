@@ -49,8 +49,18 @@
 
 
 
-	<div class="main_2-box">
+
+	<div class="mainP main_2-box">
+
 		<span>어디가 아프세요?</span>
+		<button id="scrollBtn" class="scroll-down">
+			click
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+       xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+		</button>
 		<div class="info-box flex flex-col">
 			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
 				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>
@@ -74,7 +84,7 @@
 
 
 
-	<div class="flex-grow main_3-box">
+	<div class="mainP flex-grow main_3-box">
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
 				<div class="show partNo${i}">
