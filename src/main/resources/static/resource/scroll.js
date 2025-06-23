@@ -107,5 +107,5 @@ if (sprites.length > 0) {
 $('#scrollBtn').on('click', function () {
   $('html, body').animate({
     scrollTop: $('.mainP').offset().top
-  }, 600); // 600ms 동안 부드럽게 이동
+  }, 600);
 });

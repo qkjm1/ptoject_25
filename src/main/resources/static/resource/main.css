@@ -391,13 +391,14 @@ mainP.in-view {
 }
 
 .scroll-down {
-	margin-top:10px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  cursor: pointer;
-  animation: bounce 1.5s infinite;
-  z-index: 999;
+	top:-80px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	cursor: pointer;
+	animation: bounce 1.5s infinite;
+	z-index: 999;
+	box-shadow: none;
 }
 
 @keyframes bounce {
