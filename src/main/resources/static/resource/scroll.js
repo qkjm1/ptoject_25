@@ -32,16 +32,10 @@ gsap.to(".main_2-box", {
 });
 
 
-ScrollTrigger.create({
-	trigger: ".pin-section",
-	start: "top top",       // 섹션이 화면 상단에 닿을 때
-	end: "+=100",          // 100px 스크롤할 때까지 고정
-	pin: true,              // 고정!
-	pinSpacing: true		// 아래 콘텐츠 밀려나게 (false로 하면 겹침)
-});
+
 
 // 메인2화면 윗부분
-
+/*
 gsap.to(".sprite", {
 	scrollTrigger: {
 		trigger: ".sprite", // 스크롤 기준 요소 변경
@@ -54,21 +48,7 @@ gsap.to(".sprite", {
 	duration: 1,
 	ease: "power1.out"
 });
-
-
-gsap.to(".mob", {
-	scrollTrigger: {
-		trigger: ".sprite", // 스크롤 기준 요소 변경
-		start: "top 30%", // .main_1-box가 화면 20% 지점에 오면 트리거3
-		end: "bottom 60%",
-		scrub: 2,
-		markers: false // start/end 디버깅 라인 보이게
-	},
-	y: 20,
-	duration: 1,
-	ease: "power1.out"
-});
-
+*/
 
 
 

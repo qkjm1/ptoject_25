@@ -81,7 +81,7 @@
     <polyline points="6 9 12 15 18 9" />
   </svg>
 		</button>
-		<div id="map" style="width: 800px; height: 800px;">map</div>
+		<div id="map" style="width: 200px; height: 200px;">map</div>
 
 	</div>
 
@@ -89,7 +89,7 @@
 
 
 
-	<div class="mainP main_3-box">
+	<div class="main_3-box">
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
 				<div class="show partNo${i}">
@@ -109,7 +109,7 @@
 			</c:forEach>
 		</div>
 
-		<div id="ebgl-container"></div>
+		<div id="webgl-container"></div>
 
 
 	</div>

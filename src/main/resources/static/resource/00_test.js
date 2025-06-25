@@ -6,14 +6,14 @@ const container = document.getElementById('webgl-container');
 
 // === Scene, Camera, Renderer ===
 const scene = new THREE.Scene();
-//scene.background = new THREE.Color(0xfffff);//
+scene.background = new THREE.Color(0xffffff);
 
 
-const width = window.innerWidth;
-const height = 1000;
+const width = container.clientWidth;
+const height = container.clientHeight;
 
 const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.position.set(3, 1, 4);
+camera.position.set(5,0, 5);
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: false });
@@ -43,8 +43,8 @@ let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수
 loader.load('/models/Low_Part.glb', function(gltf) {
 	model = gltf.scene;
 	model.rotation.set(0, 0, 0);
-	model.scale.set(1,1, 1); // ===========================크기바꾸기 크기 바뀌;ㅣ
-	model.position.set(-1,0, 2);
+	model.scale.set(2,2,2); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.position.set(0,0, 0);
 
 	scene.add(model);   // 비동기식 흐름 제어
 	

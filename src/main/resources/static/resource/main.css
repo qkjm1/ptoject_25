@@ -1,5 +1,5 @@
 html, body {
-	height: 3200px;
+	height: 2600px;
 	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
@@ -8,6 +8,7 @@ html, body {
 /* 공통 컨테이너 */
 .contain {
 	width: 100%;
+	height: inherit;
 }
 
 /* 메인 박스 */
@@ -19,40 +20,23 @@ html, body {
 	opacity: 1;
 }
 
-.main_1-box1 {
-	margin-top: 20px;
-	height: 800px;
-	position: absolute;
-	right: 38%;
-}
 
-.main_1-box2 {
-	position: absolute;
-	height: 100%;
-	right: 86%;
-}
-
-.main_1-box2>.show {
-	top: 0;
-	height: 60%;
-	width: 500px;
-}
 
 /* WebGL 박스 */
 #webgl-container {
-	position: ab;
-	width: 300px;
-	height: 800px;
+	padding-bottom: 500px;
+	width: 500px;
+	height: inherit;
+	overflow: hidden;
+	position: absolute;
 }
 
 .main_3-box {
-	border-top-left-radius: 50px;
-	border-top-right-radius: 50px;
-	top: -400px;
-	background-color: black;
-	height: 900px;
-	position: relative;
-	z-index: 100;
+	top:1600px;
+	width:100%;
+	height: 1000px;
+	position:absolute;
+	background-color: gray;
 }
 
 /* 검색박스 */
@@ -104,7 +88,7 @@ html, body {
 	border-top-left-radius: 89px;
 	border-top-right-radius: 89px;
 	width: 100%;
-	height: 1000px;
+	height: 800px;
 	background-color: rgb(46, 188, 135);
 	position: relative;
 	display: flex;
@@ -269,8 +253,8 @@ mainP.in-view {
 .show {
 	position: absolute;
 	display: none;
-	width: 400px;
-	height: 80%;
+	width: 80%;
+	height: inherit;
 	overflow: auto;
 	font-size: 10px;
 	padding: 17px 10px 20px 10px;
@@ -285,6 +269,29 @@ mainP.in-view {
 
 .active {
 	display: block;
+}
+
+
+/*메인info*/
+
+.main_1-box1 {
+	top: 100px;
+	height: 400px;
+	width:1000px;
+	right: 100px;
+	position: absolute;
+}
+
+.main_1-box2 {
+	position: absolute;
+	height: 100%;
+	right: 86%;
+}
+
+.main_1-box2>.show {
+	top: 0;
+	height: 60%;
+	width: 500px;
 }
 
 /* 콘텐츠 카드 스타일 */
@@ -412,10 +419,8 @@ mainP.in-view {
 }
 
 @keyframes bounce { 0%, 100% {
-	transform: translateX(-50%) translateY(0);
-}
-50%
-{transform:translateX(-50%)
+	transform: translateX(-50%) translateY(0);}
+50%{transform:translateX(-50%)
 translateY(8px);}
 }
 
@@ -425,8 +430,6 @@ translateY(8px);}
 	position: absolute;
 	top: 50px;
 	right: -100%; /* 화면 밖에 숨김 */
-	width: 100px;
-	height: 100px;
 	background-color: #fff;
 	z-index: 50; /* info-box 위에 올라오도록 */
 	transition: right 0.5s ease-in-out;
