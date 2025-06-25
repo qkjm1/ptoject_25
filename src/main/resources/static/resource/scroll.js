@@ -109,3 +109,13 @@ $('#scrollBtn').on('click', function () {
     scrollTop: $('.mainP').offset().top
   }, 600);
 });
+
+
+//
+
+
+$(document).ready(function () {
+  $('#mapBtn').on('click', function () {
+    $('#map').toggleClass('active');
+  });
+});

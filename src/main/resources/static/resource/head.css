@@ -9,7 +9,7 @@ html {
 .top-bar {
 	border-radius: 9999px; /* 둥글게 */
 	width: 75%;
-	background-color: #4800ff;
+	background-color: rgb(46, 188, 135);
 	height: 50px;
 	color: #E1D8CD;
 	z-index: 10;

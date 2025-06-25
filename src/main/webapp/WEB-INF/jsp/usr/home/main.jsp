@@ -53,9 +53,8 @@
 	<div class="mainP main_2-box">
 		<button id="scrollBtn" class="scroll-down">
 			click!
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-       xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="2"
-       stroke-linecap="round" stroke-linejoin="round">
+			<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
+				stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="6 9 12 15 18 9" />
   </svg>
 		</button>
@@ -75,16 +74,22 @@
 				<div class="sprite sprite-10" onclick="location.href='/usr/article/infolist?boardId=2&partId=10'"></div>
 			</div>
 		</div>
+		<button id="mapBtn" class="map-slide">
+			click!
+			<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
+				stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+		</button>
+		<div id="map" style="width: 800px; height: 800px;">map</div>
 
 	</div>
 
 
 
-	<div class="main_line_2-3"></div>
 
 
-
-	<div class="mainP flex-grow main_3-box">
+	<div class="mainP main_3-box">
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
 				<div class="show partNo${i}">
@@ -104,9 +109,9 @@
 			</c:forEach>
 		</div>
 
-		<div id="webgl-container"></div>
+		<div id="ebgl-container"></div>
 
-		<div id="map" style="width: 800px; height: 800px;">map</div>
+
 	</div>
 </div>
 
