@@ -29,7 +29,7 @@ public class YouTubController {
 	            .append("?part=snippet")
 	            .append("&q=").append(query)
 	            .append("&type=video")
-	            .append("&maxResults=10")
+	            .append("&maxResults=3")
 	            .append("&order=relevance")
 	            .append("&regionCode=KR")
 	            .append("&relevanceLanguage=ko")

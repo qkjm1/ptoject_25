@@ -2,12 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="pageTitle" value="${board.code} LIST"></c:set>
-<%@ include file="../common/head.jspf"%>
+<%@ include file="../common/head2.jspf"%>
 
 <script type="module" src="/resource/ajax.js"></script>
 <link rel="stylesheet" href="/resource/detail.css" />
 <link rel="stylesheet" href="/resource/common.css" />
-<div class="top-boundry-box"></div>
+
 <div class="contain flex flex-col mx-auto">
 
 	<div class="flex justify-center">

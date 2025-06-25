@@ -1,0 +1,35 @@
+html, body {
+	height: 3000px;
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+
+.contain {
+	width: 100%;
+}
+
+/* 3d */
+#webgl-container {
+	width: 500px;
+	height: 600px;
+	overflow: hidden;
+	position: absolute;
+	top: 200px;
+	right: 20px;
+	border-radius: 40px; /* 둥글게 */
+}
+
+/*main_1-box*/
+.main_1-box {
+	height: 1000px;
+}
+
+.main_1-box>div {
+	width: 30px;
+	top: 20px;
+}
+
+.main_1-box>div>span {
+	font-size: 50px;
+}

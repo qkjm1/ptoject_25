@@ -60,6 +60,33 @@
 		</button>
 
 		<span>어디가 아프세요?</span>
+		<div class="main_1-box1 flex">
+			<c:forEach var="i" begin="1" end="10">
+				<div class="show partNo${i}">
+					<div id="article-list${i}" class="flex flex-col"></div>
+				</div>
+			</c:forEach>
+		</div>
+
+		<div class="main_1-box2 flex youtube-block">
+			<c:forEach var="i" begin="1" end="10">
+				<div class="show partNo${i}">
+					<div id="youtube-con${i}" class="flex"></div>
+				</div>
+			</c:forEach>
+		</div>
+
+		<div id="webgl-container"></div>
+	</div>
+
+
+
+
+
+	<div class="main_3-box">
+
+		<span>간편 클릭으로도 가능해요!</span>
+		<span>간편 클릭으로 해당부위를 알아볼 수 있어요!</span>
 		<div class="info-box flex flex-col">
 			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
 				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>
@@ -82,34 +109,6 @@
   </svg>
 		</button>
 		<div id="map" style="width: 200px; height: 200px;">map</div>
-
-	</div>
-
-
-
-
-
-	<div class="main_3-box">
-		<div class="main_1-box1 flex">
-			<c:forEach var="i" begin="1" end="10">
-				<div class="show partNo${i}">
-					<div id="article-list${i}" class="flex flex-col"></div>
-				</div>
-			</c:forEach>
-
-		</div>
-		<div class="main_1-box2 flex youtube-block">
-			<c:forEach var="i" begin="1" end="10">
-				<div class="show partNo${i}">
-					<h1 class="text-5xl">YOUTUBE</h1>
-					<div id="article-list${i}" class="flex flex-col">
-						<div id="youtube-con${i}" class="flex flex-col"></div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-
-		<div id="webgl-container"></div>
 
 
 	</div>

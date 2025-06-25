@@ -20,23 +20,25 @@ html, body {
 	opacity: 1;
 }
 
-
-
 /* WebGL 박스 */
 #webgl-container {
-	padding-bottom: 500px;
 	width: 500px;
-	height: inherit;
+	height: 500px;
 	overflow: hidden;
 	position: absolute;
+	display: flex;
+	align-self: center;
+	right: 200px;
+	border-radius: 40px; /* 둥글게 */
 }
 
 .main_3-box {
-	top:1600px;
-	width:100%;
+	top: 1600px;
+	width: 100%;
 	height: 1000px;
-	position:absolute;
+	position: absolute;
 	background-color: gray;
+	width: 100%;
 }
 
 /* 검색박스 */
@@ -112,7 +114,6 @@ mainP.in-view {
 
 .info-box {
 	width: 100%;
-	height: 800px;
 	position: absolute;
 	top: 200px;
 	z-index: 5;
@@ -252,47 +253,45 @@ mainP.in-view {
 /* show 팝업 */
 .show {
 	position: absolute;
-	display: none;
-	width: 80%;
-	height: inherit;
+	width: inherit;
+	height: 400px;
 	overflow: auto;
 	font-size: 10px;
 	padding: 17px 10px 20px 10px;
 	z-index: 1;
-	background-color: rgba(60, 60, 41, 0.5);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-	transition: opacity 0.3s ease;
 	border-radius: 8px;
-	margin-top: 100px;
 	color: white;
+
+  	opacity: 0;
+  	margin-left: -800px;
+  	transition: opacity 0.4s ease, margin-left 0.4s ease;
 }
 
 .active {
-	display: block;
+	opacity: 1;
+  	margin-left: 0;
 }
-
 
 /*메인info*/
-
 .main_1-box1 {
-	top: 100px;
+	bottom: 100px;
 	height: 400px;
-	width:1000px;
-	right: 100px;
+	width:  800px;
+	left: 200px;
 	position: absolute;
 }
 
+/*유뷰브*/
 .main_1-box2 {
+	top:-100;
 	position: absolute;
-	height: 100%;
-	right: 86%;
+	height: 400px;
+	left: 200px;
+	width:  800px;
 }
 
-.main_1-box2>.show {
-	top: 0;
-	height: 60%;
-	width: 500px;
-}
+
 
 /* 콘텐츠 카드 스타일 */
 .maininfo-con {
@@ -358,47 +357,62 @@ mainP.in-view {
 }
 
 /* 유튜브 콘텐츠 리스트 */
-.video-item {
+#youtube-con {
+	width: 100%;
 	display: flex;
+	overflow-x: auto;
 	gap: 16px;
-	background-color: white;
+	padding: 10px;
+	scrollbar-width: thin;
+	scroll-snap-type: x mandatory;
+}
+
+.video-item {
+	width: 100%;
+	scroll-snap-align: start;
+	background-color: #fff;
 	border-radius: 10px;
-	padding: 12px;
-	margin-bottom: 20px;
-	height: 150px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.video-item .thumbnail {
+	width: 100%;
+	height: 80px;
 	overflow: hidden;
 }
 
 .video-item .thumbnail img {
+	width: 100%;
 	height: 100%;
-	width: auto;
-	border-radius: 6px;
 	object-fit: cover;
+	display: block;
 }
 
-.video-info {
-	flex-grow: 1;
-	overflow: hidden;
+.video-item .video-info {
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
+	gap: 6px;
 }
 
-.video-title {
-	font-size: 16px;
+.video-item .video-title {
+	font-size: 14px;
+	font-weight: bold;
 	color: #333;
-	margin-bottom: 6px;
-	display: block;
 	text-decoration: none;
+	display: block;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.video-description {
-	color: #555;
-	font-size: 14px;
+.video-item .video-description {
+	font-size: 13px;
+	color: #666;
 	line-height: 1.4;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -420,9 +434,11 @@ mainP.in-view {
 
 @keyframes bounce { 0%, 100% {
 	transform: translateX(-50%) translateY(0);}
-50%{transform:translateX(-50%)
-translateY(8px);}
-}
+50%{
+transform
+:translateX
+(-50%)
+translateY(8px);}}
 
 /* 메인2박스 지도 슬라이드*/
 /* 지도 영역 초기 설정 */

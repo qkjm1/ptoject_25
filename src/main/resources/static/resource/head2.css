@@ -1,0 +1,77 @@
+html {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: white;
+	color: black;
+}
+
+.top-bar {
+	border-radius: 9999px; /* 둥글게 */
+	width: 75%;
+	background-color: rgb(46, 188, 135);
+	height: 50px;
+	color: #E1D8CD;
+	width: 75%;
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 18px);
+	z-index: 100;
+}
+
+a {
+	padding: 10px;
+}
+
+.top-box {
+	width: 100%;
+}
+
+.top-box div {
+	padding: 0px 20px 0px 20px;
+}
+
+.top-box div ul li {
+	position: relative;
+}
+
+.myP {
+	justify-content: flex-end;
+	align-items: flex-end;
+	top: 60px;
+	background-color: #ffffff;;
+	right: 0px;
+	border-radius: 20px; /* 둥글게 */
+	font-size: 20px;
+	width: 140px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	color: black;
+	transition: opacity 0.3s ease;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.myimgshow {
+	opacity: 1;
+	visibility: visible;
+}
+
+.myP {
+	display: block;
+}
+
+.myP>li {
+	display: block;
+}
+
+.myP>li>a {
+	display: block;
+	padding: 10px;
+}
+
+.message {
+	color: black;
+	position: absolute;
+	top: 200px;
+	font-size: 10px;
+}
