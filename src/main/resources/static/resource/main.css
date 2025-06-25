@@ -5,6 +5,19 @@ html, body {
 	padding: 0;
 }
 
+@font-face {
+	font-family: 'Freesentation-9Black';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2')
+		format('woff2');
+	font-weight: 900;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Freesentation-9Black', sans-serif;
+}
+
 /* 공통 컨테이너 */
 .contain {
 	width: 100%;
@@ -23,13 +36,13 @@ html, body {
 /* WebGL 박스 */
 #webgl-container {
 	width: 500px;
-	height: 500px;
+	height: 700px;
 	overflow: hidden;
 	position: absolute;
-	display: flex;
-	align-self: center;
-	right: 200px;
-	border-radius: 40px; /* 둥글게 */
+	bottom: 70px;
+	right: 15%;
+	border-radius: 10px; /* 둥글게 */
+
 }
 
 .main_3-box {
@@ -443,6 +456,10 @@ html, body {
 	box-shadow: none;
 }
 
+.scroll-down > svg {
+margin: auto;
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -468,3 +485,80 @@ html, body {
 #map.active {
 	right: 0;
 }
+
+
+
+/**/
+
+#mouse-icon {
+	position: absolute;
+	width: 500px;
+	height: 700px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.6);
+	bottom: 70px;
+	right: 15%;
+	color: white;
+	border-radius: 10px; /* 둥글게 */
+	z-index: 100;
+	padding-top: 100px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.mouse-icon {
+      width: 40px;
+      height: 60px;
+      margin: 100px auto;
+      animation: moveLeftRight 3s infinite ease-in-out;     
+}
+
+@keyframes moveLeftRight {
+    0%, 100%   { transform: translateX(-50px); }
+    50%  { transform: translateX(50px); }
+}
+    
+/**/
+
+ #mouse-icon-min {
+ 	display: none;
+ }
+
+.mouse-icon-min {
+      width: 20px;
+      height: 40px;
+      animation: moveLeftRight-min 3s infinite ease-in-out;  
+}
+@keyframes moveLeftRight-min {
+      0%, 100%   { transform: translateX(50px); }
+      50%  { transform: translateX(20px); }
+
+    }  
+  
+#webgl-container:hover > #mouse-icon-min {
+	position: absolute;
+	display: block;
+	right: 10px;
+	
+}   
+
+/**/
+.text {
+	position: absolute;
+	top: 100px;
+	left: 20%;
+	font-size: 100px;
+}
+
+.text > span {
+	color: white;
+} 
+
+
+
+.text > span:nth-of-type(3) {
+	font-size:40px;
+} 
+
+
+.text > span:last-child {
+	font-size: 40px;
+} 

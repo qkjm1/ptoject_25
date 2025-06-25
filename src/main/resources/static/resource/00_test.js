@@ -13,10 +13,10 @@ const width = container.clientWidth;
 const height = container.clientHeight;
 
 const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.position.set(5, -3, 5);
+camera.position.set(5, 1.7, 5);
 
 
-const renderer = new THREE.WebGLRenderer({ antialias: false });
+const renderer = new THREE.WebGLRenderer({ antialias:true });
 renderer.setSize(width, height);
 container.appendChild(renderer.domElement);
 
@@ -30,7 +30,7 @@ controls.update();
 
 // === Lighting ===
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-directionalLight.position.set(-1, 2, 4);
+directionalLight.position.set(1, -2, -6);
 scene.add(directionalLight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -40,12 +40,15 @@ scene.add(ambientLight);
 const loader = new GLTFLoader();
 let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
 
-loader.load('/models/QK1.glb', function(gltf) {
-	model = gltf.scene;
-	model.rotation.set(0, 0, 0);
-	model.scale.set(5, 5, 5); // ===========================크기바꾸기 크기 바뀌;ㅣ
-	model.position.set(0, 0, 0);
+loader.load('/models/QK5.glb', function(gltf) {
+	console.log(gltf.scene.scale); // 1,1,1이어야 정상
+	console.log(gltf.scene.rotation); // 0,0,0이 기본
 
+	model = gltf.scene;
+	model.rotation.set(0, 0.8, 0); // ← 여기!
+	model.scale.set(5, 5, 5); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.position.set(0, -4, 0);
+	
 	scene.add(model);   // 비동기식 흐름 제어
 
 	model.traverse((child) => {
@@ -105,11 +108,7 @@ const queryMap = {
 	10: queryToName["Calf"]
 };
 
-const boxHelper = new THREE.BoxHelper(model, 0xff0000);
-scene.add(boxHelper);
 
-const axesHelper = new THREE.AxesHelper(5);
-scene.add(axesHelper);
 
 // === Raycaster ===
 const raycaster = new THREE.Raycaster();
@@ -122,12 +121,18 @@ window.addEventListener('click', (event) => {
 	mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
 	mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
+	
+	
+
+
 	raycaster.setFromCamera(mouse, camera);
 	console.log('Mouse NDC:', mouse.x, mouse.y);
 	if (model) {
 		const intersects = raycaster.intersectObjects(model.children, true);
 		console.log('Intersects:', intersects.length);
+
 		if (intersects.length > 0) {
+			$('.text').css('display', 'none');
 			const clickedPart = intersects[0].object;
 			const partName = clickedPart.name;
 
@@ -152,6 +157,11 @@ window.addEventListener('click', (event) => {
 					if (child.material.isMaterial) {
 						child.material = child.material.clone();
 						child.material.color.set('#f5f5f5'); // 기본색
+						child.material.side = THREE.DoubleSide;
+						child.material.transparent = false;
+						child.material.depthWrite = true;
+						child.castShadow = true;
+						child.receiveShadow = true;
 					}
 				}
 			});

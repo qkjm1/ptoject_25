@@ -33,15 +33,10 @@ if (navigator.geolocation) {
 		const lon = position.coords.longitude;
 		const userPosition = new kakao.maps.LatLng(lat, lon);
 
-		// 마커 표시
+		// ✅ 기본 마커로 표시
 		const marker = new kakao.maps.Marker({
 			position: userPosition,
-			map: map,
-			image: new kakao.maps.MarkerImage(
-				'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_green.png', // 원하는 마커 이미지 URL
-				new kakao.maps.Size(40, 42), // 마커 이미지 크기
-				{ offset: new kakao.maps.Point(20, 42) } // 기준점 위치
-			)
+			map: map
 		});
 
 		// 지도 중심 이동
@@ -57,7 +52,6 @@ if (navigator.geolocation) {
 			location: userPosition,
 			radius: 5000 // 5km 반경 내에서 검색
 		});
-
 
 	}, function(error) {
 		alert("위치 정보를 가져올 수 없습니다. 기본 위치로 표시됩니다.");

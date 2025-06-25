@@ -110,3 +110,10 @@ $(document).ready(function () {
     $('#map').toggleClass('active');
   });
 });
+
+
+//
+
+$('#mouse-icon').one('mouseover', function() {
+  $(this).remove(); // ✅ DOM에서 영구히 제거
+});

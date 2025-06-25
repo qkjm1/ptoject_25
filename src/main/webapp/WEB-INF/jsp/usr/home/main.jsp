@@ -50,14 +50,26 @@
 
 
 	<div class="mainP main_2-box">
+
 		<button id="scrollBtn" class="scroll-down">
-			click!
+			<div>
+				<span>말로 표현하기 어렵다면?</span>
+				<br />
+				<span>click!</span>
+			</div>
 			<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
 				stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="6 9 12 15 18 9" />
   </svg>
 		</button>
-
+		<div class="text">
+			<span>어디가 아픈지</span> 
+			<br />
+			<span>클릭만 하세요!</span>
+			<br />
+			<span>당신의 통증, </span>
+			<span>시각적으로 해결합니다.</span>
+		</div>
 
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
@@ -76,7 +88,22 @@
 			</c:forEach>
 		</div>
 
-	<div id="webgl-container"></div>
+		<div id="mouse-icon" class="">
+			<svg class="mouse-icon" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="5" width="40" height="80" rx="20" stroke="white" stroke-width="4" />
+    <line x1="30" y1="20" x2="30" y2="35" stroke="white" stroke-width="4" stroke-linecap="round" />
+  </svg>
+		</div>
+
+		<div id="webgl-container">
+			<div id="mouse-icon-min" class="flex">
+				<span>좌우로 회전</span>
+				<svg class="mouse-icon-min" viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="5" width="40" height="80" rx="20" stroke="black" stroke-width="4" />
+    <line x1="30" y1="20" x2="30" y2="35" stroke="black" stroke-width="4" stroke-linecap="round" />
+  </svg>
+			</div>
+		</div>
 
 	</div>
 
