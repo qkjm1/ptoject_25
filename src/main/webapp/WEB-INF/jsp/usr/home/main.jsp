@@ -49,7 +49,6 @@
 
 
 
-
 	<div class="mainP main_2-box">
 		<button id="scrollBtn" class="scroll-down">
 			click!
@@ -59,7 +58,7 @@
   </svg>
 		</button>
 
-		<span>어디가 아프세요?</span>
+
 		<div class="main_1-box1 flex">
 			<c:forEach var="i" begin="1" end="10">
 				<div class="show partNo${i}">
@@ -71,12 +70,14 @@
 		<div class="main_1-box2 flex youtube-block">
 			<c:forEach var="i" begin="1" end="10">
 				<div class="show partNo${i}">
+					<div class="youtube-et">YOUTUBE</div>
 					<div id="youtube-con${i}" class="flex"></div>
 				</div>
 			</c:forEach>
 		</div>
 
-		<div id="webgl-container"></div>
+	<div id="webgl-container"></div>
+
 	</div>
 
 

@@ -17,7 +17,7 @@ gsap.to(".top-bar", {
 
 // 탑바
 
-gsap.to(".main_2-box", {
+gsap.to(".mainP", {
 	scrollTrigger: {
 		trigger: ".top-bar", // 스크롤 기준 요소 변경
 		start: "top -15%", // 탑바 나올때 깥이 나와라
@@ -25,7 +25,7 @@ gsap.to(".main_2-box", {
 		scrub: 2,
 		markers: true // start/end 디버깅 라인 보이게
 	},
-	y: -200,
+	y: -10,
 	opacity: 1,
 	duration: 1,
 	ease: "power1.out"
@@ -54,6 +54,17 @@ gsap.to(".sprite", {
 
 
 //
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('in-view');
+		}
+	});
+}, {
+	threshold: 0.1
+});
+
+document.querySelectorAll('.mainP').forEach(el => observer.observe(el));
 
 
 

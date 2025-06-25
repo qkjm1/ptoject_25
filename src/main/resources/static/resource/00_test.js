@@ -40,10 +40,10 @@ scene.add(ambientLight);
 const loader = new GLTFLoader();
 let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
 
-loader.load('/models/Low_Part.glb', function(gltf) {
+loader.load('/models/QK1.glb', function(gltf) {
 	model = gltf.scene;
 	model.rotation.set(0, 0, 0);
-	model.scale.set(2, 2, 2); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.scale.set(5, 5, 5); // ===========================크기바꾸기 크기 바뀌;ㅣ
 	model.position.set(0, 0, 0);
 
 	scene.add(model);   // 비동기식 흐름 제어
@@ -105,6 +105,11 @@ const queryMap = {
 	10: queryToName["Calf"]
 };
 
+const boxHelper = new THREE.BoxHelper(model, 0xff0000);
+scene.add(boxHelper);
+
+const axesHelper = new THREE.AxesHelper(5);
+scene.add(axesHelper);
 
 // === Raycaster ===
 const raycaster = new THREE.Raycaster();
@@ -118,10 +123,10 @@ window.addEventListener('click', (event) => {
 	mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
 	raycaster.setFromCamera(mouse, camera);
-
+	console.log('Mouse NDC:', mouse.x, mouse.y);
 	if (model) {
 		const intersects = raycaster.intersectObjects(model.children, true);
-
+		console.log('Intersects:', intersects.length);
 		if (intersects.length > 0) {
 			const clickedPart = intersects[0].object;
 			const partName = clickedPart.name;
@@ -197,13 +202,13 @@ renderer.domElement.addEventListener('mousemove', (event) => {
 	if (!isMouseDown || !model) return;
 
 	const deltaX = event.clientX - previousMousePosition.x;
-	const deltaY = event.clientY - previousMousePosition.y;
+//	const deltaY = event.clientY - previousMousePosition.y;
 
 	// 수평 회전 (Y축)
 	model.rotation.y += deltaX * 0.008;  //이거이거이억잉겅기억회전값 회전값
 
 	// 수직 회전 (X축 기준으로 회전)
-	model.rotation.x += deltaY * 0.008;
+//	model.rotation.x += deltaY * 0.008;
 
 	previousMousePosition.x = event.clientX;
 	previousMousePosition.y = event.clientY;
@@ -495,7 +500,3 @@ function youtubeList__get(query, partId, isNewSearch = false) {
 		}
 	}, 'json');
 }
-
-
-
-
