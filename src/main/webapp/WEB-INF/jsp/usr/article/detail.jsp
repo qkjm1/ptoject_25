@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resource/common.css" />
 <script type="module" src="/resource/ajax.js"></script>
 
-<div class="top-boundry-box"></div>
+
 <div class="contain flex flex-col mx-auto">
 	<div class="top-con h-10 w-full flex flex-col justify-between self-center">
 		<div class="flex justify-between w-full">

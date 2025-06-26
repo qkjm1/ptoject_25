@@ -29,6 +29,7 @@
 </head>
 <body data-user-id="${rq.getIsLoginMemberId() != null ? rq.getIsLoginMemberId() : ''}">
 	<header>
+		<div class="top-line"></div>
 		<div class="top-bar flex mx-auto items-center text-3xl">
 			<div class="top-box flex items-center mx-auto justify-between">
 				<div>

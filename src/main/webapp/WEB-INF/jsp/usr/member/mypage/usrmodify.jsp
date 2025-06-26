@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/resource/common.css" />
 <link rel="stylesheet" href="/resource/detail.css" />
 <link rel="stylesheet" href="/resource/common2.css" />
-<div class="top-boundry-box"></div>
+
 <div class="contain flex flex-col mx-auto">
 
 	<div class="info-con flex mx-auto justify-around">

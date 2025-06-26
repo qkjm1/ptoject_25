@@ -6,7 +6,7 @@
 
 <title>LOGIN</title>
 <link rel="stylesheet" href="/resource/common.css" />
-<div class="top-boundry-box"></div>
+
 <div class="contain flex">
 	<div class="contents-box flex">
 		<div class="signup-box flex flex-col">

@@ -6,7 +6,7 @@
 <%@ include file="../common/toastUiEditorLib.jspf"%>
 
 <link rel="stylesheet" href="/resource/article.css" />
-<div class="top-boundry-box"></div>
+
 <div class="contain flex flex-col mx-auto px-4 max-w-3xl">
 	<div class="h-5"></div>
 	<div>

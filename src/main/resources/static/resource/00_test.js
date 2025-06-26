@@ -16,7 +16,7 @@ const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 camera.position.set(5, 1.7, 5);
 
 
-const renderer = new THREE.WebGLRenderer({ antialias:true });
+const renderer = new THREE.WebGLRenderer({ antialias:false });
 renderer.setSize(width, height);
 container.appendChild(renderer.domElement);
 
@@ -30,7 +30,7 @@ controls.update();
 
 // === Lighting ===
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-directionalLight.position.set(1, -2, -6);
+directionalLight.position.set(-1, 0, 4);
 scene.add(directionalLight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -40,13 +40,13 @@ scene.add(ambientLight);
 const loader = new GLTFLoader();
 let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
 
-loader.load('/models/QK5.glb', function(gltf) {
+loader.load('/models/Low_Part.glb', function(gltf) {
 	console.log(gltf.scene.scale); // 1,1,1이어야 정상
 	console.log(gltf.scene.rotation); // 0,0,0이 기본
 
 	model = gltf.scene;
 	model.rotation.set(0, 0.8, 0); // ← 여기!
-	model.scale.set(5, 5, 5); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.scale.set(4, 4, 4); // ===========================크기바꾸기 크기 바뀌;ㅣ
 	model.position.set(0, -4, 0);
 	
 	scene.add(model);   // 비동기식 흐름 제어

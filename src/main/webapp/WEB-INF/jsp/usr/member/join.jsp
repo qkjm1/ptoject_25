@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="/resource/common.css" />
 <script type="module" src="/resource/join.js"></script>
-<div class="top-boundry-box"></div>
+
 
 <div class="contents-box flex justify-center items-center min-h-screen"">
   <div class="signup-box p-10 w-full max-w-lg">

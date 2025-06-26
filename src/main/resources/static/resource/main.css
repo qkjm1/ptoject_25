@@ -5,18 +5,7 @@ html, body {
 	padding: 0;
 }
 
-@font-face {
-	font-family: 'Freesentation-9Black';
-	src:
-		url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2')
-		format('woff2');
-	font-weight: 900;
-	font-style: normal;
-}
 
-body {
-	font-family: 'Freesentation-9Black', sans-serif;
-}
 
 /* 공통 컨테이너 */
 .contain {
@@ -470,21 +459,22 @@ margin: auto;
 }
 /* 메인2박스 지도 슬라이드*/
 /* 지도 영역 초기 설정 */
-#map {
-	position: absolute;
-	top: 50px;
-	right: -100%; /* 화면 밖에 숨김 */
-	background-color: #fff;
-	z-index: 50; /* info-box 위에 올라오도록 */
-	transition: right 0.5s ease-in-out;
-	box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-	padding: 2rem;
+
+.slide-map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background: white;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 100;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
 }
 
+
 /* 활성화 시: 화면 덮음 */
-#map.active {
-	right: 0;
-}
 
 
 
@@ -562,3 +552,6 @@ margin: auto;
 .text > span:last-child {
 	font-size: 40px;
 } 
+
+
+

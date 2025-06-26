@@ -9,7 +9,7 @@ gsap.to(".top-bar", {
 		markers: false
 		//    markers: true // start/end 디버깅 라인 보이게
 	},
-	y: 18,
+	y: 15,
 	opacity: 1,
 	duration: 1,
 	ease: "power1.out"

@@ -63,7 +63,7 @@
   </svg>
 		</button>
 		<div class="text">
-			<span>어디가 아픈지</span> 
+			<span>어디가 아픈지</span>
 			<br />
 			<span>클릭만 하세요!</span>
 			<br />
@@ -136,8 +136,9 @@
     <polyline points="6 9 12 15 18 9" />
   </svg>
 		</button>
-		<div id="map" style="width: 200px; height: 200px;">map</div>
-
+		<div class="slide-map">
+			<div id="map" style="width: 200px; height: 200px;">map</div>
+		</div>
 
 	</div>
 </div>
