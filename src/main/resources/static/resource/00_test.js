@@ -30,7 +30,7 @@ controls.update();
 
 // === Lighting ===
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-directionalLight.position.set(-1, 0, 4);
+directionalLight.position.set(-1, 2, 4);
 scene.add(directionalLight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -272,20 +272,17 @@ function InfoArticle__get(partId) {
 
 
 				const html = `
-				<div class="maininfo-con flex flex-col mx-auto">				
-					<div class="maininfo-box">
-						<div class="maininfo-title mx-auto flex items-end justify-center">
-							<div class="flex-grow">	
-								<a href="#" class="text-xl font-bold text-black">${article.title}</a>
-							</div>
-							<div class="flex-grow"></div>
-							<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
-					 	</div>
-						<div class="partLine w-100%"></div>		
-						<div class="maininfo-body text-black">
-							<a href="/usr/article/detail?articleId=${article.id}">${article.body}</a>
-						</div>
-					</div>
+				<div class="maininfo-con" onclick="location.href='/usr/article/detail?articleId=${article.id}'" role="link" tabindex="0">
+				  <div class="maininfo-box">
+				    <div class="maininfo-title">
+				      <div>
+				        <a href="#" tabindex="-1">${article.title}</a>
+				      </div>
+				    </div>
+				    <div class="maininfo-body">
+				      <a href="/usr/article/detail?articleId=${article.id}" tabindex="-1">${article.body}</a>
+				    </div>
+				  </div>
 				</div>
 	            `;
 				$listContainer.append(html);

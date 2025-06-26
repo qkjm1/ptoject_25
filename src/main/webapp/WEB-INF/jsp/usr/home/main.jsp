@@ -144,8 +144,11 @@
     <polyline points="6 9 12 15 18 9" />
   </svg>
 			</button>
-			<button onclick="showMyLocation()">내 위치 보기</button>
-			<div id="map">map</div>
+
+			<ul id="hospitalList" class="hospital-list"></ul>
+			<div id="map">
+				<button id="myLocationBtn" class="my-location-btn">📍 내 위치</button>
+			</div>
 		</div>
 
 	</div>

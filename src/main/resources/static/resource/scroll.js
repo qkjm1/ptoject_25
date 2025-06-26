@@ -13,6 +13,7 @@ gsap.to(".top-bar", {
 	opacity: 1,
 	duration: 1,
 	ease: "power1.out"
+
 });
 
 // 탑바

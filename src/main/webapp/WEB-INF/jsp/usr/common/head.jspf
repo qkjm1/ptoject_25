@@ -29,7 +29,7 @@
 </head>
 <body data-user-id="${rq.getIsLoginMemberId() != null ? rq.getIsLoginMemberId() : ''}">
 	<header>
-	
+
 		<div class="top-bar flex mx-auto items-center text-3xl">
 			<div class="top-box flex items-center mx-auto justify-between">
 				<div>
@@ -66,17 +66,17 @@
 									</li>
 								</ul>
 							</li>
+							<div class="message"></div>
+							<!-- 알림 아이콘 -->
+							<div id="notification-icon">🔔</div>
+
+							<!-- 알림 박스 -->
+							<div id="notification-box">
+								<!-- 알림 항목이 여기에 동적으로 추가됩니다 -->
+							</div>
 
 						</c:if>
 					</ul>
-					<div class="message"></div>
-					<!-- 알림 아이콘 -->
-					<div id="notification-icon">🔔</div>
-
-					<!-- 알림 박스 -->
-					<div id="notification-box">
-						<!-- 알림 항목이 여기에 동적으로 추가됩니다 -->
-					</div>
 				</div>
 			</div>
 		</div>
