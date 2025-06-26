@@ -129,7 +129,7 @@
 				<div class="sprite sprite-10" onclick="location.href='/usr/article/infolist?boardId=2&partId=10'"></div>
 			</div>
 		</div>
-		<button id="mapBtn" class="map-slide">
+		<button id="mapOpenBtn" class="mapBtn">
 			click!
 			<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
 				stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -137,10 +137,19 @@
   </svg>
 		</button>
 		<div class="slide-map">
-			<div id="map" style="width: 200px; height: 200px;">map</div>
+			<button id="mapCloseBtn" class="mapBtn">
+				click!
+				<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+			</button>
+			<button onclick="showMyLocation()">내 위치 보기</button>
+			<div id="map">map</div>
 		</div>
 
 	</div>
 </div>
+
 
 <%@ include file="../common/poot.jspf"%>

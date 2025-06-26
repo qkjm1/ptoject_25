@@ -106,8 +106,8 @@ $('#scrollBtn').on('click', function () {
 
 
 $(document).ready(function () {
-  $('#mapBtn').on('click', function () {
-    $('#map').toggleClass('active');
+  $('.mapBtn').on('click', function () {
+    $('.slide-map').toggleClass('active');
   });
 });
 
@@ -117,3 +117,8 @@ $(document).ready(function () {
 $('#mouse-icon').one('mouseover', function() {
   $(this).remove(); // ✅ DOM에서 영구히 제거
 });
+
+
+//
+
+

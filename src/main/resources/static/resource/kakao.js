@@ -91,3 +91,5 @@ function panTo() {
 	// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 	map.panTo(moveLatLon);
 }
+
+
