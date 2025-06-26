@@ -29,24 +29,24 @@ controls.enableZoom = false; //확대축소 막기
 controls.update();
 
 // === Lighting ===
-const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+const directionalLight = new THREE.DirectionalLight(0x787878, 2);
 directionalLight.position.set(-1, 2, 4);
 scene.add(directionalLight);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+const ambientLight = new THREE.AmbientLight(0xD8D8D8, 0.6);
 scene.add(ambientLight);
 
 // === GLTF Model Load ===
 const loader = new GLTFLoader();
 let model; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
 
-loader.load('/models/Low_Part.glb', function(gltf) {
+loader.load('/models/QK7.glb', function(gltf) {
 	console.log(gltf.scene.scale); // 1,1,1이어야 정상
 	console.log(gltf.scene.rotation); // 0,0,0이 기본
 
 	model = gltf.scene;
 	model.rotation.set(0, 0.8, 0); // ← 여기!
-	model.scale.set(4, 4, 4); // ===========================크기바꾸기 크기 바뀌;ㅣ
+	model.scale.set(3, 3, 3); // ===========================크기바꾸기 크기 바뀌;ㅣ
 	model.position.set(0, -4, 0);
 	
 	scene.add(model);   // 비동기식 흐름 제어
@@ -56,9 +56,8 @@ loader.load('/models/Low_Part.glb', function(gltf) {
 			console.log('Mesh Loaded:', child.name);
 			child.userData.name = child.name;
 			child.visible = true;
-
 			child.material = child.material.clone();
-			child.material.color.set('#f5f5f5');
+			child.material.color.set('#949494');
 		}
 	});
 }, undefined, function(error) {
@@ -144,7 +143,7 @@ window.addEventListener('click', (event) => {
 			console.log("$target: " + $target);
 			if (selectedMesh === clickedPart) {
 				clickedPart.material = clickedPart.material.clone();
-				clickedPart.material.color.set('#f5f5f5'); // 기본색
+				clickedPart.material.color.set('#949494'); // 기본색
 				selectedMesh = null;
 				$('.show').removeClass('active');
 				return;
@@ -156,7 +155,7 @@ window.addEventListener('click', (event) => {
 					// 모든 mesh 초기화 (필요 시 clone된 material도 덮어씀)
 					if (child.material.isMaterial) {
 						child.material = child.material.clone();
-						child.material.color.set('#f5f5f5'); // 기본색
+						child.material.color.set('#949494'); // 기본색
 						child.material.side = THREE.DoubleSide;
 						child.material.transparent = false;
 						child.material.depthWrite = true;
@@ -169,7 +168,7 @@ window.addEventListener('click', (event) => {
 			// 클릭된 파트만 강조색으로 변경
 			if (clickedPart.material.isMaterial) {
 				clickedPart.material = clickedPart.material.clone();
-				clickedPart.material.color.set('#bc8f8f'); // 강조색
+				clickedPart.material.color.set('#9A5F61'); // 강조색
 				selectedMesh = clickedPart;
 			}
 
@@ -179,7 +178,7 @@ window.addEventListener('click', (event) => {
 
 				console.log(partId);
 				InfoArticle__get(partId);
-				youtubeList__get(query, partId);
+//				youtubeList__get(query, partId);
 			} else {
 				console.warn('Unknown part name:', partName);
 			}
@@ -301,12 +300,6 @@ let isLoading = false;
 let currentQuery = null;
 let currentPartId = null;
 
-if (partId !== undefined) {
-	currentQuery = query;
-	currentPartId = partId;
-
-	console.log(query);
-}
 
 /*
 async function youtubeList__getMultiple(queryMap) {
@@ -507,3 +500,126 @@ function youtubeList__get(query, partId, isNewSearch = false) {
 		}
 	}, 'json');
 }
+
+
+
+//
+
+const web3d_container = document.getElementById('web3d-container');
+
+
+// === Scene, Camera, Renderer ===
+const scene2 = new THREE.Scene();
+scene2.background = new THREE.Color(0xffffff);
+
+
+const width2 = web3d_container.clientWidth;
+const height2 = web3d_container.clientHeight;
+
+const camera2 = new THREE.PerspectiveCamera(75, width2 / height2, 0.1, 1000);
+camera2.position.set(0, 4, 10);  // 위 + 약간 앞에서 보는 느낌
+camera2.lookAt(0, 0, 0);         // 모델 중심
+
+
+const renderer2 = new THREE.WebGLRenderer({ antialias:false });
+renderer2.setSize(width2, height2);
+web3d_container.appendChild(renderer2.domElement);
+//그림자 설정
+renderer2.shadowMap.enabled = true;
+renderer2.shadowMap.type = THREE.PCFSoftShadowMap; // 부드러운 그림자 (선택)
+// === Controls ===
+const controls2 = new OrbitControls(camera2, renderer2.domElement);
+controls2.enableDamping = true;
+controls2.enablePan = false; // 이동 비활성화 (고정)
+controls2.enableRotate = false;
+controls2.enableZoom = false; //확대축소 막기
+controls2.update();
+
+// === Lighting ===
+const directionalLight2 = new THREE.DirectionalLight(0x787878, 2);
+directionalLight2.castShadow = true;
+
+directionalLight2.shadow.camera.left = -10;
+directionalLight2.shadow.camera.right = 10;
+directionalLight2.shadow.camera.top = 10;
+directionalLight2.shadow.camera.bottom = -10;
+directionalLight2.shadow.camera.near = 1;
+directionalLight2.shadow.camera.far = 20;
+
+// 그림자 만들기
+directionalLight2.position.set(-1, 2, 4);
+scene2.add(directionalLight2);
+
+const ambientLight2 = new THREE.AmbientLight(0xD8D8D8, 0.6);
+scene2.add(ambientLight2);
+
+// === GLTF Model Load ===
+const loader2 = new GLTFLoader();
+let model2; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
+
+loader2.load('/models/QK11.glb', function(gltf) {
+	console.log(gltf.scene.scale);
+	console.log(gltf.scene.rotation);
+
+	model2 = gltf.scene;
+	model2.rotation.set(0, 0, 0);
+	model2.scale.set(5, 5, 5);
+	model2.position.set(0, 0, 8);
+	
+	scene2.add(model2);
+
+	model2.traverse((child) => {
+		if (child.isMesh) {
+			console.log('Mesh Loaded:', child.name);
+			child.userData.name = child.name;
+			child.visible = true;
+			child.material = child.material.clone();
+			child.material.color.set('#CACACA');
+			child.castShadow = true;       // ✅ 그림자를 떨어뜨리기
+		}
+	});
+}, undefined, function(error) {
+	console.error('모델 로딩 중 오류 발생:', error);
+});
+
+
+const groundGeo = new THREE.PlaneGeometry(200, 200);
+const groundMat = new THREE.ShadowMaterial({ opacity: 0.5 }); // 그림자만 받는 재질
+
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = 0; // y=0 위치에 평면
+
+ground.receiveShadow = true; // 그림자 받기 활성화
+scene2.add(ground);
+
+//디버깅용	
+
+
+
+let mouseX2 = 0;
+let mouseY2 = 0;
+
+// 브라우저 전체 기준으로 -1 ~ 1 정규화된 마우스 좌표 계산
+window.addEventListener('mousemove', (event) => {
+  mouseX2 = (event.clientX / window.innerWidth) * 2 - 1;
+  mouseY2 = -(event.clientY / window.innerHeight) * 2 + 1;
+});
+
+function animate2() {
+  requestAnimationFrame(animate2);
+  
+  // 카메라 회전(시선 따라오는 느낌) → 부드럽게 Lerp
+   const targetX = mouseX2 * 0.3; // 좌우 회전 정도
+   const targetY = mouseY2 * 0.3; // 위아래 회전 정도
+
+   // 카메라가 중심을 바라보는 위치를 조절 (카메라가 고정된 위치에서 시선을 움직이는 느낌)
+   camera2.lookAt(
+     new THREE.Vector3(targetX, targetY, 0)
+   );
+  
+  //controls2.update();
+  renderer2.render(scene2, camera2);
+  
+}
+animate2();

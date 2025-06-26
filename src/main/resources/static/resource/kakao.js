@@ -149,7 +149,7 @@ $(function() {
 		ps.keywordSearch('정형외과', (data, status) => {
 			if (status === kakao.maps.services.Status.OK) {
 				clearMarkers();
-				hospitalsData = data; // 5개만 추출
+				hospitalsData = data; 
 				hospitalsData.forEach(place => {
 					createMarker(place);
 				});
@@ -202,15 +202,6 @@ $(function() {
         🔗 <a href="${place.place_url}" target="_blank" rel="noopener noreferrer">상세보기</a>
       `;
 
-			// 마우스 오버 시 해당 마커 애니메이션
-			li.addEventListener('mouseover', () => {
-				markers[idx].setAnimation(kakao.maps.Animation.BOUNCE);
-				map.panTo(markers[idx].getPosition());
-			});
-
-			li.addEventListener('mouseout', () => {
-				markers[idx].setAnimation(null);
-			});
 
 			// 클릭시 상세 페이지 새탭 열기 (a태그 클릭과 중복될 수 있으니 옵션)
 			li.addEventListener('click', () => {

@@ -29,6 +29,7 @@
 
 <div class="contain mx-auto flex flex-col">
 	<div class="main_1-box flex">
+		<div id="web3d-container"></div>
 
 		<form class="w-full flex">
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
@@ -44,7 +45,6 @@
 				</button>
 			</div>
 		</form>
-
 	</div>
 
 
