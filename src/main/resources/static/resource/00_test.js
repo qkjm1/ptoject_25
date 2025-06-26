@@ -517,7 +517,7 @@ const width2 = web3d_container.clientWidth;
 const height2 = web3d_container.clientHeight;
 
 const camera2 = new THREE.PerspectiveCamera(75, width2 / height2, 0.1, 1000);
-camera2.position.set(0, 6, 9);  // 위 + 약간 앞에서 보는 느낌
+camera2.position.set(0, 6, 10);  // 위 + 약간 앞에서 보는 느낌
 camera2.lookAt(0, 0, 0);         // 모델 중심
 
 
@@ -557,14 +557,14 @@ scene2.add(ambientLight2);
 const loader2 = new GLTFLoader();
 let model2; // 모델을 클릭 이벤트에서 사용하기 위해 전역 변수로
 
-loader2.load('/models/QK11.glb', function(gltf) {
+loader2.load('/models/QK13.glb', function(gltf) {
 	console.log(gltf.scene.scale);
 	console.log(gltf.scene.rotation);
 
 	model2 = gltf.scene;
 	model2.rotation.set(0, 0, 0);
-	model2.scale.set(5, 5, 5);
-	model2.position.set(0, 0, 9);
+	model2.scale.set(4, 4, 4);
+	model2.position.set(0, 0, 7);
 	
 	scene2.add(model2);
 
