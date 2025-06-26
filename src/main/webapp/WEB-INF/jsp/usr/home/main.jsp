@@ -29,9 +29,15 @@
 
 <div class="contain mx-auto flex flex-col">
 	<div class="main_1-box flex">
+
 		<div id="web3d-container"></div>
 
 		<form class="w-full flex">
+			<div class="absolute">
+				<span>통증 부위를 입력해주세요</span>
+				<br />
+				<span>관련된 질병을 찾아드릴게요</span>
+			</div>
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
 			<input type="hidden" name="boardId" value="2" />
 			<div class="search-box">

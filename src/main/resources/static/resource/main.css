@@ -648,3 +648,10 @@ margin: auto;
 	width: 100%;
 	height: 1200px;
 }
+
+.main_1-box>div>span {
+	z-index:1000;
+	color: rgb(46, 188, 135);
+	top: 100px;
+	left: 20%;
+}

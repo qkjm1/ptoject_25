@@ -517,7 +517,7 @@ const width2 = web3d_container.clientWidth;
 const height2 = web3d_container.clientHeight;
 
 const camera2 = new THREE.PerspectiveCamera(75, width2 / height2, 0.1, 1000);
-camera2.position.set(0, 4, 10);  // 위 + 약간 앞에서 보는 느낌
+camera2.position.set(0, 6, 9);  // 위 + 약간 앞에서 보는 느낌
 camera2.lookAt(0, 0, 0);         // 모델 중심
 
 
@@ -547,7 +547,7 @@ directionalLight2.shadow.camera.near = 1;
 directionalLight2.shadow.camera.far = 20;
 
 // 그림자 만들기
-directionalLight2.position.set(-1, 2, 4);
+directionalLight2.position.set(-1, 5, 4);
 scene2.add(directionalLight2);
 
 const ambientLight2 = new THREE.AmbientLight(0xD8D8D8, 0.6);
@@ -564,7 +564,7 @@ loader2.load('/models/QK11.glb', function(gltf) {
 	model2 = gltf.scene;
 	model2.rotation.set(0, 0, 0);
 	model2.scale.set(5, 5, 5);
-	model2.position.set(0, 0, 8);
+	model2.position.set(0, 0, 9);
 	
 	scene2.add(model2);
 
