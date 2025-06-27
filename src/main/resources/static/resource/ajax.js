@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 		const $form = $(this);
 		const formData = $form.serialize();
-
+		console.log($form );
 		$.ajax({
 			url: $form.attr("action"),
 			type: "POST",
@@ -20,9 +20,6 @@ $(document).ready(function() {
 					$icon.removeClass('bookmark__icon_col');
 					showToast("북마크 해제됨");
 				}
-				
-
-
 
 			},
 			error: function(xhr, status, error) {
@@ -30,7 +27,6 @@ $(document).ready(function() {
 				showToast("오류 발생");
 			}
 		});
-	
 	
 		
 	});

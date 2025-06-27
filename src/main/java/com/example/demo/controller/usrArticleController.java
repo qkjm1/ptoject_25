@@ -247,7 +247,6 @@ public class usrArticleController {
 		Article getPartId = articleService.partName(partId);
 		
 		
-
 		model.addAttribute("usr", rq.getIsLoginMemberId());
 		model.addAttribute("getArticleCountByPartId", getArticleCountByPartId);
 		model.addAttribute("totalPage", totalPage);

@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Article {
 
+	private int isBookmarked;
 	private int id;
 	private String regDate;
 	private String updateDate;
@@ -22,7 +23,6 @@ public class Article {
 	
 	private int usrId;
 	private int boardId;
-	private int hitCount;
 	private int goodRp;
 	private int partId;
 
@@ -34,5 +34,4 @@ public class Article {
 	
 	private String extra__writer;
 	private String part__name;
-	private String isBookmarked;
 }
