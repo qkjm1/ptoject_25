@@ -34,7 +34,6 @@ CREATE TABLE article (
    title CHAR(100) NOT NULL,
    `body` TEXT NOT NULL,
    usrId INT(10) UNSIGNED NOT NULL,
-   hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0,
    goodRp INT(10) UNSIGNED NOT NULL DEFAULT 0,
    boardId INT(10) UNSIGNED NOT NULL,
    partId INT(10) UNSIGNED NOT NULL
@@ -67,6 +66,7 @@ CREATE TABLE `like` (
     regDate DATETIME NOT NULL
 );
 ###########
+
 
 INSERT INTO `user`
 SET

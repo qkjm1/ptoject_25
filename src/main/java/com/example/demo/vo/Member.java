@@ -23,6 +23,9 @@ public class Member {
 	private String nickname;
 	private String cellphoneNum;
 	private String email;
+	private int authLevel;
+	
+	private boolean usrAuthor;
 	
 	private boolean delStatus;
 	private LocalDateTime delDate;

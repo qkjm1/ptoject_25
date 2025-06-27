@@ -54,8 +54,14 @@ public class MemberService {
 	}
 
 
-	public Member memberByIntId(int loginId) {
-		return memberRepository.memberByIntId(loginId);
+	public Member memberByIntId(int loginId) {		
+		Member member = memberRepository.memberByIntId(loginId);
+		
+		if(member.getAuthLevel()==7) {
+			member.setUsrAuthor(true);
+		}
+		
+		return member;
 	}
 
 

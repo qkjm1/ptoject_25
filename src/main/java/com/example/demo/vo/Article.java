@@ -30,6 +30,7 @@ public class Article {
 	private LocalDateTime delDate;
 
 	private boolean usrAuthor;
+	private boolean admin;
 	
 	private String extra__writer;
 	private String part__name;

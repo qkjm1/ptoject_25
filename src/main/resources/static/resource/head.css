@@ -17,7 +17,6 @@ html {
 
 body {
 	font-family: 'Freesentation-9Black', sans-serif;
-	font-weight: 900;
 }
 
 
@@ -37,15 +36,16 @@ body {
 }
 
 a {
-	padding: 10px;
+	padding: 5px;
 }
 
 .top-box {
 	width: 100%;
+	font-size: 20px;
 }
 
 .top-box div {
-	padding: 0px 20px 0px 20px;
+	padding-right:5px;
 }
 
 .top-box div ul li {
@@ -53,12 +53,10 @@ a {
 }
 
 .myP {
-	justify-content: flex-end;
-	align-items: flex-end;
-	top: 60px;
+	top: 108%;
+	right: 12%;
 	background-color: #ffffff;;
-	right: 0px;
-	border-radius: 20px; /* 둥글게 */
+	border-radius: 8px; /* 둥글게 */
 	font-size: 20px;
 	width: 140px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -66,6 +64,14 @@ a {
 	transition: opacity 0.3s ease;
 	opacity: 0;
 	visibility: hidden;
+	z-index: 100;
+}
+.img_reload {
+	align-content:center;
+	right: 0;
+}
+.top-box>div:nth-child(1) {
+	padding-left: 5px;
 }
 
 .myimgshow {
@@ -83,12 +89,5 @@ a {
 
 .myP>li>a {
 	display: block;
-	padding: 10px;
 }
 
-.message {
-	color: black;
-	position: absolute;
-	top: 200px;
-	font-size: 10px;
-}

@@ -29,19 +29,47 @@ body {
 }
 
 .search-box {
+	border-color:rgb(46, 188, 135);
 	margin-top: 2rem; /* 자연스러운 위치 */
-	width: 100%;
-	max-width: 500px;
+	margin: auto;
+	min-width: 500px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	z-index: 1;
 }
 
 .signup-box input {
-	background-color: #E1D8CD;
 	width: 100%;
-	padding: 10px;
-	margin-top: 10px;
+	padding: 10px 16px;
+	border: 2px solid rgb(46, 188, 135);
+	border-radius: 9999px;
+	font-size: 16px;
+	transition: 0.3s;
+	background-color: #ffffff;
+}
+
+.search-box input:focus {
+	outline: none;
+	border-color: rgb(46, 188, 135);
+	box-shadow: 0 0 0 3px rgba(60, 60, 41, 0.2);
+}
+
+.search-box button {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
 	border: none;
-	border-radius: 6px;
-	box-sizing: border-box;
+	cursor: pointer;
+	padding: 0;
+	color: rgb(46, 188, 135);
+	transition: color 0.3s;
+}
+
+.search-box button:hover {
+	color: black;
 }
 
 .signup-box button {
@@ -200,11 +228,6 @@ body {
 	height: 100%;
 }
 
-.side-box {
-	width: 20%;
-	background-color: #f3efeb;
-	border-radius: 4px; /* 둥글게 */
-}
 
 .side-box ul {
 	list-style: none;
@@ -215,18 +238,10 @@ body {
 	gap: 0.7rem;
 }
 
-.side-box li a {
-	display: block;
-	padding: 12px 16px;
-	border-radius: 8px;
-	background-color: #eaeaea;
-	color: #3C3C29;
-	font-weight: 600;
-	transition: background-color 0.3s, color 0.3s;
-}
+
 
 .side-box li a:hover, .side-box li a.active {
-	background-color: #3C3C29;
+	background-color:  rgb(46, 188, 135);
 	color: #EAD292;
 }
 

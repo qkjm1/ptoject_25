@@ -650,7 +650,7 @@ margin: auto;
 }
 
 .main_1-box>div:nth-child(2) {
-	z-index:1000;
+	z-index:1;
 	color: rgb(46, 188, 135);
 	margin-left: 47%;
 	align-content: center;

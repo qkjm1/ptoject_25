@@ -11,7 +11,7 @@
 <div class="contain flex flex-col mx-auto">
 
 	<div class="flex justify-center">
-		<form class="w-full flex">
+		<form class="w-full flex" action="/usr/article/infolist">
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
 			<input type="hidden" name="boardId" value="2" />
 			<div class="search-box">
@@ -27,40 +27,43 @@
 		</form>
 	</div>
 	<div class="contents-box flex mx-auto justify-around">
-		<div class="side-box flex flex-col">
+		<div class="side-box flex flex-col bg-white rounded-xl shadow-md p-4 w-64 space-y-2">
+  <h2 class="text-lg font-semibold text-gray-800 border-b pb-2 mb-2">통증 부위 선택</h2>
 
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=1" class="partID">머리</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=2" class="partID">목/어깨</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=3" class="partID">팔</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=4" class="partID">등/허리</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=5" class="partID">골반/다리</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/article/infolist?boardId=2&partId=6" class="partID">종아리/발목</a>
-				</li>
-			</ul>
-			<div class="flex-grow"></div>
-		</div>
+  <ul class="space-y-1">
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=1" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">머리</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=2" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">목/어깨뒤쪽</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=3" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">쇄골/어깨앞쪽</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=4" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">팔</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=5" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">등/허리</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=6" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">가슴/배</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=7" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">골반</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=8" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">다리/앞쪽</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=9" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">다리/뒤쪽</a>
+    </li>
+    <li>
+      <a href="/usr/article/infolist?boardId=2&partId=10" class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">종아리/발목</a>
+    </li>
+  </ul>
+</div>
+
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
 			<c:if test="${rq.isLogined()}">
