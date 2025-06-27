@@ -21,7 +21,7 @@ CREATE TABLE `user` (
 
 CREATE TABLE board (
    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-   `code` CHAR(50) NOT NULL UNIQUE COMMENT 'notice(공지사항) free(자유) QnA(질의응답)...',
+   `code` CHAR(50) NOT NULL UNIQUE COMMENT 'notice(공지사항) free(자유) info(정보)...',
    `name` CHAR(20) NOT NULL UNIQUE COMMENT '게시판 이름',
    delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제 여부 (0=삭제 전, 1=삭제 후)',
    delDate DATETIME COMMENT '삭제 날짜'
@@ -34,6 +34,7 @@ CREATE TABLE article (
    title CHAR(100) NOT NULL,
    `body` TEXT NOT NULL,
    usrId INT(10) UNSIGNED NOT NULL,
+   hitCount INT(10) UNSIGNED NOT NULL DEFAULT 0,
    goodRp INT(10) UNSIGNED NOT NULL DEFAULT 0,
    boardId INT(10) UNSIGNED NOT NULL,
    partId INT(10) UNSIGNED NOT NULL
@@ -45,14 +46,6 @@ CREATE TABLE profileImg (
    img TEXT NOT NULL COMMENT '이미지 주소'
 );
 
-
-CREATE TABLE info (
-   id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-   delStatus TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '삭제 여부 (0=삭제 전, 1=삭제 후)',
-   delDate DATETIME COMMENT '삭제 날짜',
-   part CHAR(50) NOT NULL UNIQUE COMMENT '상하체의 하위분류 인체 테이블과 Fk',
-   `body` TEXT NOT NULL
-);
 
 CREATE TABLE anatomy (
 id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -66,7 +59,6 @@ CREATE TABLE `like` (
     regDate DATETIME NOT NULL
 );
 ###########
-
 
 INSERT INTO `user`
 SET
@@ -100,6 +92,18 @@ loginPw = '33',
 nickname = '회원3',
 cellphoneNum = '123123254',
 email = '33@naver.com';
+
+INSERT INTO `user`
+SET
+regDate = NOW(),
+updateDate = NOW(),
+loginId  = '44',
+loginPw = '44',
+`name` = '44',
+nickname = '회원4',
+cellphoneNum = '12f3123254',
+authLevel = 7,
+email = '33ds@naver.com';
 
 
 INSERT INTO anatomy
@@ -445,8 +449,8 @@ SET
 
 INSERT INTO board
 SET
-`code` = 'QnA',
-`name` = '질의응답';
+`code` = 'free',
+`name` = '자유';
 
       
       INSERT INTO `like`
@@ -481,8 +485,12 @@ SELECT *
 FROM profileImg;
 
 SELECT *
-FROM anatomy;
+FROM anatomy
+ORDER BY id;
 
+SELECT *
+FROM info
+ORDER BY id;
 
 SELECT *
 FROM `like`;

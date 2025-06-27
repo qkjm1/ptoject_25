@@ -224,7 +224,11 @@ public class usrArticleController {
 				return "존재하지 않는 게시판";
 			}
 		}
+		
+		Member admin = memberService.memberByIntId(rq.getIsLoginMemberId());
 
+		model.addAttribute("admin", admin);
+		
 		Board board = boardService.getBoardById(boardId);
 
 		int listInApage = 6;
@@ -241,6 +245,8 @@ public class usrArticleController {
 				searchKeywordTypeCode, searchKeyword);
 
 		Article getPartId = articleService.partName(partId);
+		
+		
 
 		model.addAttribute("usr", rq.getIsLoginMemberId());
 		model.addAttribute("getArticleCountByPartId", getArticleCountByPartId);

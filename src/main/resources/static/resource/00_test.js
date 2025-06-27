@@ -178,7 +178,7 @@ window.addEventListener('click', (event) => {
 
 				console.log(partId);
 				InfoArticle__get(partId);
-//				youtubeList__get(query, partId);
+				youtubeList__get(query, partId);
 			} else {
 				console.warn('Unknown part name:', partName);
 			}
@@ -361,7 +361,7 @@ $('.show').on('scroll', function() {
 	const nearBottom = $this.scrollTop() + $this.innerHeight() + 100 >= $this[0].scrollHeight;
 
 	if (nearBottom && !isLoading && nextPageToken && currentQuery && currentPartId) {
-		youtubeList__getMultiple(currentQuery, currentPartId);
+		youtubeList__get(currentQuery, currentPartId);
 	}
 });
 

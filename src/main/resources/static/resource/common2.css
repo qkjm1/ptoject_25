@@ -7,6 +7,14 @@ ul, li, a {
 	text-decoration: none;
 }
 
+input {
+	background-color: white;
+}
+
+.contain{
+	color: black;
+}
+
 .contents-box {
 	margin: 0;
 	padding: 0;

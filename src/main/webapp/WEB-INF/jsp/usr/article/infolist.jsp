@@ -66,7 +66,7 @@
 
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
-			<c:if test="${rq.isLogined()}">
+			<c:if test="${admin.usrAuthor}">
 				<div class="write">
 					<a class="hover:underline" href="../article/write">글쓰기</a>
 				</div>
@@ -82,7 +82,6 @@
 										<a href="#" class="text-xl font-bold text-black">${article.title}</a>
 									</div>
 									<div>
-										<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
 										<div>
 											<form action="/usr/bookmark/doLike" method="POST" class="bookmark__form" data-article-id="${article.id}">
 												<input type="hidden" name="articleId" value="${article.id}" />

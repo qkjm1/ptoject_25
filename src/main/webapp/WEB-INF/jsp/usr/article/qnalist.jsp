@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<c:set var="pageTitle" value="${board.code } LIST"></c:set>
+<c:set var="pageTitle" value="${board.code} LIST"></c:set>
 <%@ include file="../common/head2.jspf"%>
 
-
-<link rel="stylesheet" href="/resource/common.css" />
 <script type="module" src="/resource/ajax.js"></script>
+<link rel="stylesheet" href="/resource/detail.css" />
+<link rel="stylesheet" href="/resource/common.css" />
 
 <div class="contain flex flex-col mx-auto">
 
 	<div class="flex justify-center">
-		<form class="w-full flex">
+		<form class="w-full flex" action="/usr/article/infolist">
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
 			<input type="hidden" name="boardId" value="2" />
 			<div class="search-box">
@@ -26,75 +26,141 @@
 			</div>
 		</form>
 	</div>
+	<div class="contents-box flex mx-auto justify-around">
+		<div class="side-box flex flex-col bg-white rounded-xl shadow-md p-4 w-64 space-y-2">
+			<h2 class="text-lg font-semibold text-gray-800 border-b pb-2 mb-2">통증 부위 선택</h2>
 
+			<ul class="space-y-1">
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=1"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">머리</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=2"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">목/어깨뒤쪽</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=3"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">쇄골/어깨앞쪽</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=4"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">팔</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=5"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">등/허리</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=6"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">가슴/배</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=7"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">골반</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=8"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">다리/앞쪽</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=9"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">다리/뒤쪽</a>
+				</li>
+				<li>
+					<a href="/usr/article/infolist?boardId=2&partId=10"
+						class="partID block px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">종아리/발목</a>
+				</li>
+			</ul>
+		</div>
 
-	<div class="flex flex-grow ">
-		<div class="qna-con felx flex-col mx-auto">
-			<c:forEach var="article" items="${articles}">
-				<div class="qna-box">
-					<div class="qna-title mx-auto flex items-center justify-center">
-						<a href="/" class="text-xl font-bold">${article.title}</a>
-						<div class="flex-grow"></div>
-						<div class="">${article.regDate.substring(0,10)}</div>
-					</div>
-					<div class="qna-body">
-						<a href="/">${article.body}</a>
-						<div class="qna-open">
-							<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
-								stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <polyline points="6 9 12 15 18 9" />
-				</svg>
-						</div>
-					</div>
-				</div>
-				<div id="qna-answer" class=""></div>
-			</c:forEach>
-			<c:if test="${empty articles }">
-				<div class="qna-box flex flex-col">
-					<div class="flex-grow"></div>
-					<div style="text-align: center;">게시글이 없습니다</div>
-					<div class="flex-grow"></div>
+		<div class="w-3"></div>
+		<div class="info-box flex flex-col">
+			<c:if test="${rq.isLogined()}">
+				<div class="write">
+					<a class="hover:underline" href="../article/write">글쓰기</a>
 				</div>
 			</c:if>
-		</div>
-	</div>
 
+			<div class=" flex flex-col">
+				<div class="info-title-body">
+					<div class="grid grid-cols-3 gap-4 flex" class="article-list">
+						<c:forEach var="article" items="${articles}">
+							<div class="p-1 flex flex-col">
+								<div class="info-title-box flex flex-grow-0">
+									<div class="info-title">
+										<a href="#" class="text-xl font-bold text-black">${article.title}</a>
+									</div>
+									<div>
+										<div class="text-black">작성자:${article.extra__writer}&nbsp&nbsp</div>
+										<div>
+											<form action="/usr/bookmark/doLike" method="POST" class="bookmark__form" data-article-id="${article.id}">
+												<input type="hidden" name="articleId" value="${article.id}" />
+												<button type="submit" class="info-bookmark-btn" title="북마크 추가/해제">
+													<svg class="bookmark__icon ${article.isBookmarked == usr ? 'bookmark__icon_col' : ''}"
+														xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="#555" stroke-width="3"
+														viewBox="0 0 24 24">
+      <path d="M7 3a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2H7z" />
+    </svg>
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="info-body flex-grow">
+									<div>
+										<a href="detail?articleId=${article.id}">${article.body}</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
 
-	<div class="flex flex-grow">
-		<div class="flex mx-auto mt-4">
-			<div class="btn-group join ">
-				<c:set var="paginationLen" value="5" />
-				<c:set var="startPage" value="${page - paginationLen >= 1 ? page - paginationLen : 1 }" />
-				<c:set var="endPage" value="${page + paginationLen <= totalPage ? page + paginationLen : totalPage}" />
-
-				<c:set var="baseUri" value="?boardId=${boardId}" />
-				<c:set var="baseUri" value="?searchKeywordTypeCode=${searchKeywordTypeCode}" />
-				<c:set var="baseUri" value="?searchKeyword=${searchKeyword}" />
-
-				<c:if test="${startPage > 1}">
-					<a class="join-item btn btn-sm" href="${baseUri}&page=1&boardId=${boardId}">1</a>
+				</div>
+				<c:if test="${empty articles}">
+					<div class="flex ">
+						<div>게시글이 없습니다</div>
+					</div>
 				</c:if>
+			</div>
 
-				<c:if test="${startPage > 2}">
-					<button class="join-item btn btn-sm btn-disabled">...</button>
-				</c:if>
+			<div class="flex-grow"></div>
 
-				<c:forEach begin="${startPage }" end="${endPage }" var="i">
-					<a class="join-item btn btn-sm ${param.page == i ? 'btn-active' : ''}"
-						href="${baseUri}&page=${i }&boardId=${boardId}">${i }</a>
-				</c:forEach>
+			<div class="paging">
+				<div class="btn-group join ">
+					<c:set var="paginationLen" value="5" />
+					<c:set var="startPage" value="${page - paginationLen >= 1 ? page - paginationLen : 1 }" />
+					<c:set var="endPage" value="${page + paginationLen <= totalPage ? page + paginationLen : totalPage}" />
 
-				<c:if test="${endPage < totalPage - 1}">
-					<button class="join-item btn-sm btn btn-disabled">...</button>
-				</c:if>
+					<c:set var="baseUri" value="?boardId=${boardId}" />
+					<c:set var="baseUri" value="?searchKeywordTypeCode=${searchKeywordTypeCode}" />
+					<c:set var="baseUri" value="?searchKeyword=${searchKeyword}" />
 
-				<c:if test="${endPage < totalPage}">
-					<a class="join-item btn btn-sm" href="${baseUri}&page=${totalPage }&boardId=${boardId}">${totalPage }</a>
-				</c:if>
+					<c:if test="${startPage > 1}">
+						<a class="join-item btn btn-sm" href="${baseUri}&page=1&boardId=${boardId}">1</a>
+					</c:if>
+
+					<c:if test="${startPage > 2}">
+						<button class="join-item btn btn-sm btn-disabled">...</button>
+					</c:if>
+
+					<c:forEach begin="${startPage }" end="${endPage }" var="i">
+						<a class="join-item btn btn-sm ${param.page == i ? 'btn-active' : ''}"
+							href="${baseUri}&page=${i }&boardId=${boardId}">${i }</a>
+					</c:forEach>
+
+					<c:if test="${endPage < totalPage - 1}">
+						<button class="join-item btn-sm btn btn-disabled">...</button>
+					</c:if>
+
+					<c:if test="${endPage < totalPage}">
+						<a class="join-item btn btn-sm" href="${baseUri}&page=${totalPage }&boardId=${boardId}">${totalPage }</a>
+					</c:if>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
+
 
 <%@ include file="../common/poot.jspf"%>
