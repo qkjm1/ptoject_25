@@ -10,9 +10,9 @@
 <script type="module" src="/resource/join.js"></script>
 
 
-<div class="contents-box flex justify-center items-center min-h-screen"">
+<div class="contents-box flex justify-center items-center min-h-screen">
   <div class="signup-box p-10 w-full max-w-lg">
-    <div class="text-2xl font-bold text-center text-[#3C3C29]">회원가입</div>
+    <div class="text-2xl font-bold text-center text-[#3C3C29]">JOIN</div>
 
 
     <form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();" class="space-y-4">

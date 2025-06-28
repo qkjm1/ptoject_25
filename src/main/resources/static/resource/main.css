@@ -140,7 +140,7 @@ html, body {
 	height: 165px;
 	filter: blur(1.5px);
 	position: relative;
-	background-image: url('/imgs/TOMY.png');
+	background-image: url('/imgs/TOTOMY.png');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	margin: 10px auto;
@@ -522,6 +522,7 @@ margin: auto;
   transform: translateX(0);
 }
 
+
 #map {
 	width: 30%;
 	height: 600px;
@@ -657,4 +658,30 @@ margin: auto;
 	justify-content:center;
 	margin-top: 200px;
 	font-size: 50px;
+}
+
+
+
+.main3_text {
+	font-size:30px;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#mapOpenBtn {
+	right: 50px;
+	cursor: pointer;
+	position: absolute;
+	z-index: 6;
+}
+
+
+#mapCloseBtn {
+	top: 10px;
+	padding-left: 50px;
+	cursor: pointer;
+	position: absolute;
+	z-index: 6;
 }

@@ -108,6 +108,7 @@ $('#scrollBtn').on('click', function () {
 
 $(document).ready(function () {
   $('.mapBtn').on('click', function () {
+	console.log("---");
     $('.slide-map').toggleClass('active');
   });
 });

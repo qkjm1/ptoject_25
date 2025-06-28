@@ -37,7 +37,54 @@
 					<a href="/usr/article/qnalist?boardid=3">FREE</a>
 				</div>
 				<div class=" mx-auto">
-					<a href="/">LOGO</a>
+					<a href="/"><svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text-physi {
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      fill: rgb(22, 90, 65);
+      letter-spacing: -1.2px;
+    }
+    .text-click {
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      fill: #FFFFFF;
+      letter-spacing: -1.2px;
+    }
+    .click-spot-center {
+      fill: rgb(46, 188, 135); /* 안쪽 초록색 */
+      stroke: white;            /* 흰색 테두리 */
+      stroke-width: 2;
+    }
+    .click-spot-rays line {
+      stroke: white;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+  </style>
+
+  <!-- 텍스트 -->
+  <text x="10" y="50" class="text-physi">Physi</text>
+  <text x="110" y="50" class="text-click">Click</text>
+
+  <!-- 아이콘: 크기 작게, Click과 수직 중심 맞춤 (y = 38) -->
+  <g transform="translate(215, 38)">
+    <circle r="5" class="click-spot-center"/>
+    <g class="click-spot-rays">
+      <line x1="0" y1="-9" x2="0" y2="-14"/>
+      <line x1="0" y1="9" x2="0" y2="14"/>
+      <line x1="-9" y1="0" x2="-14" y2="0"/>
+      <line x1="9" y1="0" x2="14" y2="0"/>
+      <line x1="7" y1="7" x2="11" y2="11"/>
+      <line x1="-7" y1="7" x2="-11" y2="11"/>
+      <line x1="7" y1="-7" x2="11" y2="-11"/>
+      <line x1="-7" y1="-7" x2="-11" y2="-11"/>
+    </g>
+  </g>
+</svg>
+</a>
 				</div>
 				<div>
 					<c:if test="${!rq.isLogined() }">

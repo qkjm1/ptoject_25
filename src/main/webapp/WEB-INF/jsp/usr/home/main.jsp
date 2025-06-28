@@ -37,7 +37,7 @@
 			<span>통증 부위를 입력해주세요</span>
 			<br />
 			<span>관련된 질병을 찾아드릴게요</span>
-		</div>	
+		</div>
 		<form class="w-full flex" action="/usr/article/infolist">
 			<input type="hidden" name="searchKeywordTypeCode" value="info" />
 			<input type="hidden" name="boardId" value="2" />
@@ -119,9 +119,11 @@
 
 
 	<div class="main_3-box">
-
-		<span>간편 클릭으로도 가능해요!</span>
-		<span>간편 클릭으로 해당부위를 알아볼 수 있어요!</span>
+		<div class="main3_text flex-col">
+			<span>간편 클릭으로도 가능해요!</span>
+			<br />
+			<span>간편 클릭으로 해당부위를 알아볼 수 있어요!</span>
+		</div>
 		<div class="info-box flex flex-col">
 			<div class="info-box-items grid grid-cols-5 max-w-4xl gap-4 mx-auto">
 				<div class="sprite sprite-1" onclick="location.href='/usr/article/infolist?boardId=2&partId=1'"></div>
@@ -136,21 +138,23 @@
 				<div class="sprite sprite-10" onclick="location.href='/usr/article/infolist?boardId=2&partId=10'"></div>
 			</div>
 		</div>
-		<button id="mapOpenBtn" class="mapBtn">
-			click!
-			<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
-				stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="6 9 12 15 18 9" />
-  </svg>
-		</button>
+		<div id="mapOpenBtn" class="mapBtn">
+			근처 정형외과 찾아보기!
+			<svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="20" x2="180" y2="20" stroke="black" stroke-width="3" />
+  <path d="M170 10 L190 20 L170 20" fill="none" stroke="black" stroke-width="3" />
+</svg>
+
+		</div>
 		<div class="slide-map">
-			<button id="mapCloseBtn" class="mapBtn">
-				click!
-				<svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="black"
-					stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="6 9 12 15 18 9" />
-  </svg>
-			</button>
+			<div id="mapCloseBtn" class="mapBtn">
+				뒤로가기
+				<svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+  <line x1="200" y1="20" x2="20" y2="20" stroke="black" stroke-width="3" />
+  <path d="M30 10 L10 20 L30 20" fill="none" stroke="black" stroke-width="3" />
+</svg>
+
+			</div>
 
 			<ul id="hospitalList" class="hospital-list"></ul>
 			<div id="map">
