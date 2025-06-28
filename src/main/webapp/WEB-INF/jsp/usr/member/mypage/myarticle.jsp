@@ -8,6 +8,7 @@
 <script type="module" src="/resource/ajax.js"></script>
 <link rel="stylesheet" href="/resource/detail.css" />
 <link rel="stylesheet" href="/resource/common.css" />
+<link rel="stylesheet" href="/resource/common2.css" />
 <div class="contain flex flex-col mx-auto">
 
 
@@ -29,30 +30,28 @@
 		</form>
 	</div>
 	<div class="info-con flex mx-auto justify-around">
-		<div class="side-box flex flex-col">
-			<div class="h-40"></div>
-			<ul>
+		<div class="side-box w-full md:w-1/4 bg-emerald-100 p-6 space-y-4">
+			<div class="h-12"></div>
+			<ul class="space-y-2 text-gray-700 font-medium">
 				<li>
-					<a href="/usr/member/mypage/likepage">즐겨찾기</a>
+					<a href="/usr/member/mypage/likepage" class="block py-2 px-4 rounded-lg hover:bg-emerald-200 transition">⭐ 즐겨찾기</a>
+				</li>
+				<li>
+					<a href="/usr/member/mypage/myarticle" class="block py-2 px-4 rounded-lg hover:bg-emerald-200 transition">📝 내가
+						쓴 글</a>
+				</li>
+				<li>
+					<a href="/usr/member/mypage/usrmodify" class="block py-2 px-4 rounded-lg hover:bg-emerald-200 transition">⚙️
+						회원정보 수정</a>
 				</li>
 			</ul>
-			<ul>
-				<li>
-					<a href="/usr/member/mypage/myarticle">내가쓴글</a>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<a href="/usr/member/mypage/usrmodify">회원정보수정</a>
-				</li>
-			</ul>
-			<div class="flex-grow"></div>
 		</div>
-		<div class="w-3"></div>
-		<div class="info-box flex flex-col">
+
+		<!-- 우측 내용 영역 -->
+		<div class="info-box flex flex-col md:flex-row flex-1 p-8 space-x-0 md:space-x-8 space-y-8 md:space-y-0">
 
 			<c:if test="${rq.isLogined() }">
-				<div class="write">
+				<div class="my_write">
 					<a class="hover:underline" href="../article/write">글쓰기</a>
 				</div>
 			</c:if>

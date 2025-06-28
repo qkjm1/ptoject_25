@@ -28,7 +28,7 @@ body {
 
 .search-box {
 	border-color:rgb(46, 188, 135);
-	margin-top: 2rem; /* 자연스러운 위치 */
+	bottom:50px; /* 자연스러운 위치 */
 	margin: auto;
 	min-width: 500px;
 	position: relative;
@@ -211,17 +211,20 @@ body {
 
 /*  info페이지    */
 .info-box {
+	position: relative;
 	width: 80%;
 	height: 100%;
 	background-color: #fff;
 	border-radius: 8px; /* 둥글게 */
 }
 
+
+
 .info-con {
 	background-color: rgba(46, 188, 135, 0.2);
 	width: 80%;
 	padding: 40px;
-	height:650px;
+	height:900px;
 	box-shadow: 0 0 0 3px rgba(46, 188, 135, 0.2);
 }
 
@@ -315,14 +318,14 @@ body {
 	fill: #EAD292;
 }
 
-.write {
+.my_write {
 	right: 40px;
-	bottom: 180px;
+	bottom: 40px;
 	position: absolute;
 	border-radius: 4px; /* 둥글게 */
 }
 
-.write:hover {
+.my_write:hover {
 	right: 40px;
 	bottom: 180px;
 	position: absolute;
