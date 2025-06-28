@@ -71,9 +71,7 @@
 </div>
 
 
-<a href="/oauth2/code/naver">
-    네이버 로그인하기
-</a>
+
 
 <script>
 	function validatePasswords() {
@@ -100,6 +98,24 @@
 		}
 		console.log("===비번일치===");
 
+		// ✅ 휴대전화 형식 검사: 010-1234-5678
+		const phoneRegex = /^010-\d{4}-\d{4}$/;
+		if (!phoneRegex.test(cellphoneNum)) {
+			alert("휴대전화 번호는 010-0000-0000 형식으로 입력해주세요.");
+			$("input[name='cellphoneNum']").focus();
+			return false;
+		}
+
+		// ✅ 이메일 형식 검사
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			alert("올바른 이메일 형식으로 입력해주세요. 예: example@example.com");
+			$("input[name='email']").focus();
+			return false;
+		}
+
+		console.log("===전화번호, 이메일 형식 통과===");
+		
 		return location.replace('/usr/member/dojoin');
 	}
 </script>

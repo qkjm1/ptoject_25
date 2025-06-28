@@ -89,4 +89,10 @@ a {
 .myP>li>a {
 	display: block;
 }
-
+#notification-icon{
+	position: relative;
+}
+#notification-box {
+	position: absolute;
+	left:-100;
+}

@@ -65,8 +65,6 @@
 </div>
 
 
-<div>${article.isBookmarked}</div>
-<div>${usr}</div>
 		<div class="w-3"></div>
 		<div class="info-box flex flex-col">
 			<c:if test="${admin.usrAuthor}">
