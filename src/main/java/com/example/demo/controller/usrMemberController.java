@@ -47,7 +47,7 @@ public class usrMemberController {
 	@RequestMapping("/usr/member/dojoin")
 	@ResponseBody
 	public String doJoin(HttpServletRequest req, String loginId, String loginPw, String name, String email,
-			String nickname, String cellphoneNum) {
+			String nickname, String cellphoneNum, @RequestParam(defaultValue = "3")int authLevel) {
 		System.err.println("====진행상황====");
 		System.err.println("====loginId====" + loginId);
 		System.err.println("====loginPw====" + loginPw);
@@ -57,7 +57,7 @@ public class usrMemberController {
 		System.err.println("====cellphoneNum====" + cellphoneNum);
 
 		// 인설트 시도
-		ResultData member = memberService.doJoin(loginId, loginPw, name, email, nickname, cellphoneNum);
+		ResultData member = memberService.doJoin(loginId, loginPw, name, email, nickname, cellphoneNum, authLevel);
 
 		if (member.isFail()) {
 			return Ut.jsReplace(member.getData1Name(), member.getMsg(), "../member/join");

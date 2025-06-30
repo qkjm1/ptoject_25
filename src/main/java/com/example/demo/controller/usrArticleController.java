@@ -225,10 +225,11 @@ public class usrArticleController {
 			}
 		}
 		
+		if(rq.isLogined()) {
 		Member admin = memberService.memberByIntId(rq.getIsLoginMemberId());
 
 		model.addAttribute("admin", admin);
-		
+		}
 		Board board = boardService.getBoardById(boardId);
 
 		int listInApage = 6;

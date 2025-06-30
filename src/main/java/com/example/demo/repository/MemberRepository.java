@@ -15,7 +15,7 @@ public interface MemberRepository {
 
 	// 회원가입
 	public int  memberJoin(String loginId, String loginPw, String name, String email, String nickname,
-			String cellphoneNum);
+			String cellphoneNum, int authLevel);
 
 	// id로 전체 셀렉
 	public Member memberByIntId(int usrId);

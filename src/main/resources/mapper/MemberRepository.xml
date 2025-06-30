@@ -62,6 +62,8 @@
 		nickname = #{nickname},
 		cellphoneNum =
 		#{cellphoneNum},
+		authLevel =
+		#{authLevel},
 		email =
 		#{email};
 	</insert>

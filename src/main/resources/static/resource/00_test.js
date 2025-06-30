@@ -56,7 +56,7 @@ loader.load('/models/QK7.glb', function(gltf) {
 			console.log('Mesh Loaded:', child.name);
 			child.userData.name = child.name;
 			child.visible = true;
-			child.material = child.material.clone();
+	//		child.material = child.material.clone();
 			child.material.color.set('#949494');
 		}
 	});
@@ -120,9 +120,6 @@ window.addEventListener('click', (event) => {
 	mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
 	mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-	
-	
-
 
 	raycaster.setFromCamera(mouse, camera);
 	console.log('Mouse NDC:', mouse.x, mouse.y);
@@ -154,7 +151,7 @@ window.addEventListener('click', (event) => {
 				if (child.isMesh) {
 					// 모든 mesh 초기화 (필요 시 clone된 material도 덮어씀)
 					if (child.material.isMaterial) {
-						child.material = child.material.clone();
+					//	child.material = child.material.clone();
 						child.material.color.set('#949494'); // 기본색
 						child.material.side = THREE.DoubleSide;
 						child.material.transparent = false;
@@ -167,7 +164,7 @@ window.addEventListener('click', (event) => {
 
 			// 클릭된 파트만 강조색으로 변경
 			if (clickedPart.material.isMaterial) {
-				clickedPart.material = clickedPart.material.clone();
+			//	clickedPart.material = clickedPart.material.clone();
 				clickedPart.material.color.set('#9A5F61'); // 강조색
 				selectedMesh = clickedPart;
 			}
@@ -178,7 +175,7 @@ window.addEventListener('click', (event) => {
 
 				console.log(partId);
 				InfoArticle__get(partId);
-				youtubeList__get(query, partId);
+			//	youtubeList__get(query, partId);
 			} else {
 				console.warn('Unknown part name:', partName);
 			}

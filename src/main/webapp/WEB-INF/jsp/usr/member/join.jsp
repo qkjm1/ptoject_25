@@ -11,63 +11,72 @@
 
 
 <div class="contents-box flex justify-center items-center min-h-screen">
-  <div class="signup-box p-10 w-full max-w-lg">
-    <div class="text-2xl font-bold text-center text-[#3C3C29]">JOIN</div>
+	<div class="signup-box p-10 w-full max-w-lg">
+		<div class="text-2xl font-bold text-center text-[#3C3C29]">JOIN</div>
 
 
-    <form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();" class="space-y-4">
+		<form action="/usr/member/dojoin" method="POST" onsubmit="return validatePasswords();" class="space-y-4">
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">아이디</label>
-        <input id=loginId type="text" name="loginId" placeholder="아이디"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      <span id="usernameCheckMessage"></span>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">아이디</label>
+				<input id=loginId type="text" name="loginId" placeholder="아이디"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+				<span id="usernameCheckMessage"></span>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">비밀번호</label>
-        <input type="password" name="loginPw" placeholder="비밀번호"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">비밀번호</label>
+				<input type="password" name="loginPw" placeholder="비밀번호"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">비밀번호 확인</label>
-        <input type="password" name="loginPwConfirm" placeholder="비밀번호 확인"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">비밀번호 확인</label>
+				<input type="password" name="loginPwConfirm" placeholder="비밀번호 확인"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">이름</label>
-        <input type="text" name="name" placeholder="이름"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">이름</label>
+				<input type="text" name="name" placeholder="이름"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">이메일</label>
-        <input type="email" name="email" placeholder="이메일"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">이메일</label>
+				<input type="email" name="email" placeholder="이메일"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">닉네임</label>
-        <input type="text" name="nickname" placeholder="닉네임"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">닉네임</label>
+				<input type="text" name="nickname" placeholder="닉네임"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div>
-        <label class="block font-medium text-[#3C3C29]">전화번호</label>
-        <input type="text" name="cellphoneNum" placeholder="010-1234-5678"
-               class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
-      </div>
+			<div>
+				<label class="block font-medium text-[#3C3C29]">전화번호</label>
+				<input type="text" name="cellphoneNum" placeholder="010-1234-5678"
+					class="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]" required>
+			</div>
 
-      <div class="pt-4">
-        <button type="submit"
-                class="w-full bg-[#3C3C29] hover:bg-opacity-90 text-white font-semibold py-2 rounded-lg transition duration-200">
-          가입하기
-        </button>
-      </div>
-    </form>
-  </div>
+			<div>
+				<div class="inline-flex items-center">
+					<input type="checkbox" name="authLevel" value="5"
+						class="h-5">
+					<span class=" font-medium w-48">물리치료사</span>
+				</div>
+			</div>
+
+
+
+			<div class="pt-4">
+				<button type="submit"
+					class="w-full bg-[#3C3C29] hover:bg-opacity-90 text-white font-semibold py-2 rounded-lg transition duration-200">
+					가입하기</button>
+			</div>
+		</form>
+	</div>
 </div>
 
 
@@ -115,7 +124,7 @@
 		}
 
 		console.log("===전화번호, 이메일 형식 통과===");
-		
+
 		return location.replace('/usr/member/dojoin');
 	}
 </script>

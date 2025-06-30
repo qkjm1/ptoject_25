@@ -25,14 +25,14 @@ public class MemberService {
 
 
 	public ResultData doJoin(String loginId, String loginPw, String name, String email, String nickname,
-			String cellphoneNum) {
+			String cellphoneNum, int authLevel) {
 
 		Member logincof =  memberById(loginId);
 
 		if(logincof!=null) {
 			return ResultData.from("F-1", "중복된 아이디입니다","loginId",loginId);
 		}
-		memberRepository.memberJoin(loginId, loginPw, name, email, nickname, cellphoneNum);
+		memberRepository.memberJoin(loginId, loginPw, name, email, nickname, cellphoneNum, authLevel);
 		
 		logincof =  memberById(loginId);
 		if (logincof==null) {
