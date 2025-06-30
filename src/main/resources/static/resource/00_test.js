@@ -16,7 +16,7 @@ const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 camera.position.set(5, 1.7, 5);
 
 
-const renderer = new THREE.WebGLRenderer({ antialias:false });
+const renderer = new THREE.WebGLRenderer({ antialias: false });
 renderer.setSize(width, height);
 container.appendChild(renderer.domElement);
 
@@ -48,7 +48,7 @@ loader.load('/models/QK7.glb', function(gltf) {
 	model.rotation.set(0, 0.8, 0); // ← 여기!
 	model.scale.set(3, 3, 3); // ===========================크기바꾸기 크기 바뀌;ㅣ
 	model.position.set(0, -4, 0);
-	
+
 	scene.add(model);   // 비동기식 흐름 제어
 
 	model.traverse((child) => {
@@ -56,8 +56,13 @@ loader.load('/models/QK7.glb', function(gltf) {
 			console.log('Mesh Loaded:', child.name);
 			child.userData.name = child.name;
 			child.visible = true;
-	//		child.material = child.material.clone();
+			child.material = child.material.clone();
 			child.material.color.set('#949494');
+			child.material.side = THREE.DoubleSide;
+			child.material.transparent = false;
+			child.material.depthWrite = true;
+			child.castShadow = true;
+			child.receiveShadow = true;
 		}
 	});
 }, undefined, function(error) {
@@ -80,16 +85,16 @@ const nameToIdMap = {
 
 // 유튜브
 const queryToName = {
-  "Head": "편두통+후두하근",
-  "Neck_Shoulder_B": "어깨통증+회전근개",
-  "Neck_Shoulder_F": "둥근어깨+쇄골통증",
-  "Arms": "테니스엘보+골프엘보+손목터널증후군",
-  "Chest_B": "척추측만증+강직성척추염+추간판탈출증",
-  "Chest_F": "코어운동",
-  "Pelvic": "궁둥구멍증후군",
-  "Legs_F": "대퇴근통증",
-  "Legs_B": "햄스트링통증",
-  "Calf": "발목통증+종아리신경병증+족저근막염"
+	"Head": "편두통+후두하근",
+	"Neck_Shoulder_B": "어깨통증+회전근개",
+	"Neck_Shoulder_F": "둥근어깨+쇄골통증",
+	"Arms": "테니스엘보+골프엘보+손목터널증후군",
+	"Chest_B": "척추측만증+강직성척추염+추간판탈출증",
+	"Chest_F": "코어운동",
+	"Pelvic": "궁둥구멍증후군",
+	"Legs_F": "대퇴근통증",
+	"Legs_B": "햄스트링통증",
+	"Calf": "발목통증+종아리신경병증+족저근막염"
 };
 
 
@@ -151,20 +156,14 @@ window.addEventListener('click', (event) => {
 				if (child.isMesh) {
 					// 모든 mesh 초기화 (필요 시 clone된 material도 덮어씀)
 					if (child.material.isMaterial) {
-					//	child.material = child.material.clone();
 						child.material.color.set('#949494'); // 기본색
-						child.material.side = THREE.DoubleSide;
-						child.material.transparent = false;
-						child.material.depthWrite = true;
-						child.castShadow = true;
-						child.receiveShadow = true;
 					}
 				}
 			});
 
 			// 클릭된 파트만 강조색으로 변경
 			if (clickedPart.material.isMaterial) {
-			//	clickedPart.material = clickedPart.material.clone();
+				//	clickedPart.material = clickedPart.material.clone();
 				clickedPart.material.color.set('#9A5F61'); // 강조색
 				selectedMesh = clickedPart;
 			}
@@ -175,7 +174,7 @@ window.addEventListener('click', (event) => {
 
 				console.log(partId);
 				InfoArticle__get(partId);
-			//	youtubeList__get(query, partId);
+				//	youtubeList__get(query, partId);
 			} else {
 				console.warn('Unknown part name:', partName);
 			}
@@ -208,13 +207,13 @@ renderer.domElement.addEventListener('mousemove', (event) => {
 	if (!isMouseDown || !model) return;
 
 	const deltaX = event.clientX - previousMousePosition.x;
-//	const deltaY = event.clientY - previousMousePosition.y;
+	//	const deltaY = event.clientY - previousMousePosition.y;
 
 	// 수평 회전 (Y축)
 	model.rotation.y += deltaX * 0.008;  //이거이거이억잉겅기억회전값 회전값
 
 	// 수직 회전 (X축 기준으로 회전)
-//	model.rotation.x += deltaY * 0.008;
+	//	model.rotation.x += deltaY * 0.008;
 
 	previousMousePosition.x = event.clientX;
 	previousMousePosition.y = event.clientY;
@@ -518,7 +517,7 @@ camera2.position.set(0, 6, 10);  // 위 + 약간 앞에서 보는 느낌
 camera2.lookAt(0, 0, 0);         // 모델 중심
 
 
-const renderer2 = new THREE.WebGLRenderer({ antialias:false });
+const renderer2 = new THREE.WebGLRenderer({ antialias: false });
 renderer2.setSize(width2, height2);
 web3d_container.appendChild(renderer2.domElement);
 //그림자 설정
@@ -562,7 +561,7 @@ loader2.load('/models/QK13.glb', function(gltf) {
 	model2.rotation.set(0, 0, 0);
 	model2.scale.set(4, 4, 4);
 	model2.position.set(0, 0, 7);
-	
+
 	scene2.add(model2);
 
 	model2.traverse((child) => {
@@ -599,24 +598,24 @@ let mouseY2 = 0;
 
 // 브라우저 전체 기준으로 -1 ~ 1 정규화된 마우스 좌표 계산
 window.addEventListener('mousemove', (event) => {
-  mouseX2 = (event.clientX / window.innerWidth) * 2 - 1;
-  mouseY2 = -(event.clientY / window.innerHeight) * 2 + 1;
+	mouseX2 = (event.clientX / window.innerWidth) * 2 - 1;
+	mouseY2 = -(event.clientY / window.innerHeight) * 2 + 1;
 });
 
 function animate2() {
-  requestAnimationFrame(animate2);
-  
-  // 카메라 회전(시선 따라오는 느낌) → 부드럽게 Lerp
-   const targetX = mouseX2 * 0.3; // 좌우 회전 정도
-   const targetY = mouseY2 * 0.3; // 위아래 회전 정도
+	requestAnimationFrame(animate2);
 
-   // 카메라가 중심을 바라보는 위치를 조절 (카메라가 고정된 위치에서 시선을 움직이는 느낌)
-   camera2.lookAt(
-     new THREE.Vector3(targetX, targetY, 0)
-   );
-  
-  //controls2.update();
-  renderer2.render(scene2, camera2);
-  
+	// 카메라 회전(시선 따라오는 느낌) → 부드럽게 Lerp
+	const targetX = mouseX2 * 0.3; // 좌우 회전 정도
+	const targetY = mouseY2 * 0.3; // 위아래 회전 정도
+
+	// 카메라가 중심을 바라보는 위치를 조절 (카메라가 고정된 위치에서 시선을 움직이는 느낌)
+	camera2.lookAt(
+		new THREE.Vector3(targetX, targetY, 0)
+	);
+
+	//controls2.update();
+	renderer2.render(scene2, camera2);
+
 }
 animate2();

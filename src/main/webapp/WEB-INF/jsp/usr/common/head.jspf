@@ -31,8 +31,8 @@
 	<header>
 		<div class="top-line"></div>
 		<div class="top-bar flex mx-auto items-center text-3xl">
-			<div class="top-box flex items-center mx-auto">
-				<div>
+			<div class="top-box flex items-center mx-auto p-4">
+				<div class="p-2">
 					<a href="/usr/article/infolist?boardId=2">INFO</a>
 					<a href="/usr/article/qnalist?boardid=3">FREE</a>
 				</div>

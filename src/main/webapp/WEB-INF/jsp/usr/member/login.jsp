@@ -12,8 +12,14 @@
 	<div class="signup-box  p-10 w-full max-w-lg flex flex-col">
 		<div class="mx-auto">LOGO</div>
 		<form action="/usr/member/doLogin" method="POST" onsubmit="return validateIdPasswords();">
-			<input type="text" name="loginId" placeholder="아이디">
-			<input type="password" name="loginPw" placeholder="비밀번호">
+			<div class="w-full p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]"
+					required >
+				<input type="text" name="loginId" placeholder="아이디">
+			</div>
+			<div class="w-full p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3C3C29]"
+					required >
+				<input type="password" name="loginPw" placeholder="비밀번호">
+			</div>
 			<button type="submit">로그인</button>
 		</form>
 	</div>
